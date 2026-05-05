@@ -127,26 +127,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-section">
-        <div className="trust-image" style={{ backgroundImage: "url('/vintage.png')" }}></div>
-        <div className="trust-content">
-          <h2>Rooted in Values. Driven by Trust.</h2>
-          <p>Serving generations with quality and care since 1962.</p>
-          <div className="trust-stats">
-            <div className="stat-item">
-              <div className="stat-icon"><i className="fas fa-check-circle"></i></div>
-              <h4>TRUST</h4>
-              <p>Built on honesty<br />and transparency</p>
+      <section className="heritage-section">
+        <div className="heritage-banner">
+          <div className="heritage-photo">
+            <img src="/vintage.png" alt="Ramaiah Enterprises Heritage" />
+          </div>
+          <div className="heritage-content">
+            <div className="heritage-main">
+              <h2>Rooted in Values. Driven by Trust.</h2>
+              <p>Serving generations with quality and care since 1962.</p>
             </div>
-            <div className="stat-item">
-              <div className="stat-icon"><i className="fas fa-star"></i></div>
-              <h4>QUALITY</h4>
-              <p>Quality products for<br />your home & business</p>
-            </div>
-            <div className="stat-item">
-              <div className="stat-icon"><i className="fas fa-award"></i></div>
-              <h4>PIONEERS</h4>
-              <p>Pioneers in cleaning<br />& food solutions</p>
+            <div className="heritage-divider"></div>
+            <div className="heritage-grid">
+              <div className="heritage-item">
+                <div className="h-icon"><i className="fas fa-shield"></i></div>
+                <h4>TRUST</h4>
+                <p>Built on honesty<br />and transparency</p>
+              </div>
+              <div className="heritage-item divider">
+                <div className="h-icon"><i className="fas fa-certificate"></i></div>
+                <h4>QUALITY</h4>
+                <p>Quality products for<br />your home & business</p>
+              </div>
+              <div className="heritage-item divider">
+                <div className="h-icon"><i className="fas fa-award"></i></div>
+                <h4>PIONEERS</h4>
+                <p>Pioneers in cleaning<br />& food solutions</p>
+              </div>
             </div>
           </div>
         </div>
