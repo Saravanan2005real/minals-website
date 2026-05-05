@@ -1,64 +1,142 @@
-# Minals - Ramaiah Enterprises
+# Minals — Ramaiah Enterprises
 
-A premium, production-ready corporate website for **Ramaiah Enterprises**, built with **Next.js 16**, **TypeScript**, and **CSS3**. This project showcases a high-fidelity design for the Minals brand, featuring a sophisticated dark blue and gold aesthetic that honors the company's 60+ year legacy.
+> A premium corporate website for **Minals (Ramaiah Enterprises)** — a trusted brand since 1962, delivering high-quality food and cleaning products across South India.
 
-## 🌟 Key Updates & Bug Fixes
+Built with **Next.js 16 (App Router)**, **TypeScript**, and **Vanilla CSS3**, this project is a production-ready, fully responsive website with a sophisticated dark-blue and gold brand identity.
 
-- **Next.js 16 Server Component Fix**: Addressed a critical Next.js 15/16 App Router error (`searchParams` is a Promise) on the `/products` page which was breaking navigation across the site. The route now properly `await`s the `searchParams` Promise.
-- **Global Navigation Routing**: Replaced dead `<a href="#">` placeholder links with proper Next.js `<Link>` components across the Header, Footer, and Quick Links. You can now seamlessly navigate between Home, Products, Our Story, Dealers, Contact Us, and Enquire Now.
-- **Logo & Home Reloads**: Updated all branding logos and "Home" buttons to act as hard reload anchors (`<a href="/">`). Clicking the logo or "Home" from any page will instantly execute a full browser reload and jump to the top of the Home page.
-- **Sticky Filter Alignment**: Improved the UI of the Products category sidebar so it vertically self-centers on the screen as you scroll, instead of pinning tightly to the top edge. 
-- **Removed Animations**: Stripped out all transition delays and Intersection Observer reveal effects. Pages now load their content instantly without scroll fade-ins.
+---
 
-## 🌟 Key Features
+## 🌐 Live Pages
 
-- **Modern Tech Stack**: Built with Next.js 16 (App Router) and TypeScript for optimal performance and developer experience.
-- **High-Fidelity UI**: Meticulously designed to match brand guidelines with a focus on premium aesthetics and professional layout.
-- **Dynamic Hero Section**: Features custom-blended product photography and an animated "60 Years of Trust" brand seal.
-- **Interactive Product Categories**: High-quality card layouts for Food and Cleaning product divisions with soft pastel palettes.
-- **Responsive Design**: Fully optimized for desktops, tablets, and mobile devices.
-- **Performance Optimized**: Leverages Next.js font optimization and efficient image handling for lightning-fast load times.
+| Route | Description |
+|---|---|
+| `/` | Home — Hero, product categories, heritage banner |
+| `/products` | Products — Server-rendered catalogue with category filter |
+| `/products?category=cleaning` | Cleaning products only |
+| `/products?category=food` | Food products only |
+| `/our-story` | Brand history and company story |
+| `/dealers` | Dealer network and locations |
+| `/contact-us` | Contact form and address details |
+| `/enquire-now` | Lead enquiry form |
+
+---
+
+## ✨ Features
+
+- **Zero Flash Navigation** — Products page is a pure server component. No client-side hydration delay, no white flash between page loads.
+- **Server-Side Category Filtering** — The `?category=` query param is read on the server. The correct set of products is rendered before anything reaches the browser.
+- **Sticky Sidebar Filter** — Category sidebar stays visible as you scroll through products.
+- **Responsive Layout** — Fully optimized for desktop, tablet, and mobile with CSS Grid and Flexbox.
+- **Google Fonts** — Playfair Display (headings) and Inter (body) loaded via `next/font` for zero layout shift.
+- **Font Awesome Icons** — Loaded from CDN for crisp, scalable icons throughout the UI.
+- **SEO Ready** — Metadata, semantic HTML, descriptive `alt` attributes, and proper heading hierarchy on every page.
+
+---
 
 ## 🚀 Tech Stack
 
-- **Framework**: [Next.js 16](https://nextjs.org/)
-- **Styling**: Vanilla CSS3 with Modern Flex/Grid and CSS Variables
-- **Icons**: [Font Awesome 6](https://fontawesome.com/)
-- **Typography**: Playfair Display (Serif) & Inter (Sans-serif) via Google Fonts
-- **Development**: TypeScript, ESLint, Prettier
+| Technology | Purpose |
+|---|---|
+| [Next.js 16](https://nextjs.org/) | Framework — App Router, Server Components |
+| TypeScript | Type safety across all components |
+| Vanilla CSS3 | Styling — Flex, Grid, CSS Variables |
+| [Font Awesome 6](https://fontawesome.com/) | Icons |
+| Google Fonts (via `next/font`) | Typography — Playfair Display & Inter |
+
+---
 
 ## 🛠️ Getting Started
 
 ### Prerequisites
 
-- Node.js 20.x or higher
-- npm or yarn
+- **Node.js** 20.x or higher
+- **npm** (comes with Node)
 
 ### Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Saravanan2005real/Interian.git
-   ```
+**1. Clone the repository**
+```bash
+git clone https://github.com/Saravanan2005real/Interian.git
+cd Interian
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+**2. Install dependencies**
+```bash
+npm install
+```
 
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
+**3. Start the development server**
+```bash
+npm run dev
+```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+**4. Open in browser**
+```
+http://localhost:3000
+```
+
+---
 
 ## 📁 Project Structure
 
-- `src/app/`: Next.js App Router source code. Includes nested routes for `products`, `our-story`, `dealers`, `contact-us`, and `enquire-now`.
-- `public/`: Static assets (logos, product images, brand seals).
-- `globals.css`: Core design system and global styles.
-- `page.tsx`: Main landing page implementation.
+```
+Interian/
+├── public/                  # Static assets
+│   ├── logo.png             # Brand logo
+│   ├── hero.png             # Hero section image
+│   └── products/            # Product images (sanitizer.png, etc.)
+│
+├── src/
+│   └── app/
+│       ├── layout.tsx       # Root layout (fonts, global head tags)
+│       ├── globals.css      # Full design system & all page styles
+│       ├── page.tsx         # Home page
+│       │
+│       ├── products/
+│       │   └── page.tsx     # Products page (server component, category filter)
+│       │
+│       ├── our-story/
+│       │   └── page.tsx     # Our Story page
+│       │
+│       ├── dealers/
+│       │   └── page.tsx     # Dealers page
+│       │
+│       ├── contact-us/
+│       │   └── page.tsx     # Contact Us page
+│       │
+│       └── enquire-now/
+│           └── page.tsx     # Enquire Now page
+│
+├── next.config.ts           # Next.js configuration
+├── tsconfig.json            # TypeScript configuration
+└── package.json
+```
+
+---
+
+## 🔑 Key Technical Decisions
+
+### Why the Products page is a Server Component
+The products page reads the `?category=` URL query param using Next.js's `searchParams` prop (server-side), not the `useSearchParams()` hook (client-side). This means:
+
+- The page renders **entirely on the server** with the correct data
+- **No Suspense boundary needed** — there is no client/server hydration gap
+- **No white flash** — the browser receives fully-rendered HTML on the first response
+- Category filtering works by navigating to `?category=cleaning` or `?category=food` — simple, reliable, and crawlable by search engines
+
+### CSS Variables Design System
+All colors, spacing, and effects are driven by CSS custom properties defined in `:root {}` inside `globals.css`. Changing the brand color palette is a one-line change.
+
+---
+
+## 📦 Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+---
 
 ## 📜 License
 
