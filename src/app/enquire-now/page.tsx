@@ -10,7 +10,7 @@ export default function EnquireNowPage() {
     <main className="enquire-page">
       {/* Header */}
       <header>
-        <div className="logo-container">
+        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
           <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
           <div className="logo-text">
             <h1>MINALS</h1>
@@ -21,10 +21,10 @@ export default function EnquireNowPage() {
               <span className="line"></span>
             </div>
           </div>
-        </div>
+        </a>
         <nav>
           <ul>
-            <li><Link href="/">Home</Link></li>
+            <li><a href="/">Home</a></li>
             <li><Link href="/our-story">Our Story</Link></li>
             <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
             <li><Link href="/dealers">Dealers</Link></li>
@@ -209,7 +209,7 @@ export default function EnquireNowPage() {
       <footer className="main-footer">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="logo-container">
+            <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
               <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
               <div className="logo-text">
                 <h1>MINALS</h1>
@@ -220,7 +220,7 @@ export default function EnquireNowPage() {
                   <span className="line"></span>
                 </div>
               </div>
-            </div>
+            </a>
             <p>
               <strong>Rooted in values. Driven by trust.</strong>
               Serving generations with quality and care since 1962.
@@ -230,7 +230,7 @@ export default function EnquireNowPage() {
           <div className="footer-links-group">
             <h4>Quick Links</h4>
             <ul>
-              <li><Link href="/">Home</Link></li>
+              <li><a href="/">Home</a></li>
               <li><Link href="/our-story">Our Story</Link></li>
               <li><Link href="/products">Products</Link></li>
               <li><Link href="/dealers">Dealers</Link></li>

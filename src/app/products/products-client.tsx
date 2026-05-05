@@ -53,22 +53,6 @@ export default function ProductsClient({ initialCategory }: { initialCategory: P
     setActiveCategory(raw ? fromUrl : initialCategory);
   }, [searchParams, initialCategory]);
 
-  useEffect(() => {
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal, .product-card, section').forEach((el) => {
-      el.classList.add('reveal');
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const filteredProducts = useMemo(() => {
     if (activeCategory === 'all') return PRODUCTS;
     return PRODUCTS.filter((p) => p.category === activeCategory);
@@ -77,7 +61,7 @@ export default function ProductsClient({ initialCategory }: { initialCategory: P
   return (
     <main>
       <header>
-        <div className="logo-container">
+        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
           <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
           <div className="logo-text">
             <h1>MINALS</h1>
@@ -88,14 +72,14 @@ export default function ProductsClient({ initialCategory }: { initialCategory: P
               <span className="line"></span>
             </div>
           </div>
-        </div>
+        </a>
         <nav>
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">Our Story</a>
+              <Link href="/our-story">Our Story</Link>
             </li>
             <li>
               <Link href="/products" className="active">
@@ -103,17 +87,17 @@ export default function ProductsClient({ initialCategory }: { initialCategory: P
               </Link>
             </li>
             <li>
-              <a href="#">Dealers</a>
+              <Link href="/dealers">Dealers</Link>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <Link href="/contact-us">Contact Us</Link>
             </li>
           </ul>
         </nav>
         <div className="header-btns">
-          <a href="#" className="btn-enquire">
+          <Link href="/enquire-now" className="btn-enquire">
             Enquire Now <i className="fas fa-arrow-right"></i>
-          </a>
+          </Link>
           <a href="#" className="btn-whatsapp">
             <i className="fab fa-whatsapp"></i> Quick Enquiry via WhatsApp
           </a>

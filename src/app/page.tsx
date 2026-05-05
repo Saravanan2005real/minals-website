@@ -4,31 +4,10 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal, .category-card, section').forEach(el => {
-      el.classList.add('reveal');
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <main>
       <header>
-        <div className="logo-container">
+        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
           <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
           <div className="logo-text">
             <h1>MINALS</h1>
@@ -39,10 +18,10 @@ export default function Home() {
               <span className="line"></span>
             </div>
           </div>
-        </div>
+        </a>
         <nav>
           <ul>
-            <li><Link href="/" className="active">Home</Link></li>
+            <li><a href="/" className="active">Home</a></li>
             <li><Link href="/our-story">Our Story</Link></li>
             <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
             <li><Link href="/dealers">Dealers</Link></li>

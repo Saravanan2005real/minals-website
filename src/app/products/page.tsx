@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
 import ProductsClient, { type ProductCategory } from './products-client';
 
-export default function ProductsPage({
+export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams?: { category?: string };
+  searchParams?: Promise<{ category?: string }>;
 }) {
-  const raw = searchParams?.category;
+  const params = (await searchParams) ?? {};
+  const raw = params.category;
   const initialCategory: ProductCategory = raw === 'cleaning' || raw === 'food' ? raw : 'all';
 
   return (

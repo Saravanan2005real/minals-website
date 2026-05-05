@@ -8,7 +8,7 @@
     --bg-light: #f9f9f9;
     --bg-food: #f0f4f0;
     --bg-cleaning: #f0f7ff;
-    --transition: all 0.3s ease;
+    --transition: none;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -512,17 +512,6 @@ footer {
     color: var(--primary-color);
 }
 
-/* Reveal animations */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 @keyframes rotate {
     from { transform: rotate(0deg); }
@@ -612,7 +601,8 @@ footer {
 
 .products-filter {
     position: sticky;
-    top: 100px;
+    top: max(20px, calc(50vh - 115px));
+    align-self: start;
     border-radius: 14px;
     background: #ffffff;
     border: 1px solid rgba(0,0,0,0.06);

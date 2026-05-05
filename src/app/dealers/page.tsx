@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './dealers.css';
 
 export default function DealersPage() {
@@ -9,7 +10,7 @@ export default function DealersPage() {
     <main className="dealers-page">
       {/* Header (Same as Home but active link changed) */}
       <header>
-        <div className="logo-container">
+        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
           <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
           <div className="logo-text">
             <h1>MINALS</h1>
@@ -20,18 +21,18 @@ export default function DealersPage() {
               <span className="line"></span>
             </div>
           </div>
-        </div>
+        </a>
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/our-story">Our Story</a></li>
-            <li><a href="#">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></a></li>
-            <li><a href="/dealers" className="active-dealer">Dealers</a></li>
-            <li><a href="/contact-us">Contact Us</a></li>
+            <li><Link href="/our-story">Our Story</Link></li>
+            <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
+            <li><Link href="/dealers" className="active-dealer">Dealers</Link></li>
+            <li><Link href="/contact-us">Contact Us</Link></li>
           </ul>
         </nav>
         <div className="header-btns">
-          <a href="/enquire-now" className="btn-enquire">Enquire Now <i className="fas fa-arrow-right"></i></a>
+          <Link href="/enquire-now" className="btn-enquire">Enquire Now <i className="fas fa-arrow-right"></i></Link>
           <a href="#" className="btn-whatsapp"><i className="fab fa-whatsapp"></i> Quick Enquiry via WhatsApp</a>
         </div>
       </header>
@@ -132,7 +133,7 @@ export default function DealersPage() {
       <footer className="main-footer">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="logo-container">
+            <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
               <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
               <div className="logo-text">
                 <h1>MINALS</h1>
@@ -143,7 +144,7 @@ export default function DealersPage() {
                   <span className="line"></span>
                 </div>
               </div>
-            </div>
+            </a>
             <p>
               <strong>Rooted in values. Driven by trust.</strong>
               Serving generations with quality and care since 1962.
@@ -154,10 +155,10 @@ export default function DealersPage() {
             <h4>Quick Links</h4>
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/our-story">Our Story</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="/dealers">Dealers</a></li>
-              <li><a href="/contact-us">Contact Us</a></li>
+              <li><Link href="/our-story">Our Story</Link></li>
+              <li><Link href="/products">Products</Link></li>
+              <li><Link href="/dealers">Dealers</Link></li>
+              <li><Link href="/contact-us">Contact Us</Link></li>
             </ul>
           </div>
 
