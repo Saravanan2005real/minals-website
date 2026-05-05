@@ -1,0 +1,341 @@
+/* src/app/dealers/dealers.css */
+
+.dealers-page {
+    background-color: var(--bg-light);
+    min-height: calc(100vh - 80px); /* adjust based on header */
+}
+
+/* Main Layout */
+.dealers-main {
+    padding: 60px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Left Section */
+.dealers-info {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.dealers-title h2 {
+    font-family: var(--font-playfair), serif;
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.dealers-title p {
+    font-size: 15px;
+    color: var(--light-text);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.dealers-features {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.feature-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.feature-col i {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-top: 3px;
+}
+
+.feature-col-text h4 {
+    font-size: 14px;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.feature-col-text p {
+    font-size: 12px;
+    color: var(--light-text);
+}
+
+.partner-box {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.05);
+    margin-top: 10px;
+}
+
+.partner-box h3 {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 16px;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.partner-types {
+    display: flex;
+    justify-content: space-between;
+}
+
+.partner-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.partner-type i {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+.partner-type span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Middle Map */
+.dealers-map {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dealers-map img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Right Form Section */
+.dealers-form-container {
+    flex: 0.8;
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.dealers-form-container h3 {
+    font-family: var(--font-playfair), serif;
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.dealers-form-container p {
+    font-size: 13px;
+    color: var(--light-text);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.dealers-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font-inter), sans-serif;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+.btn-submit {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-color);
+}
+
+/* Detailed Footer as per image */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 50px 5% 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-brand .logo-container {
+    justify-content: flex-start;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    max-width: 300px;
+}
+
+.footer-brand p strong {
+    font-weight: 600;
+    color: var(--white);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-links-group {
+    flex: 1;
+}
+
+.footer-links-group h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.footer-links-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links-group ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.footer-links-group ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-social h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #b0b0b0;
+}
+
+.footer-bottom-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: var(--transition);
+}
+
+.footer-bottom-links a:hover {
+    color: var(--white);
+}
+
+.footer-bottom-links span {
+    margin-left: 20px;
+    color: rgba(255,255,255,0.2);
+}
+
+/* Active Link Styles update */
+nav ul li a.active-dealer {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+}
+
+@media (max-width: 1100px) {
+    .dealers-main {
+        flex-direction: column;
+    }
+    .dealers-map {
+        order: -1;
+    }
+    .footer-top {
+        flex-wrap: wrap;
+    }
+}

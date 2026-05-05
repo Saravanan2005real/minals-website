@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   useEffect(() => {
@@ -42,11 +42,11 @@ export default function Home() {
         </div>
         <nav>
           <ul>
-            <li><Link href="/" className="active">Home</Link></li>
-            <li><a href="#">Our Story</a></li>
-            <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
-            <li><a href="#">Dealers</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="/" className="active">Home</a></li>
+            <li><a href="/our-story">Our Story</a></li>
+            <li><a href="#">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></a></li>
+            <li><a href="/dealers">Dealers</a></li>
+            <li><a href="/contact-us">Contact Us</a></li>
           </ul>
         </nav>
         <div className="header-btns">
@@ -60,7 +60,7 @@ export default function Home() {
           <h2>A Legacy of Purity. <span>A Future of Promise.</span></h2>
           <p>From our family to yours, delivering quality and care since 1962.</p>
           <div className="hero-btns">
-            <Link href="/products" className="btn-explore">Explore Products <i className="fas fa-arrow-right"></i></Link>
+            <a href="#" className="btn-explore">Explore Products <i className="fas fa-arrow-right"></i></a>
           </div>
           <div className="badge-60">
             <img src="/60 years.png" alt="60 Years of Trust" />
@@ -109,7 +109,7 @@ export default function Home() {
           <div className="category-info">
             <h3>Food Products</h3>
             <p>Natural ingredients,<br />made with care.</p>
-            <Link href="/products?category=food" className="view-link">View Products <i className="fas fa-arrow-right"></i></Link>
+            <a href="#" className="view-link">View Products <i className="fas fa-arrow-right"></i></a>
           </div>
           <div className="category-img">
             <img src="/food.png" alt="Food Products" />
@@ -119,7 +119,7 @@ export default function Home() {
           <div className="category-info">
             <h3>Cleaning Products</h3>
             <p>Hygienic solutions for<br />a healthier tomorrow.</p>
-            <Link href="/products?category=cleaning" className="view-link">View Products <i className="fas fa-arrow-right"></i></Link>
+            <a href="#" className="view-link">View Products <i className="fas fa-arrow-right"></i></a>
           </div>
           <div className="category-img">
             <img src="/cleaning.png" alt="Cleaning Products" />
