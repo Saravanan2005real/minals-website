@@ -50,7 +50,7 @@ export default function Home() {
           </ul>
         </nav>
         <div className="header-btns">
-          <a href="#" className="btn-enquire">Enquire Now <i className="fas fa-arrow-right"></i></a>
+          <a href="/enquire-now" className="btn-enquire">Enquire Now <i className="fas fa-arrow-right"></i></a>
           <a href="#" className="btn-whatsapp"><i className="fab fa-whatsapp"></i> Quick Enquiry via WhatsApp</a>
         </div>
       </header>
