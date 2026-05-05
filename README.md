@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Minals - Ramaiah Enterprises
 
-## Getting Started
+A premium, production-ready corporate website for **Ramaiah Enterprises**, built with **Next.js 16**, **TypeScript**, and **CSS3**. This project showcases a high-fidelity design for the Minals brand, featuring a sophisticated dark blue and gold aesthetic that honors the company's 60+ year legacy.
 
-First, run the development server:
+## 🌟 Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Modern Tech Stack**: Built with Next.js 16 (App Router) and TypeScript for optimal performance and developer experience.
+- **High-Fidelity UI**: Meticulously designed to match brand guidelines with a focus on premium aesthetics and professional layout.
+- **Dynamic Hero Section**: Features custom-blended product photography and an animated "60 Years of Trust" brand seal.
+- **Interactive Product Categories**: High-quality card layouts for Food and Cleaning product divisions with soft pastel palettes.
+- **Responsive Design**: Fully optimized for desktops, tablets, and mobile devices.
+- **Performance Optimized**: Leverages Next.js font optimization and efficient image handling for lightning-fast load times.
+- **Scroll Animations**: Smooth reveal animations using Intersection Observer for an engaging user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 16](https://nextjs.org/)
+- **Styling**: Vanilla CSS3 with Modern Flex/Grid and CSS Variables
+- **Icons**: [Font Awesome 6](https://fontawesome.com/)
+- **Typography**: Playfair Display (Serif) & Inter (Sans-serif) via Google Fonts
+- **Development**: TypeScript, ESLint, Prettier
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js 20.x or higher
+- npm or yarn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:Saravanan2005real/Interian.git
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📁 Project Structure
+
+- `src/app/`: Next.js App Router source code.
+- `public/`: Static assets (logos, product images, brand seals).
+- `globals.css`: Core design system and global styles.
+- `page.tsx`: Main landing page implementation.
+
+## 📜 License
+
+© 2024 Minals (Ramaiah Enterprises). All Rights Reserved.
