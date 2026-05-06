@@ -6,31 +6,32 @@ type Product = {
   name: string;
   category: Exclude<ProductCategory, 'all'>;
   image: string;
+  price: string;
 };
 
 const PRODUCTS: Product[] = [
   // Cleaning products
-  { name: 'Sanitizer', category: 'cleaning', image: '/products/sanitizer.png' },
-  { name: 'Bleaching Powder', category: 'cleaning', image: '/products/bleaching-powder.png' },
-  { name: 'Grammaxin Powder', category: 'cleaning', image: '/products/grammaxin-powder.png' },
-  { name: 'Toilet Cleaner', category: 'cleaning', image: '/products/toilet-cleaner.png' },
-  { name: 'Bathroom Cleaner', category: 'cleaning', image: '/products/bathroom-cleaner.png' },
-  { name: 'Glass Cleaner', category: 'cleaning', image: '/products/glass-cleaner.png' },
-  { name: 'Floor Cleaner', category: 'cleaning', image: '/products/floor-cleaner.png' },
-  { name: 'Dish Washer', category: 'cleaning', image: '/products/dish-washer.png' },
-  { name: 'Washing Soda', category: 'cleaning', image: '/products/washing-soda.png' },
+  { name: 'Sanitizer', category: 'cleaning', image: '/products/sanitizer.png', price: '₹ 120' },
+  { name: 'Bleaching Powder', category: 'cleaning', image: '/products/bleaching-powder.png', price: '₹ 85' },
+  { name: 'Grammaxin Powder', category: 'cleaning', image: '/products/grammaxin-powder.png', price: '₹ 95' },
+  { name: 'Toilet Cleaner', category: 'cleaning', image: '/products/toilet-cleaner.png', price: '₹ 110' },
+  { name: 'Bathroom Cleaner', category: 'cleaning', image: '/products/bathroom-cleaner.png', price: '₹ 130' },
+  { name: 'Glass Cleaner', category: 'cleaning', image: '/products/glass-cleaner.png', price: '₹ 99' },
+  { name: 'Floor Cleaner', category: 'cleaning', image: '/products/floor-cleaner.png', price: '₹ 115' },
+  { name: 'Dish Washer', category: 'cleaning', image: '/products/dish-washer.png', price: '₹ 145' },
+  { name: 'Washing Soda', category: 'cleaning', image: '/products/washing-soda.png', price: '₹ 75' },
 
   // Food products
-  { name: 'Essence Mixes', category: 'food', image: '/products/essence-mixes.png' },
-  { name: 'Kesari Powder', category: 'food', image: '/products/kesari-powder.png' },
-  { name: 'Corn Flour', category: 'food', image: '/products/corn-flour.png' },
-  { name: 'Elachi Powder', category: 'food', image: '/products/elachi-powder.png' },
-  { name: 'Baking Powder', category: 'food', image: '/products/baking-powder.png' },
-  { name: 'Rose Water', category: 'food', image: '/products/rose-water.png' },
-  { name: 'Onam Water', category: 'food', image: '/products/onam-water.png' },
-  { name: 'Vinegar', category: 'food', image: '/products/vinegar.png' },
-  { name: 'Caster Oil', category: 'food', image: '/products/caster-oil.png' },
-  { name: 'Neem Oil', category: 'food', image: '/products/neem-oil.png' },
+  { name: 'Essence Mixes', category: 'food', image: '/products/essence-mixes.png', price: '₹ 60' },
+  { name: 'Kesari Powder', category: 'food', image: '/products/kesari-powder.png', price: '₹ 80' },
+  { name: 'Corn Flour', category: 'food', image: '/products/corn-flour.png', price: '₹ 55' },
+  { name: 'Elachi Powder', category: 'food', image: '/products/elachi-powder.png', price: '₹ 140' },
+  { name: 'Baking Powder', category: 'food', image: '/products/baking-powder.png', price: '₹ 70' },
+  { name: 'Rose Water', category: 'food', image: '/products/rose-water.png', price: '₹ 90' },
+  { name: 'Onam Water', category: 'food', image: '/products/onam-water.png', price: '₹ 65' },
+  { name: 'Vinegar', category: 'food', image: '/products/vinegar.png', price: '₹ 50' },
+  { name: 'Caster Oil', category: 'food', image: '/products/caster-oil.png', price: '₹ 175' },
+  { name: 'Neem Oil', category: 'food', image: '/products/neem-oil.png', price: '₹ 195' },
 ];
 
 function categoryLabel(category: ProductCategory) {
@@ -184,6 +185,10 @@ export default async function ProductsPage({
                       </div>
                     </div>
                     <div className="product-name">{p.name}</div>
+                    <div className="product-price">{p.price}</div>
+                    <Link href="/enquire-now" className="product-enquiry-btn">
+                      Enquiry <i className="fas fa-arrow-right"></i>
+                    </Link>
                   </div>
                 </div>
               ))}

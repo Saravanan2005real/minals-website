@@ -782,6 +782,37 @@ footer {
     font-size: 15px;
     font-weight: 800;
     color: #12283d;
+    margin-bottom: 6px;
+}
+
+.product-price {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+}
+
+.product-enquiry-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto;
+    transition: background 0.2s ease, transform 0.2s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.product-enquiry-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
 }
 
 @media (max-width: 1024px) {

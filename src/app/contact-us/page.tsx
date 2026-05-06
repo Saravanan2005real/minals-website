@@ -61,7 +61,7 @@ export default function ContactUsPage() {
 
             <div className="contact-item">
               <div className="contact-icon">
-                <i className="fas fa-phone-alt"></i>
+                <i className="fas fa-phone fa-flip-horizontal"></i>
               </div>
               <div className="contact-text">
                 <h4>Phone</h4>
