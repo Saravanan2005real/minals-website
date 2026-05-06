@@ -62,7 +62,7 @@ Built with **Next.js 16 App Router**, **TypeScript**, and **Tailwind CSS v3**, t
 | [Tailwind CSS](https://tailwindcss.com/) | 3.x | All styling — utility-first CSS framework |
 | [PostCSS](https://postcss.org/) | — | CSS processing pipeline for Tailwind |
 | [Font Awesome 6](https://fontawesome.com/) | 6.0 | Icons (loaded via CDN in layout) |
-| [Google Fonts](https://fonts.google.com/) | — | Playfair Display & Inter via `next/font` |
+| [Google Fonts](https://fonts.google.com/) | — | Inter via `next/font/google` (sole font in use) |
 
 ---
 
@@ -137,7 +137,8 @@ Interian/
 │       ├── page.tsx               # Home page (/)
 │       │
 │       ├── products/
-│       │   └── page.tsx           # Products — pure server component, category filter
+│       │   ├── page.tsx                   # Products — server component, category filter + sort
+│       │   └── products-grid-client.tsx   # Client component — interactive qty selector per card
 │       │
 │       ├── our-story/
 │       │   └── page.tsx           # Our Story — timeline and photo gallery
