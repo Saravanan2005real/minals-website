@@ -1,12 +1,21 @@
 'use client';
 
 import React from 'react';
+import { useSearchParams } from 'next/navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] text-[14px] font-inter focus:outline-none focus:border-secondary focus:shadow-[0_0_0_2px_rgba(184,134,11,0.1)]";
 
 export default function EnquireNowPage() {
+  const searchParams = useSearchParams();
+  const product = (searchParams.get('product') || '').trim();
+  const phone = '919566002233';
+  const message = product
+    ? `Hi, I'm interested in ${product}. Please share details/price and availability.`
+    : `Hi, I’d like to enquire about your products. Please share details.`;
+  const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
   return (
     <main className="bg-[#f4f7f9]">
       <Header activePage="enquire-now" />
@@ -130,7 +139,12 @@ export default function EnquireNowPage() {
                 <p className="text-[12px] text-text-main">Chat with us directly on WhatsApp for instant assistance.</p>
               </div>
             </div>
-            <a href="#" className="bg-primary text-white px-5 py-3 rounded-[6px] no-underline font-semibold text-[13px] flex items-center gap-2 hover:bg-[#001a3d] ml-4">
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-white px-5 py-3 rounded-[6px] no-underline font-semibold text-[13px] flex items-center gap-2 hover:bg-[#001a3d] ml-4"
+            >
               <i className="fab fa-whatsapp text-[#4CAF50] text-[16px]" /> Chat on WhatsApp
             </a>
           </div>
@@ -140,9 +154,9 @@ export default function EnquireNowPage() {
             <h3 className="text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">Get in touch</h3>
             <div className="grid grid-cols-2 gap-[15px] mt-4">
               {[
-                { icon: 'fa-map-marker-alt', title: 'Registered Office', text: '10+ Years Manufacturer, Georita, Olad, Chennai, Tamil Nadu, India' },
-                { icon: 'fa-phone-alt',      title: 'Phone',             text: '+91 9566002233\n+91 9566002233' },
-                { icon: 'fa-envelope',       title: 'Email',             text: 'minalssnort01@gmail.com' },
+                { icon: 'fa-map-marker-alt', title: 'Registered Office', text: 'No 56, Govindappa Street,\nChennai - 600 001' },
+                { icon: 'fa-phone-alt',      title: 'Phone',             text: '044 - 25212585\n+91 9566002233' },
+                { icon: 'fa-envelope',       title: 'Email',             text: 'ramaiah25@gmail.com' },
                 { clock: true,               title: 'Business Hours',    text: 'Mon - Sat: 9:00 AM - 6:00 PM\nSunday: Closed' },
               ].map((t, i) => (
                 <div key={i} className="bg-white rounded-[12px] p-5 text-center shadow-[0_5px_20px_rgba(0,0,0,0.03)] flex flex-col items-center gap-[10px]">

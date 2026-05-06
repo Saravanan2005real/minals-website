@@ -10,9 +10,15 @@ export default function OurStoryPage() {
       <Header activePage="our-story" />
 
       {/* ─── Hero ─── */}
-      <section className="flex bg-[#fafafa] border-b border-[#eaeaea] relative overflow-hidden">
+      {/* The right panel uses bg-primary same as the header.
+          A 3px secondary (gold) top-border on the panel creates
+          a clear visual separation from the sticky header.
+          The logo image gets mix-blend-mode:multiply so its
+          built-in background multiplies against #002B5B and
+          vanishes, leaving only the badge artwork visible. */}
+      <section className="flex border-b border-[#eaeaea] relative overflow-hidden bg-white">
         {/* Left */}
-        <div className="flex-1 px-[5%] py-[80px] flex flex-col justify-center z-10">
+        <div className="flex-1 px-[5%] py-[80px] flex flex-col justify-center z-10 bg-white">
           <h1 className="text-[42px] text-primary mb-[15px]">Our Story</h1>
           <p className="text-[16px] font-semibold text-[#444] mb-5">A journey of trust, quality and commitment since 1962.</p>
           <p className="text-[15px] text-text-light mb-[30px] leading-[1.6] max-w-[90%]">
@@ -23,12 +29,18 @@ export default function OurStoryPage() {
           </a>
         </div>
         {/* Middle photo */}
-        <div className="flex-[1.5] relative py-[40px] pr-[5%]">
+        <div className="flex-[1.5] relative py-[40px] pr-[5%] bg-white">
           <img src="/vintage.png" alt="Ramaiah Enterprises 1962" className="w-full h-full object-cover rounded-[16px] shadow-[0_10px_40px_rgba(0,0,0,0.1)] [filter:sepia(0.6)_contrast(1.1)]" />
         </div>
-        {/* Right panel */}
-        <div className="flex-[0.8] bg-primary text-white flex flex-col items-center justify-center p-10 text-center">
-          <img src="/60 years.png" alt="60+ Years of Trust" className="w-[120px] mb-5" />
+        {/* Right panel — separated from header by a gold accent border-top */}
+        <div className="flex-[0.8] bg-primary text-white flex flex-col items-center justify-center p-10 text-center border-t-[3px] border-secondary">
+          {/* mix-blend-mode:multiply makes the image's own background
+              multiply with #002B5B → white×blue = blue → background vanishes */}
+          <img
+            src="/60 years.png"
+            alt="60+ Years of Trust"
+            className="w-[130px] mb-5 [mix-blend-mode:multiply] brightness-150 contrast-110"
+          />
           <p className="text-[16px] leading-[1.5] text-[#eaeaea]">Six decades of delivering purity, reliability and excellence.</p>
         </div>
       </section>

@@ -85,26 +85,6 @@ export default function ContactUsPage() {
         </div>
       </div>
 
-      {/* ─── Feature Bar ─── */}
-      <div className="flex justify-between gap-[30px] px-[5%] py-[40px] bg-white border-t border-[#eaeaea] max-w-[1400px] mx-auto">
-        {[
-          { icon: 'fa-shield-alt', title: 'Trusted Since 1962',  desc: 'Over 60+ years of delivering quality and care.' },
-          { icon: 'fa-headset',    title: 'Quick Support',       desc: 'Our team is always ready to assist you.' },
-          { icon: 'fa-truck',      title: 'Pan India Reach',     desc: 'Strong distribution network across South India.' },
-          { icon: 'fa-certificate',title: 'Quality Assurance',   desc: 'Committed to purity, safety and excellence.' },
-        ].map((f) => (
-          <div key={f.title} className="flex-1 flex flex-row items-start gap-[15px]">
-            <div className="w-[50px] h-[50px] bg-[#f8f3e6] rounded-full flex items-center justify-center shrink-0">
-              <i className={`fas ${f.icon} text-[22px] text-primary`} />
-            </div>
-            <div>
-              <h4 className="text-[14px] text-primary font-bold mb-[5px]">{f.title}</h4>
-              <p className="text-[12px] text-text-light leading-[1.4] m-0">{f.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
       <Footer />
     </main>
   );
