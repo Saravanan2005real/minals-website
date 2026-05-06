@@ -1,205 +1,85 @@
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import './dealers.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] text-[14px] font-inter bg-[#fdfdfd] focus:outline-none focus:border-secondary focus:shadow-[0_0_0_2px_rgba(184,134,11,0.1)]";
 
 export default function DealersPage() {
   return (
-    <main className="dealers-page">
-      {/* Header (Same as Home but active link changed) */}
-      <header>
-        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-          <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-          <div className="logo-text">
-            <h1>MINALS</h1>
-            <h2>RAMAIAH ENTERPRISES</h2>
-            <div className="since-box">
-              <span className="line"></span>
-              <span className="since-text">SINCE 1962</span>
-              <span className="line"></span>
-            </div>
-          </div>
-        </a>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><Link href="/our-story">Our Story</Link></li>
-            <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
-            <li><Link href="/dealers" className="active-dealer">Dealers</Link></li>
-            <li><Link href="/contact-us">Contact Us</Link></li>
-          </ul>
-        </nav>
-        <div className="header-btns">
-          <Link href="/enquire-now" className="btn-enquire">Enquire Now <i className="fas fa-arrow-right"></i></Link>
-          <a href="#" className="btn-whatsapp"><i className="fab fa-whatsapp"></i> Quick Enquiry via WhatsApp</a>
-        </div>
-      </header>
+    <main className="bg-bg-light">
+      <Header activePage="dealers" />
 
-      {/* Main Dealers Content */}
-      <div className="dealers-main">
-        {/* Left Info Section */}
-        <div className="dealers-info">
-          <div className="dealers-title">
-            <h2>Our Dealer Network</h2>
-            <p>
+      {/* ─── Main Layout ─── */}
+      <div className="px-[5%] py-[60px] flex justify-between items-start gap-10 max-w-[1400px] mx-auto">
+
+        {/* Left info */}
+        <div className="flex-[1.2] flex flex-col gap-[30px]">
+          <div>
+            <h2 className="font-playfair text-[36px] text-primary font-bold mb-[15px]">Our Dealer Network</h2>
+            <p className="text-[15px] text-text-light leading-[1.6] max-w-[90%]">
               Partner with us and grow together. We are building a strong network across India to deliver quality products to every home and business.
             </p>
           </div>
 
-          <div className="dealers-features">
-            <div className="feature-col">
-              <i className="fas fa-map-marker-alt"></i>
-              <div className="feature-col-text">
-                <h4>Wide Reach</h4>
-                <p>Pan India presence</p>
+          <div className="flex gap-5 mt-[10px]">
+            {[
+              { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Pan India presence' },
+              { icon: 'fa-users',          title: 'Reliable Partners', desc: 'Growing together' },
+              { icon: 'fa-headset',        title: 'Timely Support',    desc: 'Always at your service' },
+            ].map((f) => (
+              <div key={f.title} className="flex items-start gap-3">
+                <i className={`fas ${f.icon} text-[24px] text-primary mt-[3px]`} />
+                <div>
+                  <h4 className="text-[14px] text-text-main font-bold mb-[2px]">{f.title}</h4>
+                  <p className="text-[12px] text-text-light">{f.desc}</p>
+                </div>
               </div>
-            </div>
-            <div className="feature-col">
-              <i className="fas fa-users"></i>
-              <div className="feature-col-text">
-                <h4>Reliable Partners</h4>
-                <p>Growing together</p>
-              </div>
-            </div>
-            <div className="feature-col">
-              <i className="fas fa-headset"></i>
-              <div className="feature-col-text">
-                <h4>Timely Support</h4>
-                <p>Always at your service</p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="partner-box">
-            <h3>Who Can Partner With Us?</h3>
-            <div className="partner-types">
-              <div className="partner-type">
-                <i className="fas fa-truck-loading"></i>
-                <span>Distributors</span>
-              </div>
-              <div className="partner-type">
-                <i className="fas fa-boxes"></i>
-                <span>Wholesalers</span>
-              </div>
-              <div className="partner-type">
-                <i className="fas fa-store"></i>
-                <span>Retailers</span>
-              </div>
-              <div className="partner-type">
-                <i className="fas fa-building"></i>
-                <span>Institutional Suppliers</span>
-              </div>
+          <div className="bg-white rounded-[12px] p-[25px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/5 mt-[10px]">
+            <h3 className="font-inter text-[16px] text-primary font-bold text-center mb-[25px]">Who Can Partner With Us?</h3>
+            <div className="flex justify-between">
+              {[
+                { icon: 'fa-truck-loading', label: 'Distributors' },
+                { icon: 'fa-boxes',          label: 'Wholesalers' },
+                { icon: 'fa-store',          label: 'Retailers' },
+                { icon: 'fa-building',       label: 'Institutional Suppliers' },
+              ].map((p) => (
+                <div key={p.label} className="flex flex-col items-center gap-[10px] text-center">
+                  <i className={`fas ${p.icon} text-[30px] text-primary`} />
+                  <span className="text-[12px] font-semibold text-primary">{p.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Middle Map Section */}
-        <div className="dealers-map">
-          <img src="/india-map.png" alt="India Map with Locations" />
+        {/* Map */}
+        <div className="flex-1 flex justify-center items-center">
+          <img src="/india-map.png" alt="India Map with Locations" className="max-w-full h-auto object-contain" />
         </div>
 
-        {/* Right Form Section */}
-        <div className="dealers-form-container">
-          <h3>Become a Dealer</h3>
-          <p>
+        {/* Form */}
+        <div className="flex-[0.8] bg-white rounded-[12px] px-[30px] py-[35px] shadow-panel border border-black/5">
+          <h3 className="font-playfair text-[24px] text-primary mb-[10px]">Become a Dealer</h3>
+          <p className="text-[13px] text-text-light mb-[25px] leading-[1.5]">
             Join hands with Minals (Ramaiah Enterprises) and grow your business with a trusted brand.
           </p>
-          <form className="dealers-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <input type="text" placeholder="Your Name" />
-            </div>
-            <div className="form-group">
-              <input type="text" placeholder="Mobile Number" />
-            </div>
-            <div className="form-group">
-              <input type="email" placeholder="Email Address" />
-            </div>
-            <div className="form-group">
-              <input type="text" placeholder="City" />
-            </div>
-            <div className="form-group">
-              <input type="text" placeholder="State" />
-            </div>
-            <button type="submit" className="btn-submit">
-              Submit Enquiry <i className="fas fa-arrow-right"></i>
+          <form className="flex flex-col gap-[15px]" onSubmit={(e) => e.preventDefault()}>
+            {['Your Name', 'Mobile Number', 'Email Address', 'City', 'State'].map((ph, i) => (
+              <input key={i} type={ph.includes('Email') ? 'email' : 'text'} placeholder={ph} className={inputClass} />
+            ))}
+            <button type="submit" className="bg-secondary text-white border-none py-[14px] rounded-[6px] text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] mt-[10px] hover:bg-accent">
+              Submit Enquiry <i className="fas fa-arrow-right" />
             </button>
           </form>
         </div>
       </div>
 
-      {/* Detailed Footer */}
-      <footer className="main-footer">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-              <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-              <div className="logo-text">
-                <h1>MINALS</h1>
-                <h2>RAMAIAH ENTERPRISES</h2>
-                <div className="since-box">
-                  <span className="line"></span>
-                  <span className="since-text">SINCE 1962</span>
-                  <span className="line"></span>
-                </div>
-              </div>
-            </a>
-            <p>
-              <strong>Rooted in values. Driven by trust.</strong>
-              Serving generations with quality and care since 1962.
-            </p>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><Link href="/our-story">Our Story</Link></li>
-              <li><Link href="/products">Products</Link></li>
-              <li><Link href="/dealers">Dealers</Link></li>
-              <li><Link href="/contact-us">Contact Us</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Our Products</h4>
-            <ul>
-              <li><a href="#">Food Products</a></li>
-              <li><a href="#">Cleaning Products</a></li>
-              <li><a href="#">View All Products</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Support</h4>
-            <ul>
-              <li><a href="#">Enquiry</a></li>
-              <li><a href="#">Bulk Orders</a></li>
-              <li><a href="#">FAQs</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-social">
-            <h4>Follow Us</h4>
-            <div className="social-icons">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-linkedin-in"></i></a>
-              <a href="#"><i className="fab fa-whatsapp"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>&copy; 2024 Minals (Ramaiah Enterprises). All Rights Reserved.</p>
-          <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <span>|</span>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

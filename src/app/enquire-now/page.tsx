@@ -1,107 +1,73 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import './enquire-now.css';
-import '../dealers/dealers.css'; /* Re-using footer styles */
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] text-[14px] font-inter focus:outline-none focus:border-secondary focus:shadow-[0_0_0_2px_rgba(184,134,11,0.1)]";
 
 export default function EnquireNowPage() {
   return (
-    <main className="enquire-page">
-      {/* Header */}
-      <header>
-        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-          <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-          <div className="logo-text">
-            <h1>MINALS</h1>
-            <h2>RAMAIAH ENTERPRISES</h2>
-            <div className="since-box">
-              <span className="line"></span>
-              <span className="since-text">SINCE 1962</span>
-              <span className="line"></span>
-            </div>
-          </div>
-        </a>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><Link href="/our-story">Our Story</Link></li>
-            <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
-            <li><Link href="/dealers">Dealers</Link></li>
-            <li><Link href="/contact-us">Contact Us</Link></li>
-          </ul>
-        </nav>
-        <div className="header-btns">
-          <Link href="/enquire-now" className="btn-enquire" style={{ backgroundColor: 'var(--secondary-color)', color: 'white' }}>Enquire Now <i className="fas fa-arrow-right"></i></Link>
-          <a href="#" className="btn-whatsapp"><i className="fab fa-whatsapp"></i> Quick Enquiry via WhatsApp</a>
-        </div>
-      </header>
+    <main className="bg-[#f4f7f9]">
+      <Header activePage="enquire-now" />
 
-      {/* Hero Section */}
-      <section className="enquire-hero">
-        <div className="enquire-hero-left">
-          <h1>Enquire Now</h1>
-          <p>
+      {/* ─── Hero ─── */}
+      <section className="flex px-[5%] py-[60px] bg-gradient-to-r from-[#fdfdfd] to-[#f4f7f9] border-b border-[#eaeaea] items-center">
+        <div className="flex-[1.2] pr-[40px]">
+          <h1 className="font-playfair text-[48px] text-primary mb-[15px]">Enquire Now</h1>
+          <p className="text-[16px] text-text-main leading-[1.6] mb-[30px] max-w-[90%]">
             We'd love to hear from you. Share your requirements and our team will get in touch shortly.
           </p>
-          <div className="hero-features">
-            <div className="h-feature">
-              <i className="far fa-clock"></i>
-              <span>Quick Response</span>
-            </div>
-            <div className="h-feature">
-              <i className="fas fa-shield-alt"></i>
-              <span>Trusted Support</span>
-            </div>
-            <div className="h-feature">
-              <i className="fas fa-users-cog"></i>
-              <span>Expert Guidance</span>
-            </div>
-            <div className="h-feature">
-              <i className="fas fa-clipboard-list"></i>
-              <span>Tailored Solutions</span>
-            </div>
+          <div className="flex gap-[30px]">
+            {[
+              { icon: 'far fa-clock',         label: 'Quick Response' },
+              { icon: 'fas fa-shield-alt',     label: 'Trusted Support' },
+              { icon: 'fas fa-users-cog',      label: 'Expert Guidance' },
+              { icon: 'fas fa-clipboard-list', label: 'Tailored Solutions' },
+            ].map((f) => (
+              <div key={f.label} className="flex flex-col items-center text-center gap-[10px]">
+                <i className={`${f.icon} text-[24px] text-primary`} />
+                <span className="text-[12px] font-semibold text-text-main">{f.label}</span>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="enquire-hero-right">
-          {/* Using hero.png as a placeholder for the product group since it exists in public */}
-          <img src="/hero.png" alt="Minals Products" />
+        <div className="flex-1 flex justify-end">
+          <img src="/hero.png" alt="Minals Products" className="max-w-full h-auto object-contain max-h-[350px]" />
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="enquire-main">
-        
-        {/* Left Form */}
-        <div className="enquire-form-box">
-          <h2>Send us your enquiry</h2>
-          <form className="enq-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="enq-row">
-              <div className="enq-group">
-                <label>Full Name<span>*</span></label>
-                <input type="text" placeholder="Your full name" required />
+      {/* ─── Main content ─── */}
+      <section className="px-[5%] py-[60px] flex gap-10 max-w-[1400px] mx-auto">
+
+        {/* Form */}
+        <div className="flex-[1.2] bg-white rounded-[12px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+          <h2 className="font-playfair text-[24px] text-primary mb-[30px]">Send us your enquiry</h2>
+          <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+            <div className="flex gap-5">
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-text-main">Full Name<span className="text-[#e53935]">*</span></label>
+                <input type="text" placeholder="Your full name" required className={inputClass} />
               </div>
-              <div className="enq-group">
-                <label>Mobile Number<span>*</span></label>
-                <input type="tel" placeholder="Enter your mobile number" required />
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-text-main">Mobile Number<span className="text-[#e53935]">*</span></label>
+                <input type="tel" placeholder="Enter your mobile number" required className={inputClass} />
               </div>
             </div>
-
-            <div className="enq-row">
-              <div className="enq-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="your.email@example.com" />
+            <div className="flex gap-5">
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-text-main">Email Address</label>
+                <input type="email" placeholder="your.email@example.com" className={inputClass} />
               </div>
-              <div className="enq-group">
-                <label>Company / Business Name</label>
-                <input type="text" placeholder="Optional" />
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-text-main">Company / Business Name</label>
+                <input type="text" placeholder="Optional" className={inputClass} />
               </div>
             </div>
-
-            <div className="enq-row">
-              <div className="enq-group">
-                <label>State<span>*</span></label>
-                <select required>
+            <div className="flex gap-5">
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-text-main">State<span className="text-[#e53935]">*</span></label>
+                <select required className={`${inputClass} select-arrow`}>
                   <option value="">Select your state</option>
                   <option value="tn">Tamil Nadu</option>
                   <option value="ka">Karnataka</option>
@@ -109,9 +75,9 @@ export default function EnquireNowPage() {
                   <option value="kl">Kerala</option>
                 </select>
               </div>
-              <div className="enq-group">
-                <label>City<span>*</span></label>
-                <select required>
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-text-main">City<span className="text-[#e53935]">*</span></label>
+                <select required className={`${inputClass} select-arrow`}>
                   <option value="">Select your city</option>
                   <option value="chennai">Chennai</option>
                   <option value="bangalore">Bangalore</option>
@@ -119,163 +85,78 @@ export default function EnquireNowPage() {
                 </select>
               </div>
             </div>
-
-            <div className="enq-group">
-              <label>Message / Requirements<span>*</span></label>
-              <textarea placeholder="Tell us about your requirements... (e.g., product type, quantity, usage, etc.)" required></textarea>
+            <div className="flex flex-col gap-2">
+              <label className="text-[13px] font-semibold text-text-main">Message / Requirements<span className="text-[#e53935]">*</span></label>
+              <textarea placeholder="Tell us about your requirements..." required className={`${inputClass} resize-y min-h-[100px]`} />
             </div>
-
-            <div className="checkbox-group">
-              <input type="checkbox" id="agree" required />
-              <label htmlFor="agree">I agree to be contacted by Minals (Ramaiah Enterprises)</label>
+            <div className="flex items-center gap-[10px] mt-[10px]">
+              <input type="checkbox" id="agree" required className="w-4 h-4 accent-secondary" />
+              <label htmlFor="agree" className="text-[13px] text-text-main font-medium">I agree to be contacted by Minals (Ramaiah Enterprises)</label>
             </div>
-
-            <button type="submit" className="btn-submit-enq">
-              Submit Enquiry <i className="fas fa-arrow-right"></i>
+            <button type="submit" className="bg-secondary text-white border-none py-[14px] px-[30px] rounded-[6px] text-[16px] font-semibold cursor-pointer flex items-center justify-center gap-[10px] mt-5 w-fit self-center hover:bg-accent">
+              Submit Enquiry <i className="fas fa-arrow-right" />
             </button>
           </form>
         </div>
 
-        {/* Right Sidebar */}
-        <div className="enquire-sidebar">
-          
-          <div className="interest-box">
-            <h3 className="sidebar-title">I'm interested in:</h3>
-            <div className="interest-grid">
-              <div className="interest-card">
-                <i className="fas fa-leaf"></i>
-                <span>Food Products</span>
-              </div>
-              <div className="interest-card">
-                <i className="fas fa-pump-soap"></i>
-                <span>Cleaning Products</span>
-              </div>
-              <div className="interest-card">
-                <i className="fas fa-handshake"></i>
-                <span>Distributorship</span>
-              </div>
-              <div className="interest-card">
-                <i className="fas fa-box-open"></i>
-                <span>Bulk Orders</span>
-              </div>
+        {/* Sidebar */}
+        <div className="flex-1 flex flex-col gap-[30px]">
+          {/* I'm interested in */}
+          <div className="bg-white rounded-[12px] p-[30px] shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+            <h3 className="font-playfair text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">I'm interested in:</h3>
+            <div className="grid grid-cols-2 gap-[15px] mt-4">
+              {[
+                { icon: 'fa-leaf',        color: '#4CAF50', label: 'Food Products' },
+                { icon: 'fa-pump-soap',   color: '#2196F3', label: 'Cleaning Products' },
+                { icon: 'fa-handshake',   color: '#3F51B5', label: 'Distributorship' },
+                { icon: 'fa-box-open',    color: '#FF9800', label: 'Bulk Orders' },
+              ].map((c) => (
+                <div key={c.label} className="border border-[#e0e0e0] rounded-[8px] p-[15px] flex items-center gap-3 cursor-pointer hover:border-secondary hover:bg-[#fcfaf5]">
+                  <i className={`fas ${c.icon} text-[20px]`} style={{ color: c.color }} />
+                  <span className="text-[13px] font-semibold text-text-main">{c.label}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="whatsapp-box">
-            <div className="wa-text">
-              <div className="wa-icon-bg">
-                <i className="fab fa-whatsapp"></i>
+          {/* WhatsApp */}
+          <div className="bg-[#e8f4f8] rounded-[12px] p-[25px] flex items-center justify-between">
+            <div className="flex-1 flex items-start gap-[15px]">
+              <div className="w-10 h-10 bg-[#4CAF50] rounded-full flex items-center justify-center text-white text-[20px] shrink-0">
+                <i className="fab fa-whatsapp" />
               </div>
-              <div className="wa-content">
-                <h4>Need a quicker response?</h4>
-                <p>Chat with us directly on WhatsApp for instant assistance.</p>
+              <div>
+                <h4 className="text-[15px] text-primary mb-1">Need a quicker response?</h4>
+                <p className="text-[12px] text-text-main">Chat with us directly on WhatsApp for instant assistance.</p>
               </div>
             </div>
-            <a href="#" className="btn-whatsapp-chat">
-              <i className="fab fa-whatsapp"></i> Chat on WhatsApp
+            <a href="#" className="bg-primary text-white px-5 py-3 rounded-[6px] no-underline font-semibold text-[13px] flex items-center gap-2 hover:bg-[#001a3d] ml-4">
+              <i className="fab fa-whatsapp text-[#4CAF50] text-[16px]" /> Chat on WhatsApp
             </a>
           </div>
 
-          <div className="touch-box">
-            <h3 className="sidebar-title">Get in touch</h3>
-            <div className="touch-grid">
-              <div className="touch-card">
-                <i className="fas fa-map-marker-alt"></i>
-                <h4>Registered Office</h4>
-                <p>10+ Years Manufacturer, Georita, Olad, Chennai, Tamil Nadu, India</p>
-              </div>
-              <div className="touch-card">
-                <i className="fas fa-phone-alt"></i>
-                <h4>Phone</h4>
-                <p>+91 9566002233<br/>+91 9566002233</p>
-              </div>
-              <div className="touch-card">
-                <i className="fas fa-envelope"></i>
-                <h4>Email</h4>
-                <p>minalssnort01@gmail.com</p>
-              </div>
-              <div className="touch-card">
-                <i className="far fa-clock"></i>
-                <h4>Business Hours</h4>
-                <p>Mon - Sat: 9:00 AM - 6:00 PM<br/>Sunday: Closed</p>
-              </div>
+          {/* Get in touch */}
+          <div>
+            <h3 className="font-playfair text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">Get in touch</h3>
+            <div className="grid grid-cols-2 gap-[15px] mt-4">
+              {[
+                { icon: 'fa-map-marker-alt', title: 'Registered Office', text: '10+ Years Manufacturer, Georita, Olad, Chennai, Tamil Nadu, India' },
+                { icon: 'fa-phone-alt',      title: 'Phone',             text: '+91 9566002233\n+91 9566002233' },
+                { icon: 'fa-envelope',       title: 'Email',             text: 'minalssnort01@gmail.com' },
+                { clock: true,               title: 'Business Hours',    text: 'Mon - Sat: 9:00 AM - 6:00 PM\nSunday: Closed' },
+              ].map((t, i) => (
+                <div key={i} className="bg-white rounded-[12px] p-5 text-center shadow-[0_5px_20px_rgba(0,0,0,0.03)] flex flex-col items-center gap-[10px]">
+                  <i className={`${t.clock ? 'far fa-clock' : `fas ${t.icon}`} text-[24px] text-secondary`} />
+                  <h4 className="text-[14px] text-primary font-bold">{t.title}</h4>
+                  <p className="text-[11px] text-text-light leading-[1.4] whitespace-pre-line">{t.text}</p>
+                </div>
+              ))}
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="main-footer">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-              <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-              <div className="logo-text">
-                <h1>MINALS</h1>
-                <h2>RAMAIAH ENTERPRISES</h2>
-                <div className="since-box">
-                  <span className="line"></span>
-                  <span className="since-text">SINCE 1962</span>
-                  <span className="line"></span>
-                </div>
-              </div>
-            </a>
-            <p>
-              <strong>Rooted in values. Driven by trust.</strong>
-              Serving generations with quality and care since 1962.
-            </p>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><Link href="/our-story">Our Story</Link></li>
-              <li><Link href="/products">Products</Link></li>
-              <li><Link href="/dealers">Dealers</Link></li>
-              <li><Link href="/contact-us">Contact Us</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Our Products</h4>
-            <ul>
-              <li><a href="#">Food Products</a></li>
-              <li><a href="#">Cleaning Products</a></li>
-              <li><a href="#">View All Products</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Support</h4>
-            <ul>
-              <li><a href="#">Enquiry</a></li>
-              <li><a href="#">Bulk Orders</a></li>
-              <li><a href="#">FAQs</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-social">
-            <h4>Follow Us</h4>
-            <div className="social-icons">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-linkedin-in"></i></a>
-              <a href="#"><i className="fab fa-whatsapp"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>&copy; 2024 Minals (Ramaiah Enterprises). All Rights Reserved.</p>
-          <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <span>|</span>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

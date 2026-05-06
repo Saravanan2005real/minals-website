@@ -14,20 +14,22 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Minals | Ramaiah Enterprises - A Legacy of Purity",
-  description: "Established in 1962, Minals (Ramaiah Enterprises) delivers high-quality food and cleaning products. Quality you can trust.",
+  description:
+    "Established in 1962, Minals (Ramaiah Enterprises) delivers high-quality food and cleaning products. Quality you can trust.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
       </head>
-      <body className={`${inter.variable} ${playfair.variable}`}>
+      <body className={`${inter.variable} ${playfair.variable} font-inter`}>
         {children}
       </body>
     </html>

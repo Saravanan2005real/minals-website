@@ -1,272 +1,130 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
-import './our-story.css';
-import '../dealers/dealers.css'; /* Re-using footer and other common styles */
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function OurStoryPage() {
   return (
-    <main className="our-story-page">
-      {/* Header */}
-      <header>
-        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-          <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-          <div className="logo-text">
-            <h1>MINALS</h1>
-            <h2>RAMAIAH ENTERPRISES</h2>
-            <div className="since-box">
-              <span className="line"></span>
-              <span className="since-text">SINCE 1962</span>
-              <span className="line"></span>
-            </div>
-          </div>
-        </a>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><Link href="/our-story" className="active-dealer">Our Story</Link></li>
-            <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
-            <li><Link href="/dealers">Dealers</Link></li>
-            <li><Link href="/contact-us">Contact Us</Link></li>
-          </ul>
-        </nav>
-        <div className="header-btns">
-          <Link href="/enquire-now" className="btn-enquire">Enquire Now <i className="fas fa-arrow-right"></i></Link>
-          <a href="#" className="btn-whatsapp"><i className="fab fa-whatsapp"></i> Quick Enquiry via WhatsApp</a>
-        </div>
-      </header>
+    <main className="bg-white">
+      <Header activePage="our-story" />
 
-      {/* Hero Section (from Image 1) */}
-      <section className="story-hero">
-        <div className="story-hero-left">
-          <h1>Our Story</h1>
-          <p className="subtitle">A journey of trust, quality and commitment since 1962.</p>
-          <p>
+      {/* ─── Hero ─── */}
+      <section className="flex bg-[#fafafa] border-b border-[#eaeaea] relative overflow-hidden">
+        {/* Left */}
+        <div className="flex-1 px-[5%] py-[80px] flex flex-col justify-center z-10">
+          <h1 className="font-playfair text-[42px] text-primary mb-[15px]">Our Story</h1>
+          <p className="text-[16px] font-semibold text-[#444] mb-5">A journey of trust, quality and commitment since 1962.</p>
+          <p className="text-[15px] text-text-light mb-[30px] leading-[1.6] max-w-[90%]">
             What began in 1962 as a small trading business has today grown into a trusted name in households and industries across India.
           </p>
-          <a href="#journey" className="btn-journey">Our Journey <i className="fas fa-arrow-right"></i></a>
+          <a href="#journey" className="bg-secondary text-white px-[25px] py-3 rounded-[5px] font-semibold inline-flex items-center gap-[10px] no-underline w-fit hover:bg-accent hover:-translate-y-0.5">
+            Our Journey <i className="fas fa-arrow-right" />
+          </a>
         </div>
-        <div className="story-hero-middle">
-          <img src="/vintage.png" alt="Ramaiah Enterprises 1962" />
+        {/* Middle photo */}
+        <div className="flex-[1.5] relative">
+          <img src="/vintage.png" alt="Ramaiah Enterprises 1962" className="w-full h-full object-cover [filter:sepia(0.6)_contrast(1.1)]" />
         </div>
-        <div className="story-hero-right">
-          <img src="/60 years.png" alt="60+ Years of Trust" />
-          <p>Six decades of delivering purity, reliability and excellence.</p>
-        </div>
-      </section>
-
-      {/* Legacy Section (from Image 1) */}
-      <section className="legacy-section">
-        <div className="legacy-title">
-          <h2>Our Legacy. Your Trust.</h2>
-        </div>
-        <div className="legacy-grid">
-          <div className="legacy-item">
-            <i className="fas fa-handshake"></i>
-            <div className="legacy-text">
-              <h4>Trust</h4>
-              <p>Built on honesty, transparency and strong relationships.</p>
-            </div>
-          </div>
-          <div className="legacy-item">
-            <i className="fas fa-shield-alt"></i>
-            <div className="legacy-text">
-              <h4>Quality</h4>
-              <p>Every product meets the highest standards of purity and safety.</p>
-            </div>
-          </div>
-          <div className="legacy-item">
-            <i className="fas fa-award"></i>
-            <div className="legacy-text">
-              <h4>Pioneers</h4>
-              <p>Pioneers in cleaning and food solutions since 1962.</p>
-            </div>
-          </div>
-          <div className="legacy-item">
-            <i className="fas fa-users"></i>
-            <div className="legacy-text">
-              <h4>Commitment</h4>
-              <p>Committed to improving lives with every product we deliver.</p>
-            </div>
-          </div>
+        {/* Right panel */}
+        <div className="flex-[0.8] bg-primary text-white flex flex-col items-center justify-center p-10 text-center">
+          <img src="/60 years.png" alt="60+ Years of Trust" className="w-[120px] mb-5 drop-shadow-lg" />
+          <p className="text-[16px] leading-[1.5] text-[#eaeaea]">Six decades of delivering purity, reliability and excellence.</p>
         </div>
       </section>
 
-      {/* Detailed Journey Section (from Image 2) */}
-      <section id="journey" className="journey-section">
-        <div className="legacy-title">
-          <h2>Our Journey</h2>
+      {/* ─── Legacy Section ─── */}
+      <section className="px-[5%] py-[60px] bg-white">
+        <div className="text-center mb-10">
+          <h2 className="font-playfair text-[32px] text-primary inline-block relative after:block after:w-[50px] after:h-[2px] after:bg-secondary after:mx-auto after:mt-[10px]">
+            Our Legacy. Your Trust.
+          </h2>
         </div>
-        <div className="journey-container">
-          
-          <div className="journey-timeline">
-            
-            <div className="timeline-item">
-              <div className="timeline-icon">
-                <i className="fas fa-handshake"></i>
-              </div>
-              <div className="timeline-content">
-                <h3>1962: Our Inauguration</h3>
-                <p>Founded with effort and dedication by Mr. Ramaiah. Inaugurated by Former President Thiru. R. Venkatraman, with a successful start by Public Works & Revenue Minister Thiru. Ramaiah.</p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-icon">
-                <i className="fas fa-chart-line"></i>
-              </div>
-              <div className="timeline-content">
-                <h3>Good Response & Expansion</h3>
-                <p>Manufactured home-based products. Good response from Tamilnadu, Andhra, Karnataka, Kerala, and beyond overseas states (countries).</p>
+        <div className="flex justify-between gap-[30px]">
+          {[
+            { icon: 'fa-handshake',  title: 'Trust',      desc: 'Built on honesty, transparency and strong relationships.' },
+            { icon: 'fa-shield-alt', title: 'Quality',    desc: 'Every product meets the highest standards of purity and safety.' },
+            { icon: 'fa-award',      title: 'Pioneers',   desc: 'Pioneers in cleaning and food solutions since 1962.' },
+            { icon: 'fa-users',      title: 'Commitment', desc: 'Committed to improving lives with every product we deliver.' },
+          ].map((item) => (
+            <div key={item.title} className="flex-1 flex items-start gap-[15px]">
+              <i className={`fas ${item.icon} text-[28px] text-primary mt-1`} />
+              <div>
+                <h4 className="text-[15px] text-text-main font-bold mb-2">{item.title}</h4>
+                <p className="text-[13px] text-text-light leading-[1.5]">{item.desc}</p>
               </div>
             </div>
-
-            <div className="timeline-item">
-              <div className="timeline-icon">
-                <i className="fas fa-flask"></i>
-              </div>
-              <div className="timeline-content">
-                <h3>Newly Introduced: White Phenyl</h3>
-                <p>Our innovative White Phenyl product was introduced for the first time, leading house cleaning efforts.</p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-icon">
-                <i className="fas fa-seedling"></i>
-              </div>
-              <div className="timeline-content">
-                <h3>G.R. Ravindran Takes the Reins</h3>
-                <p>Thiru. G.R. Ravindran took over the organization after Thiru. Ramaiah expired.</p>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-icon">
-                <span>2012</span>
-              </div>
-              <div className="timeline-content">
-                <h3>Golden Jubilee & Beyond</h3>
-                <p>Celebrating 50 years of excellence. Honoring our winners and our continued journey.</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="journey-photos">
-            <div className="photos-row">
-              <div className="photo-frame small">
-                <img src="/vintage.png" alt="Founders 1962" />
-                <div className="photo-caption">
-                  <strong>1962</strong>
-                  The Founders and Early Pioneers
-                </div>
-              </div>
-              <div className="photo-frame small">
-                <img src="/vintage.png" alt="Founders 1962-3" />
-                <div className="photo-caption">
-                  <strong>1962-3</strong>
-                  The Founders and Early Pioneers
-                </div>
-              </div>
-              <div className="photo-frame small">
-                <img src="/vintage.png" alt="Founders 1962-4" />
-                <div className="photo-caption">
-                  <strong>1962-4</strong>
-                  The Founders and Early Pioneers
-                </div>
-              </div>
-            </div>
-            
-            <div className="photo-frame large">
-              <img src="/vintage.png" alt="Golden Jubilee" />
-              <div className="photo-caption">
-                <strong>50 Golden Jubilee</strong>
-              </div>
-            </div>
-          </div>
-
+          ))}
         </div>
       </section>
 
-      {/* Promise Banner (from Image 1) */}
-      <div className="promise-banner">
-        <h3>From one family's promise to a nation's trust.</h3>
-        <p>And the journey continues...</p>
+      {/* ─── Journey Timeline ─── */}
+      <section id="journey" className="px-[5%] py-[80px] bg-[radial-gradient(circle_at_right_center,#f4f7f9_0%,#ffffff_100%)] relative">
+        <div className="text-center mb-10">
+          <h2 className="font-playfair text-[32px] text-primary inline-block relative after:block after:w-[50px] after:h-[2px] after:bg-secondary after:mx-auto after:mt-[10px]">
+            Our Journey
+          </h2>
+        </div>
+        <div className="flex gap-[60px] max-w-[1400px] mx-auto">
+          {/* Timeline */}
+          <div className="flex-1 flex flex-col relative before:content-[''] before:absolute before:left-[45px] before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:z-0">
+            {[
+              { icon: 'fa-handshake',  title: '1962: Our Inauguration', desc: 'Founded with effort and dedication by Mr. Ramaiah. Inaugurated by Former President Thiru. R. Venkatraman, with a successful start by Public Works & Revenue Minister Thiru. Ramaiah.' },
+              { icon: 'fa-chart-line', title: 'Good Response & Expansion', desc: 'Manufactured home-based products. Good response from Tamilnadu, Andhra, Karnataka, Kerala, and beyond overseas states (countries).' },
+              { icon: 'fa-flask',      title: 'Newly Introduced: White Phenyl', desc: 'Our innovative White Phenyl product was introduced for the first time, leading house cleaning efforts.' },
+              { icon: 'fa-seedling',   title: 'G.R. Ravindran Takes the Reins', desc: 'Thiru. G.R. Ravindran took over the organization after Thiru. Ramaiah expired.' },
+              { icon: null, year: '2012', title: 'Golden Jubilee & Beyond', desc: 'Celebrating 50 years of excellence. Honoring our winners and our continued journey.' },
+            ].map((item, i) => (
+              <div key={i} className="flex gap-[30px] mb-10 relative z-10">
+                <div className="w-[90px] h-[26] min-h-[90px] bg-white border-2 border-primary [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] flex items-center justify-center shrink-0">
+                  {item.icon
+                    ? <i className={`fas ${item.icon} text-[32px] text-secondary`} />
+                    : <span className="font-bold text-[18px] text-secondary">{item.year}</span>
+                  }
+                </div>
+                <div className="pt-[15px]">
+                  <h3 className="font-playfair text-[22px] text-primary mb-[10px]">{item.title}</h3>
+                  <p className="text-[14px] text-text-light leading-[1.6]">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Photos */}
+          <div className="flex-1 flex flex-col gap-[30px]">
+            <div className="flex gap-5 justify-center flex-wrap">
+              {[
+                { rot: '-3deg', year: '1962',   caption: 'The Founders and Early Pioneers' },
+                { rot: '2deg',  year: '1962-3', caption: 'The Founders and Early Pioneers', ty: '20px' },
+                { rot: '-1deg', year: '1962-4', caption: 'The Founders and Early Pioneers' },
+              ].map((p) => (
+                <div key={p.year} style={{ transform: `rotate(${p.rot})${p.ty ? ` translateY(${p.ty})` : ''}` }}
+                  className="w-[200px] bg-[#fffaf0] p-2 border-[3px] border-secondary shadow-[0_10px_25px_rgba(0,0,0,0.15)] flex flex-col items-center">
+                  <img src="/vintage.png" alt={`Founders ${p.year}`} className="w-full h-auto object-cover [filter:sepia(0.8)_contrast(1.2)]" />
+                  <div className="font-inter text-[11px] font-semibold text-text-main text-center mt-2 leading-[1.2]">
+                    <strong className="block text-[13px] text-primary">{p.year}</strong>
+                    {p.caption}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ transform: 'rotate(1deg)' }} className="w-[90%] mx-auto mt-5 bg-[#fffaf0] p-2 border-[3px] border-secondary shadow-[0_10px_25px_rgba(0,0,0,0.15)] flex flex-col items-center">
+              <img src="/vintage.png" alt="Golden Jubilee" className="w-full h-auto object-cover [filter:sepia(0.8)_contrast(1.2)]" />
+              <div className="font-inter text-[11px] font-semibold text-text-main text-center mt-2">
+                <strong className="block text-[13px] text-primary">50 Golden Jubilee</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Promise Banner ─── */}
+      <div className="bg-primary text-white px-[5%] py-10 mx-[5%] rounded-[12px] relative overflow-hidden mb-10">
+        <h3 className="font-playfair text-[24px] text-secondary mb-[5px] relative z-10">From one family's promise to a nation's trust.</h3>
+        <p className="text-[15px] text-[#e0e0e0] relative z-10">And the journey continues...</p>
       </div>
 
-      {/* Footer (Re-used from Dealers page) */}
-      <footer className="main-footer">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-              <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-              <div className="logo-text">
-                <h1>MINALS</h1>
-                <h2>RAMAIAH ENTERPRISES</h2>
-                <div className="since-box">
-                  <span className="line"></span>
-                  <span className="since-text">SINCE 1962</span>
-                  <span className="line"></span>
-                </div>
-              </div>
-            </a>
-            <p>
-              <strong>Rooted in values. Driven by trust.</strong>
-              Serving generations with quality and care since 1962.
-            </p>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><Link href="/our-story">Our Story</Link></li>
-              <li><Link href="/products">Products</Link></li>
-              <li><Link href="/dealers">Dealers</Link></li>
-              <li><Link href="/contact-us">Contact Us</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Our Products</h4>
-            <ul>
-              <li><a href="#">Food Products</a></li>
-              <li><a href="#">Cleaning Products</a></li>
-              <li><a href="#">View All Products</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Support</h4>
-            <ul>
-              <li><a href="#">Enquiry</a></li>
-              <li><a href="#">Bulk Orders</a></li>
-              <li><a href="#">FAQs</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-social">
-            <h4>Follow Us</h4>
-            <div className="social-icons">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-linkedin-in"></i></a>
-              <a href="#"><i className="fab fa-whatsapp"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-          <p>&copy; 2024 Minals (Ramaiah Enterprises). All Rights Reserved.</p>
-          <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <span>|</span>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

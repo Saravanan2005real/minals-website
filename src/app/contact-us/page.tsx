@@ -1,121 +1,71 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
-import './contact-us.css';
-import '../dealers/dealers.css'; /* Re-using footer and header base styles */
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] text-[14px] font-inter bg-[#fdfdfd] focus:outline-none focus:border-secondary focus:shadow-[0_0_0_2px_rgba(184,134,11,0.1)]";
 
 export default function ContactUsPage() {
   return (
-    <main className="contact-page">
-      {/* Header */}
-      <header>
-        <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-          <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-          <div className="logo-text">
-            <h1>MINALS</h1>
-            <h2>RAMAIAH ENTERPRISES</h2>
-            <div className="since-box">
-              <span className="line"></span>
-              <span className="since-text">SINCE 1962</span>
-              <span className="line"></span>
-            </div>
-          </div>
-        </a>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><Link href="/our-story">Our Story</Link></li>
-            <li><Link href="/products">Products <i className="fas fa-chevron-down" style={{ fontSize: '10px' }}></i></Link></li>
-            <li><Link href="/dealers">Dealers</Link></li>
-            <li><Link href="/contact-us" className="active-dealer">Contact Us</Link></li>
-          </ul>
-        </nav>
-        <div className="header-btns">
-          <Link href="/enquire-now" className="btn-enquire">Enquire Now <i className="fas fa-arrow-right"></i></Link>
-          <a href="#" className="btn-whatsapp"><i className="fab fa-whatsapp"></i> Quick Enquiry via WhatsApp</a>
-        </div>
-      </header>
+    <main className="bg-bg-light">
+      <Header activePage="contact-us" />
 
-      {/* Main Contact Section */}
-      <div className="contact-main">
-        
-        {/* Left Info Section */}
-        <div className="contact-info">
-          <h1>Contact Us</h1>
-          <p className="subtitle">We are here to help you.</p>
-          <p className="description">
+      {/* ─── Main Contact Section ─── */}
+      <div className="px-[5%] py-[60px] flex justify-between gap-[50px] max-w-[1400px] mx-auto">
+
+        {/* Left info */}
+        <div className="flex-1 flex flex-col pr-[30px]">
+          <h1 className="font-playfair text-[42px] text-primary mb-[10px]">Contact Us</h1>
+          <p className="text-[16px] font-bold text-primary mb-[10px]">We are here to help you.</p>
+          <p className="text-[14px] text-text-light leading-[1.6] mb-10 max-w-[90%]">
             Have a question, need product information, or want to partner with us? Reach out to our team – we'll be happy to assist you.
           </p>
 
-          <div className="contact-details">
-            <div className="contact-item">
-              <div className="contact-icon">
-                <i className="fas fa-map-marker-alt"></i>
+          <div className="flex flex-col gap-[30px]">
+            {[
+              { icon: 'fa-map-marker-alt', title: 'Registered Office', lines: ['10+ Years Manufacturer, Gerotta, Dlad,', 'Chennai Boag, South India – 600 001.', 'Tamil Nadu, India.'] },
+              { icon: 'fa-phone fa-flip-horizontal', title: 'Phone',    lines: ['+91 44 1234 5678', '+91 98765 43210'] },
+              { icon: 'fa-envelope',    title: 'Email',          lines: ['info@minals.in', 'enquiry@minals.in'] },
+              { icon: null, clock: true, title: 'Business Hours', lines: ['Mon – Sat: 9:00 AM – 6:00 PM', 'Sunday: Closed'] },
+            ].map((item) => (
+              <div key={item.title} className="flex items-start gap-5">
+                <div className="w-[45px] h-[45px] bg-primary rounded-full flex items-center justify-center shrink-0">
+                  <i className={`${item.clock ? 'far fa-clock' : `fas ${item.icon}`} text-secondary text-[20px]`} />
+                </div>
+                <div>
+                  <h4 className="text-[16px] text-primary font-bold mb-[5px]">{item.title}</h4>
+                  <p className="text-[13px] text-text-light leading-[1.5] m-0">{item.lines.join('\n')}</p>
+                </div>
               </div>
-              <div className="contact-text">
-                <h4>Registered Office</h4>
-                <p>10+ Years Manufacturer, Gerotta, Dlad,<br/>Chennai Boag, South India – 600 001.<br/>Tamil Nadu, India.</p>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <div className="contact-icon">
-                <i className="fas fa-phone fa-flip-horizontal"></i>
-              </div>
-              <div className="contact-text">
-                <h4>Phone</h4>
-                <p>+91 44 1234 5678<br/>+91 98765 43210</p>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <div className="contact-icon">
-                <i className="fas fa-envelope"></i>
-              </div>
-              <div className="contact-text">
-                <h4>Email</h4>
-                <p>info@minals.in<br/>enquiry@minals.in</p>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <div className="contact-icon">
-                <i className="far fa-clock"></i>
-              </div>
-              <div className="contact-text">
-                <h4>Business Hours</h4>
-                <p>Mon – Sat: 9:00 AM – 6:00 PM<br/>Sunday: Closed</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* Right Form Section */}
-        <div className="contact-form-container">
-          <h3>Send Us a Message</h3>
-          <p>Fill in the form and our team will get back to you shortly.</p>
-          
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-row">
-              <div className="form-group">
-                <label>Your Name <span>*</span></label>
-                <input type="text" placeholder="Enter your full name" required />
+        {/* Right form */}
+        <div className="flex-[1.2] bg-white rounded-[12px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
+          <h3 className="font-playfair text-[24px] text-primary mb-[10px]">Send Us a Message</h3>
+          <p className="text-[14px] text-text-light mb-[30px]">Fill in the form and our team will get back to you shortly.</p>
+
+          <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+            <div className="flex gap-5">
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-primary">Your Name <span className="text-[#e53935]">*</span></label>
+                <input type="text" placeholder="Enter your full name" required className={inputClass} />
               </div>
-              <div className="form-group">
-                <label>Email Address <span>*</span></label>
-                <input type="email" placeholder="Enter your email" required />
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-primary">Email Address <span className="text-[#e53935]">*</span></label>
+                <input type="email" placeholder="Enter your email" required className={inputClass} />
               </div>
             </div>
-            
-            <div className="form-row">
-              <div className="form-group">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="Enter your phone number" />
+            <div className="flex gap-5">
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-primary">Phone Number</label>
+                <input type="tel" placeholder="Enter your phone number" className={inputClass} />
               </div>
-              <div className="form-group">
-                <label>Subject</label>
-                <select>
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-[13px] font-semibold text-primary">Subject</label>
+                <select className={`${inputClass} select-arrow`}>
                   <option value="">Select a subject</option>
                   <option value="product">Product Information</option>
                   <option value="dealership">Dealership Enquiry</option>
@@ -124,134 +74,38 @@ export default function ContactUsPage() {
                 </select>
               </div>
             </div>
-
-            <div className="form-group">
-              <label>Message <span>*</span></label>
-              <textarea placeholder="Type your message here..." required></textarea>
+            <div className="flex flex-col gap-2">
+              <label className="text-[13px] font-semibold text-primary">Message <span className="text-[#e53935]">*</span></label>
+              <textarea placeholder="Type your message here..." required className={`${inputClass} resize-y min-h-[120px]`} />
             </div>
-
-            <button type="submit" className="btn-send">
-              Send Message <i className="fas fa-arrow-right"></i>
+            <button type="submit" className="bg-secondary text-white border-none px-[25px] py-3 rounded-[6px] text-[15px] font-semibold cursor-pointer inline-flex items-center gap-[10px] w-fit mt-[10px] hover:bg-accent hover:-translate-y-0.5">
+              Send Message <i className="fas fa-arrow-right" />
             </button>
           </form>
         </div>
-
       </div>
 
-      {/* Feature Bar */}
-      <div className="contact-features">
-        <div className="c-feature-item">
-          <div className="c-feature-icon">
-            <i className="fas fa-shield-alt"></i>
-          </div>
-          <div className="c-feature-text">
-            <h4>Trusted Since 1962</h4>
-            <p>Over 60+ years of delivering quality and care.</p>
-          </div>
-        </div>
-
-        <div className="c-feature-item">
-          <div className="c-feature-icon">
-            <i className="fas fa-headset"></i>
-          </div>
-          <div className="c-feature-text">
-            <h4>Quick Support</h4>
-            <p>Our team is always ready to assist you.</p>
-          </div>
-        </div>
-
-        <div className="c-feature-item">
-          <div className="c-feature-icon">
-            <i className="fas fa-truck"></i>
-          </div>
-          <div className="c-feature-text">
-            <h4>Pan India Reach</h4>
-            <p>Strong distribution network across South India.</p>
-          </div>
-        </div>
-
-        <div className="c-feature-item">
-          <div className="c-feature-icon">
-            <i className="fas fa-certificate"></i>
-          </div>
-          <div className="c-feature-text">
-            <h4>Quality Assurance</h4>
-            <p>Committed to purity, safety and excellence.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer (Re-used from Dealers page) */}
-      <footer className="main-footer">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a href="/" className="logo-container" style={{ textDecoration: 'none' }}>
-              <img src="/logo.png" alt="Minals Logo" className="brand-logo-img" />
-              <div className="logo-text">
-                <h1>MINALS</h1>
-                <h2>RAMAIAH ENTERPRISES</h2>
-                <div className="since-box">
-                  <span className="line"></span>
-                  <span className="since-text">SINCE 1962</span>
-                  <span className="line"></span>
-                </div>
-              </div>
-            </a>
-            <p>
-              <strong>Rooted in values. Driven by trust.</strong>
-              Serving generations with quality and care since 1962.
-            </p>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><Link href="/our-story">Our Story</Link></li>
-              <li><Link href="/products">Products</Link></li>
-              <li><Link href="/dealers">Dealers</Link></li>
-              <li><Link href="/contact-us">Contact Us</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Our Products</h4>
-            <ul>
-              <li><a href="#">Food Products</a></li>
-              <li><a href="#">Cleaning Products</a></li>
-              <li><a href="#">View All Products</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-links-group">
-            <h4>Support</h4>
-            <ul>
-              <li><a href="#">Enquiry</a></li>
-              <li><a href="#">Bulk Orders</a></li>
-              <li><a href="#">FAQs</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-social">
-            <h4>Follow Us</h4>
-            <div className="social-icons">
-              <a href="#"><i className="fab fa-facebook-f"></i></a>
-              <a href="#"><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fab fa-linkedin-in"></i></a>
-              <a href="#"><i className="fab fa-whatsapp"></i></a>
+      {/* ─── Feature Bar ─── */}
+      <div className="flex justify-between gap-[30px] px-[5%] py-[40px] bg-white border-t border-[#eaeaea] max-w-[1400px] mx-auto">
+        {[
+          { icon: 'fa-shield-alt', title: 'Trusted Since 1962',  desc: 'Over 60+ years of delivering quality and care.' },
+          { icon: 'fa-headset',    title: 'Quick Support',       desc: 'Our team is always ready to assist you.' },
+          { icon: 'fa-truck',      title: 'Pan India Reach',     desc: 'Strong distribution network across South India.' },
+          { icon: 'fa-certificate',title: 'Quality Assurance',   desc: 'Committed to purity, safety and excellence.' },
+        ].map((f) => (
+          <div key={f.title} className="flex-1 flex flex-row items-start gap-[15px]">
+            <div className="w-[50px] h-[50px] bg-[#f8f3e6] rounded-full flex items-center justify-center shrink-0">
+              <i className={`fas ${f.icon} text-[22px] text-primary`} />
+            </div>
+            <div>
+              <h4 className="text-[14px] text-primary font-bold mb-[5px]">{f.title}</h4>
+              <p className="text-[12px] text-text-light leading-[1.4] m-0">{f.desc}</p>
             </div>
           </div>
-        </div>
+        ))}
+      </div>
 
-        <div className="footer-bottom">
-          <p>&copy; 2024 Minals (Ramaiah Enterprises). All Rights Reserved.</p>
-          <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <span>|</span>
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

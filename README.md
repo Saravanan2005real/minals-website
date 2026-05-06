@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Next.js-16.2.4-black?logo=next.js" />
   <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react" />
   <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript" />
-  <img src="https://img.shields.io/badge/CSS3-Vanilla-1572B6?logo=css3" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss" />
 </p>
 
 ---
@@ -25,6 +25,7 @@
 - [Project Structure](#project-structure)
 - [Scripts](#scripts)
 - [Design System](#design-system)
+- [Architecture Notes](#architecture-notes)
 
 ---
 
@@ -32,7 +33,7 @@
 
 Minals (Ramaiah Enterprises) is a legacy brand with 60+ years of manufacturing excellence. This website serves as the company's official digital presence, showcasing their product catalogue, dealer network, and contact information.
 
-Built with **Next.js 16 App Router** and **TypeScript**, the site is fully server-rendered — meaning every page is generated on the server before it reaches the browser. This eliminates flash-of-unstyled-content (FOUC) and ensures fast, reliable performance across all pages.
+Built with **Next.js 16 App Router**, **TypeScript**, and **Tailwind CSS v3**, the site is fully server-rendered — meaning every page is generated on the server before it reaches the browser, ensuring fast, reliable performance with no flash on navigation.
 
 ---
 
@@ -41,13 +42,13 @@ Built with **Next.js 16 App Router** and **TypeScript**, the site is fully serve
 | Page | Route | Description |
 |---|---|---|
 | **Home** | `/` | Hero section, product category cards, heritage banner |
-| **Products** | `/products` | Full product catalogue with category filter sidebar |
+| **Products** | `/products` | Full product catalogue with category filter sidebar + prices |
 | **Products — Cleaning** | `/products?category=cleaning` | Filtered to cleaning products only |
 | **Products — Food** | `/products?category=food` | Filtered to food products only |
-| **Our Story** | `/our-story` | Company history and brand story |
-| **Dealers** | `/dealers` | Dealer network with India map |
-| **Contact Us** | `/contact-us` | Contact form with address and business hours |
-| **Enquire Now** | `/enquire-now` | Lead capture enquiry form |
+| **Our Story** | `/our-story` | Company history, legacy section, and journey timeline |
+| **Dealers** | `/dealers` | Dealer network with India map and partner form |
+| **Contact Us** | `/contact-us` | Contact form, address, and business hours |
+| **Enquire Now** | `/enquire-now` | Lead capture enquiry form with sidebar |
 
 ---
 
@@ -57,9 +58,10 @@ Built with **Next.js 16 App Router** and **TypeScript**, the site is fully serve
 |---|---|---|
 | [Next.js](https://nextjs.org/) | 16.2.4 | Framework — App Router, Server Components |
 | [React](https://react.dev/) | 19.x | UI library |
-| TypeScript | 5.x | Type safety |
-| Vanilla CSS3 | — | All styling — Flex, Grid, CSS Variables |
-| [Font Awesome 6](https://fontawesome.com/) | 6.0 | Icons (loaded via CDN) |
+| TypeScript | 5.x | Type safety across all components |
+| [Tailwind CSS](https://tailwindcss.com/) | 3.x | All styling — utility-first CSS framework |
+| [PostCSS](https://postcss.org/) | — | CSS processing pipeline for Tailwind |
+| [Font Awesome 6](https://fontawesome.com/) | 6.0 | Icons (loaded via CDN in layout) |
 | [Google Fonts](https://fonts.google.com/) | — | Playfair Display & Inter via `next/font` |
 
 ---
@@ -120,42 +122,40 @@ Interian/
 │   ├── cleaning.png               # Cleaning category image
 │   ├── food.png                   # Food category image
 │   ├── india-map.png              # Dealers page map
-│   ├── vintage.png                # Heritage section image
-│   └── products/                  # Individual product images
-│       ├── sanitizer.png
-│       ├── floor-cleaner.png
-│       ├── corn-flour.png
-│       └── ...
+│   ├── vintage.png                # Heritage / Our Story image
+│   └── products/                  # Individual product images (19 products)
 │
 ├── src/
 │   └── app/                       # Next.js App Router
 │       │
-│       ├── layout.tsx             # Root layout (fonts, head meta, global CSS)
-│       ├── globals.css            # Global design system & all shared styles
+│       ├── components/
+│       │   ├── Header.tsx         # Shared header component (Tailwind)
+│       │   └── Footer.tsx         # Shared footer component (Tailwind)
+│       │
+│       ├── layout.tsx             # Root layout — fonts, head tags, globals.css
+│       ├── globals.css            # @tailwind directives + minimal CSS overrides
 │       ├── page.tsx               # Home page (/)
-│       ├── page.module.css        # Home page scoped styles
 │       │
 │       ├── products/
-│       │   └── page.tsx           # Products page — pure server component
+│       │   └── page.tsx           # Products — pure server component, category filter
 │       │
 │       ├── our-story/
-│       │   └── page.tsx           # Our Story page
+│       │   └── page.tsx           # Our Story — timeline and photo gallery
 │       │
 │       ├── dealers/
-│       │   ├── page.tsx           # Dealers page
-│       │   └── dealers.css        # Dealers + shared footer styles
+│       │   └── page.tsx           # Dealers — map + partner application form
 │       │
 │       ├── contact-us/
-│       │   ├── page.tsx           # Contact Us page
-│       │   └── contact-us.css     # Contact page scoped styles
+│       │   └── page.tsx           # Contact Us — form + contact details
 │       │
 │       └── enquire-now/
-│           └── page.tsx           # Enquire Now page
+│           └── page.tsx           # Enquire Now — lead form + sidebar
 │
+├── tailwind.config.ts             # Tailwind configuration (brand colors, fonts)
+├── postcss.config.js              # PostCSS configuration
 ├── next.config.ts                 # Next.js configuration
 ├── tsconfig.json                  # TypeScript configuration
-├── eslint.config.mjs              # ESLint configuration
-└── package.json                   # Project dependencies and scripts
+└── package.json                   # Dependencies and scripts
 ```
 
 ---
@@ -164,7 +164,7 @@ Interian/
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Start the local development server with Turbopack |
+| `npm run dev` | Start local development server with Turbopack |
 | `npm run build` | Build the app for production |
 | `npm start` | Run the production build locally |
 | `npm run lint` | Run ESLint across the project |
@@ -173,24 +173,29 @@ Interian/
 
 ## Design System
 
-All design tokens are defined as **CSS Custom Properties** in `:root {}` inside `globals.css`:
+All brand tokens are defined in `tailwind.config.ts` as custom Tailwind colors:
 
-```css
-:root {
-  --primary-color:   #002B5B;   /* Deep navy blue — brand primary */
-  --secondary-color: #B8860B;   /* Dark gold — accents and prices */
-  --accent-color:    #D4AF37;   /* Bright gold — hover states */
-  --text-color:      #333;      /* Body text */
-  --light-text:      #666;      /* Muted/secondary text */
-  --white:           #ffffff;
-  --bg-light:        #f9f9f9;   /* Light grey page backgrounds */
-  --shadow:          0 4px 15px rgba(0, 0, 0, 0.1);
+```ts
+colors: {
+  primary:      '#002B5B',   // Deep navy blue — brand primary
+  secondary:    '#B8860B',   // Dark gold — prices, accents, CTAs
+  accent:       '#D4AF37',   // Bright gold — hover states
+  'text-main':  '#333333',   // Body text
+  'text-light': '#666666',   // Muted / secondary text
+  'bg-light':   '#f9f9f9',   // Light page backgrounds
 }
 ```
 
+**Usage in JSX — no CSS files needed:**
+```tsx
+<div className="bg-primary text-white px-5 py-3 rounded-lg hover:bg-secondary">
+  Click me
+</div>
+```
+
 **Typography:**
-- **Headings** — Playfair Display (serif) via `next/font/google`
-- **Body / UI** — Inter (sans-serif) via `next/font/google`
+- **Headings** — `font-playfair` (Playfair Display serif) via `next/font/google`
+- **Body / UI** — `font-inter` (Inter sans-serif) via `next/font/google`
 
 **Icons** — Font Awesome 6 Free loaded from CDN in `layout.tsx`
 
@@ -198,16 +203,27 @@ All design tokens are defined as **CSS Custom Properties** in `:root {}` inside 
 
 ## Architecture Notes
 
+### Why Tailwind CSS (not Vanilla CSS)
+The project was migrated from Vanilla CSS to **Tailwind CSS v3**. Benefits:
+
+- ✅ **No separate CSS files** — styles live directly in JSX `className` attributes
+- ✅ **Consistent design tokens** — all colors defined once in `tailwind.config.ts`
+- ✅ **Smaller bundle** — Tailwind's purge removes unused styles automatically
+- ✅ **No naming collisions** — utility classes can't conflict across pages
+- ✅ **Shared components** — `Header.tsx` and `Footer.tsx` are reused across all pages, eliminating duplication
+
 ### Why the Products page is a pure Server Component
-The `/products` page reads the `?category=` query param using Next.js's built-in `searchParams` server prop — **not** the `useSearchParams()` hook. This means:
+The `/products` page reads `?category=` using Next.js's `searchParams` server prop — **not** the `useSearchParams()` hook. This means:
 
-- ✅ The page is **fully rendered on the server** with the correct products
-- ✅ **No Suspense boundary needed** — no client/server hydration gap
-- ✅ **No white flash** on navigation — the browser receives complete HTML on the first response
-- ✅ Category URLs (`/products?category=food`) are **crawlable by search engines**
+- ✅ **Fully rendered on the server** — correct products are sent on first response
+- ✅ **No Suspense boundary needed** — zero client/server hydration gap
+- ✅ **No white flash** on navigation
+- ✅ **SEO-friendly** — category URLs (`/products?category=food`) are crawlable
 
-### CSS Architecture
-All styles live in `globals.css` (shared styles) and page-level CSS files (scoped styles). No CSS framework is used — everything is written in pure CSS3 with Flexbox and Grid layouts.
+### Shared Components
+Instead of repeating the header and footer HTML across all 6 pages, they are extracted into:
+- `src/app/components/Header.tsx` — accepts `activePage` prop to highlight current nav link
+- `src/app/components/Footer.tsx` — consistent footer with links, social icons, and copyright bar
 
 ---
 
