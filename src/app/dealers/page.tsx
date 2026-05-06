@@ -17,7 +17,7 @@ export default function DealersPage() {
         {/* Left info */}
         <div className="flex-[1.2] flex flex-col gap-[30px]">
           <div>
-            <h2 className="font-playfair text-[36px] text-primary font-bold mb-[15px]">Our Dealer Network</h2>
+            <h2 className="text-[36px] text-primary font-bold mb-[15px]">Our Dealer Network</h2>
             <p className="text-[15px] text-text-light leading-[1.6] max-w-[90%]">
               Partner with us and grow together. We are building a strong network across India to deliver quality products to every home and business.
             </p>
@@ -64,7 +64,7 @@ export default function DealersPage() {
 
         {/* Form */}
         <div className="flex-[0.8] bg-white rounded-[12px] px-[30px] py-[35px] shadow-panel border border-black/5">
-          <h3 className="font-playfair text-[24px] text-primary mb-[10px]">Become a Dealer</h3>
+          <h3 className="text-[24px] text-primary mb-[10px]">Become a Dealer</h3>
           <p className="text-[13px] text-text-light mb-[25px] leading-[1.5]">
             Join hands with Minals (Ramaiah Enterprises) and grow your business with a trusted brand.
           </p>

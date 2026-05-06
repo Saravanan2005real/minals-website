@@ -10,9 +10,6 @@
     @apply bg-white text-text-main font-inter leading-relaxed overflow-x-hidden;
   }
 
-  h1, h2, h3 {
-    @apply font-playfair;
-  }
 
   ul { list-style: none; }
   a { text-decoration: none; }
@@ -61,6 +58,29 @@
   /* Active dealer nav link */
   .active-dealer {
     @apply text-secondary border-b-2 border-secondary pb-1;
+  }
+
+  /* Animated gold underline for nav links */
+  .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+    text-decoration: none;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #D4AF37;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.nav-active::after {
+    width: 100%;
   }
 }
 

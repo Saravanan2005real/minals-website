@@ -194,8 +194,7 @@ colors: {
 ```
 
 **Typography:**
-- **Headings** — `font-playfair` (Playfair Display serif) via `next/font/google`
-- **Body / UI** — `font-inter` (Inter sans-serif) via `next/font/google`
+- **Primary Font** — `font-inter` (Inter sans-serif) via `next/font/google` is used uniformly across all headings and body text for a modern, clean, and consistent corporate aesthetic.
 
 **Icons** — Font Awesome 6 Free loaded from CDN in `layout.tsx`
 
@@ -220,10 +219,15 @@ The `/products` page reads `?category=` using Next.js's `searchParams` server pr
 - ✅ **No white flash** on navigation
 - ✅ **SEO-friendly** — category URLs (`/products?category=food`) are crawlable
 
-### Shared Components
-Instead of repeating the header and footer HTML across all 6 pages, they are extracted into:
-- `src/app/components/Header.tsx` — accepts `activePage` prop to highlight current nav link
-- `src/app/components/Footer.tsx` — consistent footer with links, social icons, and copyright bar
+### Shared Components & UI Polish
+Instead of repeating HTML across all 6 pages, core elements are extracted:
+- `src/app/components/Header.tsx` — Dynamic component with animated growing gold underline for active navigation links. Features an integrated WhatsApp CTA button.
+- `src/app/components/Footer.tsx` — Standardized 5-column CSS grid footer featuring detailed contact information, address details, and a centered copyright bar. Shared globally across all pages.
+
+### Data & Assets
+- **Product Descriptions:** The product catalogue is enriched with unique 2-line descriptions for all 19 products, providing better context directly on the product cards.
+- **High-Quality Assets:** Low-resolution placeholder images (such as the 60+ Years seal and vintage storefront) have been replaced with premium, custom-generated high-resolution graphics to elevate the brand's perceived value.
+- **Iconography:** FontAwesome 6 icons have been standardized and mapped precisely to their respective categories (e.g., `fa-pump-soap` for cleaning, `fa-utensils` for food, `fa-cubes` for inventory).
 
 ---
 

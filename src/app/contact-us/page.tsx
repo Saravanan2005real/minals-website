@@ -16,7 +16,7 @@ export default function ContactUsPage() {
 
         {/* Left info */}
         <div className="flex-1 flex flex-col pr-[30px]">
-          <h1 className="font-playfair text-[42px] text-primary mb-[10px]">Contact Us</h1>
+          <h1 className="text-[42px] text-primary mb-[10px]">Contact Us</h1>
           <p className="text-[16px] font-bold text-primary mb-[10px]">We are here to help you.</p>
           <p className="text-[14px] text-text-light leading-[1.6] mb-10 max-w-[90%]">
             Have a question, need product information, or want to partner with us? Reach out to our team – we'll be happy to assist you.
@@ -44,7 +44,7 @@ export default function ContactUsPage() {
 
         {/* Right form */}
         <div className="flex-[1.2] bg-white rounded-[12px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
-          <h3 className="font-playfair text-[24px] text-primary mb-[10px]">Send Us a Message</h3>
+          <h3 className="text-[24px] text-primary mb-[10px]">Send Us a Message</h3>
           <p className="text-[14px] text-text-light mb-[30px]">Fill in the form and our team will get back to you shortly.</p>
 
           <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>

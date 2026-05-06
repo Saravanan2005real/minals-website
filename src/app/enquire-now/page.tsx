@@ -14,7 +14,7 @@ export default function EnquireNowPage() {
       {/* ─── Hero ─── */}
       <section className="flex px-[5%] py-[60px] bg-gradient-to-r from-[#fdfdfd] to-[#f4f7f9] border-b border-[#eaeaea] items-center">
         <div className="flex-[1.2] pr-[40px]">
-          <h1 className="font-playfair text-[48px] text-primary mb-[15px]">Enquire Now</h1>
+          <h1 className="text-[48px] text-primary mb-[15px]">Enquire Now</h1>
           <p className="text-[16px] text-text-main leading-[1.6] mb-[30px] max-w-[90%]">
             We'd love to hear from you. Share your requirements and our team will get in touch shortly.
           </p>
@@ -42,7 +42,7 @@ export default function EnquireNowPage() {
 
         {/* Form */}
         <div className="flex-[1.2] bg-white rounded-[12px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
-          <h2 className="font-playfair text-[24px] text-primary mb-[30px]">Send us your enquiry</h2>
+          <h2 className="text-[24px] text-primary mb-[30px]">Send us your enquiry</h2>
           <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
             <div className="flex gap-5">
               <div className="flex-1 flex flex-col gap-2">
@@ -103,7 +103,7 @@ export default function EnquireNowPage() {
         <div className="flex-1 flex flex-col gap-[30px]">
           {/* I'm interested in */}
           <div className="bg-white rounded-[12px] p-[30px] shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
-            <h3 className="font-playfair text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">I'm interested in:</h3>
+            <h3 className="text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">I'm interested in:</h3>
             <div className="grid grid-cols-2 gap-[15px] mt-4">
               {[
                 { icon: 'fa-leaf',        color: '#4CAF50', label: 'Food Products' },
@@ -137,7 +137,7 @@ export default function EnquireNowPage() {
 
           {/* Get in touch */}
           <div>
-            <h3 className="font-playfair text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">Get in touch</h3>
+            <h3 className="text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">Get in touch</h3>
             <div className="grid grid-cols-2 gap-[15px] mt-4">
               {[
                 { icon: 'fa-map-marker-alt', title: 'Registered Office', text: '10+ Years Manufacturer, Georita, Olad, Chennai, Tamil Nadu, India' },
