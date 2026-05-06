@@ -21,9 +21,6 @@ export default function Home() {
               Explore Products <i className="fas fa-arrow-right" />
             </Link>
           </div>
-          <div className="absolute right-[20%] bottom-[-80px] w-[160px]">
-            <img src="/60 years.png" alt="60 Years of Trust" className="w-full drop-shadow-md" />
-          </div>
         </div>
         <div className="flex-1 flex justify-end">
           <img src="/hero.png" alt="Minals Products" className="hero-products-img max-w-full" />
