@@ -212,12 +212,13 @@ The project was migrated from Vanilla CSS to **Tailwind CSS v3**. Benefits:
 - ✅ **Shared components** — `Header.tsx` and `Footer.tsx` are reused across all pages, eliminating duplication
 
 ### Why the Products page is a pure Server Component
-The `/products` page reads `?category=` using Next.js's `searchParams` server prop — **not** the `useSearchParams()` hook. This means:
+The `/products` page reads `?category=` and `?sort=` using Next.js's `searchParams` server prop — **not** the `useSearchParams()` hook. This means:
 
 - ✅ **Fully rendered on the server** — correct products are sent on first response
 - ✅ **No Suspense boundary needed** — zero client/server hydration gap
 - ✅ **No white flash** on navigation
-- ✅ **SEO-friendly** — category URLs (`/products?category=food`) are crawlable
+- ✅ **SEO-friendly** — category and sorting URLs (`/products?category=food&sort=price-desc`) are crawlable
+- ✅ **Dynamic Sorting** — sorting by 'Price Low to High' and 'Price High to Low' requires no client-side JavaScript.
 
 ### Shared Components & UI Polish
 Instead of repeating HTML across all 6 pages, core elements are extracted:
