@@ -11,8 +11,8 @@ export default function Home() {
       <Header activePage="home" />
 
       {/* ─── Hero ─── */}
-      <section className="px-[5%] pt-[20px] pb-[50px] lg:pt-[30px] lg:pb-[60px] flex flex-col lg:flex-row items-center bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[85vh] text-center lg:text-left gap-10 lg:gap-0 overflow-hidden">
-        <div className="flex-1 max-w-[500px] relative order-2 lg:order-1">
+      <section className="px-[5%] pt-0 pb-[40px] lg:pb-[60px] flex flex-col lg:flex-row items-center bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[70vh] lg:min-h-[80vh] text-center lg:text-left gap-10 lg:gap-0 overflow-hidden">
+        <div className="flex-1 max-w-[500px] relative order-2 lg:order-1 lg:mt-10">
           <h2 className="text-[36px] md:text-[48px] text-primary leading-[1.3]">
             A Legacy of Purity. <span className="text-secondary block mt-[5px]">A Future of Promise.</span>
           </h2>
@@ -24,13 +24,13 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full lg:w-auto">
-          <div className="hero-products-img-container relative w-full max-w-[850px] h-[450px] md:h-[650px] lg:h-[750px]">
+          <div className="hero-products-img-container relative w-full max-w-[850px] h-[400px] md:h-[600px] lg:h-[750px] mt-0">
             <Image 
               src="/hero.png" 
               alt="Minals Products" 
               fill
               priority
-              className="object-contain hero-products-img"
+              className="object-contain object-top hero-products-img"
               sizes="(max-width: 1024px) 100vw, 60vw"
             />
           </div>
