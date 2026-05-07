@@ -14,25 +14,26 @@ type Product = {
 };
 
 const PRODUCTS: Product[] = [
-  { name: 'Sanitizer',        category: 'cleaning', image: '/products/sanitizer.png',        price: '₹ 120', desc: 'Kills 99.9% of germs instantly.\nGentle on hands with added moisturizers.' },
-  { name: 'Bleaching Powder', category: 'cleaning', image: '/products/bleaching-powder.png', price: '₹ 85',  desc: 'Powerful stain remover and disinfectant.\nIdeal for bathrooms and tough stains.' },
-  { name: 'Grammaxin Powder', category: 'cleaning', image: '/products/grammaxin-powder.png', price: '₹ 95',  desc: 'Effective pest and insect control powder.\nLong-lasting protection for homes.' },
-  { name: 'Toilet Cleaner',   category: 'cleaning', image: '/products/toilet-cleaner.png',   price: '₹ 110', desc: 'Removes stubborn stains and kills bacteria.\nLeaves a fresh, lingering fragrance.' },
-  { name: 'Bathroom Cleaner', category: 'cleaning', image: '/products/bathroom-cleaner.png', price: '₹ 130', desc: 'Cuts through soap scum and hard water stains.\nSafe for all bathroom surfaces.' },
-  { name: 'Glass Cleaner',    category: 'cleaning', image: '/products/glass-cleaner.png',    price: '₹ 99',  desc: 'Streak-free shine for windows and mirrors.\nFast-drying formula leaves no residue.' },
-  { name: 'Floor Cleaner',    category: 'cleaning', image: '/products/floor-cleaner.png',    price: '₹ 115', desc: 'Deep cleans floors while killing germs.\nInfused with a refreshing floral scent.' },
-  { name: 'Dish Washer',      category: 'cleaning', image: '/products/dish-washer.png',      price: '₹ 145', desc: 'Tough on grease but gentle on hands.\nLeaves dishes sparkling clean.' },
-  { name: 'Washing Soda',     category: 'cleaning', image: '/products/washing-soda.png',     price: '₹ 75',  desc: 'Heavy-duty cleaner for tough laundry stains.\nBoosts the power of your detergent.' },
-  { name: 'Essence Mixes',    category: 'food',     image: '/products/essence-mixes.png',    price: '₹ 60',  desc: 'Premium food flavoring for baking and desserts.\nAuthentic taste in every drop.' },
-  { name: 'Kesari Powder',    category: 'food',     image: '/products/kesari-powder.png',    price: '₹ 80',  desc: 'High-quality food coloring for sweet dishes.\nProvides rich color and aroma.' },
-  { name: 'Corn Flour',       category: 'food',     image: '/products/corn-flour.png',       price: '₹ 55',  desc: 'Fine texture, perfect for thickening sauces.\n100% pure and unadulterated.' },
-  { name: 'Elachi Powder',    category: 'food',     image: '/products/elachi-powder.png',    price: '₹ 140', desc: 'Finely ground cardamom for authentic sweets.\nPacked to retain natural aroma.' },
-  { name: 'Baking Powder',    category: 'food',     image: '/products/baking-powder.png',    price: '₹ 70',  desc: 'Ensures perfect rise for cakes and breads.\nDouble-acting formula for best results.' },
-  { name: 'Rose Water',       category: 'food',     image: '/products/rose-water.png',       price: '₹ 90',  desc: 'Pure distilled rose water for culinary use.\nAdds a delicate floral note to sweets.' },
-  { name: 'Onam Water',       category: 'food',     image: '/products/onam-water.png',       price: '₹ 65',  desc: 'Traditional scented water for special occasions.\nPrepared with high-quality ingredients.' },
-  { name: 'Vinegar',          category: 'food',     image: '/products/vinegar.png',          price: '₹ 50',  desc: 'Synthetic white vinegar for cooking and pickling.\nPerfect acidity for all recipes.' },
-  { name: 'Caster Oil',       category: 'food',     image: '/products/caster-oil.png',       price: '₹ 175', desc: 'Cold-pressed, pure castor oil.\nMultipurpose use for health and wellness.' },
-  { name: 'Neem Oil',         category: 'food',     image: '/products/neem-oil.png',         price: '₹ 195', desc: '100% natural neem oil extract.\nIdeal for organic farming and pest control.' },
+  // Cleaning
+  { name: 'Ceylon Citronella Sanitizer', category: 'cleaning', image: '/products/ceylon-citronella-sanitizer.png', price: '₹ 150', desc: 'Premium sanitizer infused with natural Ceylon Citronella.\\nKills 99.9% of germs instantly.' },
+  { name: 'German Rose Sanitizer', category: 'cleaning', image: '/products/german-rose-sanitizer.png', price: '₹ 150', desc: 'Effective sanitization with a gentle German Rose scent.\\nLeaves hands soft and refreshed.' },
+  { name: 'Italian Herbs Sanitizer', category: 'cleaning', image: '/products/italian-herbs-sanitizer.png', price: '₹ 160', desc: 'Refreshing Italian herbs blend for clean, soft hands.\\nLong-lasting protection.' },
+  { name: 'London Lavender Sanitizer', category: 'cleaning', image: '/products/london-lavender-sanitizer.png', price: '₹ 155', desc: 'Soothing London Lavender fragrance with powerful protection.\\nGentle on all skin types.' },
+  { name: 'Malaysian Sandal Sanitizer', category: 'cleaning', image: '/products/malaysian-sandal-sanitizer.png', price: '₹ 165', desc: 'Exotic Malaysian Sandalwood aroma in a premium sanitizer.\\nProvides complete hygiene.' },
+  { name: 'Minals Black Power', category: 'cleaning', image: '/products/minals-black-power.png', price: '₹ 120', desc: 'Ultimate cleaning power for tough stains and surfaces.\\nLeaves areas spotless.' },
+  { name: 'Minals Sanitizer Fluid', category: 'cleaning', image: '/products/minals-sanitizer-fluid.png', price: '₹ 95', desc: 'High-quality multi-purpose sanitizing fluid.\\nIdeal for home and office use.' },
+  { name: 'Royal Jasmine Sanitizer', category: 'cleaning', image: '/products/royal-jasmine-sanitizer.png', price: '₹ 150', desc: 'Rich and uplifting Royal Jasmine scent.\\nEffectively kills harmful bacteria.' },
+  { name: 'Sentol Jasmine Sanitizer', category: 'cleaning', image: '/products/sentol-jasmine-sanitizer.png', price: '₹ 140', desc: 'Reliable germ protection with an elegant Jasmine note.\\nTrusted formula.' },
+  { name: 'Sentol Lavender Sanitizer', category: 'cleaning', image: '/products/sentol-lavender-sanitizer.png', price: '₹ 140', desc: 'Relaxing Lavender fragrance infused in our classic formula.\\nPerfect for everyday use.' },
+  { name: 'Sentol Lemon Sanitizer', category: 'cleaning', image: '/products/sentol-lemon-sanitizer.png', price: '₹ 135', desc: 'Zesty lemon freshness with maximum germ kill.\\nEliminates odors instantly.' },
+  { name: 'Spanish Limon Sanitizer', category: 'cleaning', image: '/products/spanish-limon-sanitizer.png', price: '₹ 155', desc: 'Invigorating Spanish Limon scent for a refreshing feel.\\nPremium germ protection.' },
+
+  // Food & Wellness
+  { name: 'Martin Vinegar', category: 'food', image: '/products/martin-vinegar.png', price: '₹ 60', desc: 'Premium quality vinegar for authentic culinary recipes.\\nPerfect acidity.' },
+  { name: 'Minals Castor Oil', category: 'food', image: '/products/minals-castor-oil.png', price: '₹ 180', desc: 'Pure, cold-pressed castor oil.\\nMultipurpose use for health and wellness.' },
+  { name: 'Minals Neem Oil', category: 'food', image: '/products/minals-neem-oil.png', price: '₹ 190', desc: '100% natural neem oil extract.\\nIdeal for personal care and wellness.' },
+  { name: 'Minals Rose Water', category: 'food', image: '/products/minals-rose-water.png', price: '₹ 95', desc: 'Distilled pure rose water for food and personal care.\\nDelicate floral notes.' },
+  { name: 'Omum Water', category: 'food', image: '/products/omum-water.png', price: '₹ 85', desc: 'Traditional digestive and refreshing Omum (Ajwain) water.\\nSoothes the stomach.' }
 ];
 
 function categoryLabel(c: ProductCategory) {
