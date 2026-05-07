@@ -11,11 +11,11 @@ export default function OurStoryPage() {
       <Header activePage="our-story" />
 
       {/* ─── Hero + Legacy Combined Section ─── */}
-      <section className="px-[5%] py-[35px] lg:py-[45px] bg-white">
+      <section className="px-[5%] py-[18px] lg:py-[26px] bg-white">
         <div className="flex flex-col lg:flex-row items-start gap-[35px]">
           {/* Left Content */}
-          <div className="w-full lg:w-[40%] pt-[65px] lg:pt-[80px]">
-            <h1 className="text-[64px] lg:text-[72px] leading-none text-primary mb-[20px] font-light">
+          <div className="w-full lg:w-[40%] pt-[18px] lg:pt-[22px]">
+            <h1 className="text-[52px] lg:text-[60px] leading-none text-primary mb-[16px] font-light">
               Our Story
             </h1>
             <div className="w-[60px] h-[2px] bg-secondary mb-[28px] relative after:content-[''] after:absolute after:w-[8px] after:h-[8px] after:bg-secondary after:rotate-45 after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2"></div>
@@ -38,7 +38,7 @@ export default function OurStoryPage() {
           </div>
 
           {/* Right Side */}
-          <div className="w-full lg:w-[60%] pt-[150px] lg:pt-[165px]">
+          <div className="w-full lg:w-[60%] pt-[28px] lg:pt-[34px]">
             {/* Smaller Image Card */}
             <div className="w-full flex flex-col sm:flex-row rounded-[14px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-[#ececec] mb-7">
               {/* Left Image */}
@@ -238,4 +238,4 @@ export default function OurStoryPage() {
       <Footer />
     </main>
   );
-}
+}
