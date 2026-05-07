@@ -44,45 +44,49 @@ export default function DealersPage() {
       <Header activePage="dealers" />
 
       {/* ─── Main Layout ─── */}
-      <div className="px-[5%] py-[40px] lg:py-[60px] flex flex-col lg:flex-row justify-between items-start gap-10 max-w-[1400px] mx-auto text-center sm:text-left">
+      <div className="px-[5%] py-[60px] lg:py-[100px] flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-20 max-w-[1400px] mx-auto">
 
         {/* Left info */}
-        <div className="flex-1 lg:flex-[1.2] flex flex-col gap-[30px] w-full">
+        <div className="flex-1 lg:flex-[1.3] flex flex-col gap-[40px] w-full text-center lg:text-left">
           <div>
-            <h2 className="text-[28px] lg:text-[36px] text-primary font-bold mb-[15px]">Our Dealer Network</h2>
-            <p className="text-[14px] lg:text-[15px] text-text-light leading-[1.6] w-full lg:max-w-[90%]">
-              Partner with us and grow together. We are building a strong network across India to deliver quality products to every home and business.
+            <span className="text-secondary font-extrabold text-[12px] uppercase tracking-widest mb-3 block">Join Our Network</span>
+            <h2 className="text-[32px] lg:text-[48px] text-primary font-bold mb-[20px] leading-[1.2]">Our Dealer Network</h2>
+            <p className="text-[15px] lg:text-[17px] text-text-light leading-[1.8] w-full lg:max-w-[90%] mx-auto lg:mx-0">
+              Partner with us and grow together. We are building a strong network across India to deliver quality products to every home and business. Our success is built on the strength of our partners.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-5 lg:gap-5 mt-[10px] items-center sm:items-start justify-center sm:justify-start">
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-[10px]">
             {[
-              { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Pan India presence' },
-              { icon: 'fa-users',          title: 'Reliable Partners', desc: 'Growing together' },
-              { icon: 'fa-headset',        title: 'Timely Support',    desc: 'Always at your service' },
+              { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Pan India presence with optimized logistics.' },
+              { icon: 'fa-users',          title: 'Reliable Partners', desc: 'A legacy of trust since 1962.' },
+              { icon: 'fa-headset',        title: 'Timely Support',    desc: 'Dedicated assistance for all our partners.' },
             ].map((f) => (
-              <div key={f.title} className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
-                <i className={`fas ${f.icon} text-[24px] text-primary sm:mt-[3px]`} />
-                <div className="text-center sm:text-left">
-                  <h4 className="text-[14px] text-text-main font-bold mb-[2px]">{f.title}</h4>
-                  <p className="text-[12px] text-text-light">{f.desc}</p>
+              <div key={f.title} className="bg-white border border-black/[0.05] p-6 rounded-[16px] shadow-sm hover:shadow-md transition-shadow flex flex-col items-center lg:items-start">
+                <div className="w-12 h-12 bg-primary/[0.04] rounded-[12px] flex items-center justify-center mb-4">
+                  <i className={`fas ${f.icon} text-[20px] text-primary`} />
                 </div>
+                <h4 className="text-[15px] text-primary font-bold mb-[8px]">{f.title}</h4>
+                <p className="text-[13px] text-text-light leading-[1.5]">{f.desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="bg-white rounded-[12px] p-[20px] lg:p-[25px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/5 mt-[10px]">
-            <h3 className="font-inter text-[16px] text-primary font-bold text-center mb-[20px] lg:mb-[25px]">Who Can Partner With Us?</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4">
+          <div className="bg-white rounded-[20px] p-[30px] lg:p-[40px] shadow-[0_15px_50px_rgba(0,0,0,0.05)] border border-black/[0.03] mt-[10px]">
+            <h3 className="font-playfair text-[20px] lg:text-[24px] text-primary font-bold text-center mb-[30px]">Who Can Partner With Us?</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
               {[
                 { icon: 'fa-truck-loading', label: 'Distributors' },
                 { icon: 'fa-boxes',          label: 'Wholesalers' },
                 { icon: 'fa-store',          label: 'Retailers' },
                 { icon: 'fa-building',       label: 'Institutional Suppliers' },
               ].map((p) => (
-                <div key={p.label} className="flex flex-col items-center gap-[10px] text-center">
-                  <i className={`fas ${p.icon} text-[24px] lg:text-[30px] text-primary`} />
-                  <span className="text-[11px] lg:text-[12px] font-semibold text-primary">{p.label}</span>
+                <div key={p.label} className="flex flex-col items-center gap-[12px] text-center group">
+                  <div className="w-16 h-16 bg-[#f8f9fa] rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <i className={`fas ${p.icon} text-[24px]`} />
+                  </div>
+                  <span className="text-[12px] lg:text-[13px] font-bold text-primary">{p.label}</span>
                 </div>
               ))}
             </div>
