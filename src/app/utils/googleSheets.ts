@@ -1,21 +1,24 @@
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZfk1BkZ-_Z2fLJjAzQEI5GeOd4DuLb2tWUY3qbrB29j_OUGbMH5lOe4AcWWBxo2SUMA/exec";
 
 export async function submitToGoogleSheets(data: Record<string, string>) {
-  if (GOOGLE_SCRIPT_URL === "") {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "" || GOOGLE_SCRIPT_URL.includes("YOUR_GOOGLE_SCRIPT")) {
     console.warn("Google Script URL is not set. Data not submitted.");
     return false;
   }
   
   try {
+    // Using no-cors requires headers to be "safelisted". 
+    // text/plain is safelisted and allows the POST to succeed without CORS errors.
     await fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
       mode: "no-cors",
+      cache: "no-cache",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain;charset=utf-8",
       },
       body: JSON.stringify(data),
     });
-    return true; // no-cors doesn't allow reading response, but we assume success if no network error
+    return true; 
   } catch (error) {
     console.error("Error submitting to Google Sheets:", error);
     return false;
