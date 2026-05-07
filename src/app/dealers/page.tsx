@@ -80,9 +80,9 @@ export default function DealersPage() {
 
         </div>
 
-        {/* Map */}
-        <div className="w-full lg:flex-1 flex flex-col items-center gap-10 lg:pt-[55px]">
-          <div className="relative w-full max-w-[450px] h-[450px] md:h-[500px]">
+        {/* Map Column */}
+        <div className="w-full lg:flex-1 flex flex-col items-center gap-6 lg:pt-[40px]">
+          <div className="relative w-full max-w-[450px] h-[450px] md:h-[500px] mb-2">
             <Image 
               src="/india-map.png" 
               alt="India Map with Locations" 
@@ -92,18 +92,21 @@ export default function DealersPage() {
             />
           </div>
           
-          <div className="w-full bg-white rounded-[12px] p-[25px] lg:p-[30px] shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/[0.03]">
-            <h3 className="font-playfair text-[18px] lg:text-[20px] text-primary font-bold mb-[20px] text-center">Who Can Partner With Us?</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="w-full bg-white rounded-[16px] p-6 lg:p-8 shadow-[0_15px_40px_rgba(0,0,0,0.03)] border border-[#f0f0f0] relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-primary to-secondary" />
+            <h3 className="text-[18px] lg:text-[20px] text-primary font-bold mb-6 text-center tracking-[0.3px]">Who Can Partner With Us?</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { icon: 'fa-truck-loading', label: 'Distributors' },
                 { icon: 'fa-boxes',          label: 'Wholesalers' },
                 { icon: 'fa-store',          label: 'Retailers' },
                 { icon: 'fa-building',       label: 'Institutional Suppliers' },
               ].map((p) => (
-                <div key={p.label} className="flex flex-col items-center gap-[10px] text-center">
-                  <i className={`fas ${p.icon} text-[20px] lg:text-[24px] text-primary`} />
-                  <span className="text-[11px] font-bold text-primary">{p.label}</span>
+                <div key={p.label} className="flex flex-col items-center gap-[12px] text-center group">
+                  <div className="w-[50px] h-[50px] rounded-[12px] bg-[#f8f9fa] flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm border border-[#ececec]">
+                    <i className={`fas ${p.icon} text-[20px]`} />
+                  </div>
+                  <span className="text-[10px] lg:text-[11px] font-bold text-primary uppercase tracking-[0.5px] leading-tight">{p.label}</span>
                 </div>
               ))}
             </div>
