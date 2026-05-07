@@ -10,6 +10,13 @@
     @apply bg-white text-text-main font-inter leading-relaxed overflow-x-hidden;
   }
 
+  h1, h2, h3 {
+    @apply font-playfair;
+  }
+
+  h4, h5, h6, button, .btn, nav a {
+    @apply font-montserrat;
+  }
 
   ul { list-style: none; }
   a { text-decoration: none; }

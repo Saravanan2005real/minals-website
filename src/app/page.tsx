@@ -39,7 +39,7 @@ export default function Home() {
             <div key={i} className={`flex flex-row gap-[15px] items-center px-[10px] lg:px-[25px] ${i > 0 && i % 2 === 0 ? 'lg:border-l lg:border-[#e5e5e5]' : ''} ${i % 2 !== 0 ? 'sm:border-l sm:border-[#e5e5e5]' : ''}`}>
               <i className={`fas ${f.icon} text-primary text-[32px] shrink-0`} />
               <div>
-                <h4 className="font-inter text-[13px] font-bold text-primary tracking-[0.5px] mb-[5px]">{f.title}</h4>
+                <h4 className="font-montserrat text-[13px] font-bold text-primary tracking-[0.5px] mb-[5px]">{f.title}</h4>
                 <p className="text-[12px] text-[#666] leading-[1.4] m-0">{f.desc}</p>
               </div>
             </div>

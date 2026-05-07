@@ -22,7 +22,7 @@ export default function Header({ activePage }: HeaderProps) {
           <img src="/logo.png" alt="Minals Logo" className="h-[40px] md:h-[52px] drop-shadow-md" />
           <div className="flex flex-col items-center border-l border-white/20 pl-3 md:pl-4">
             <h1 className="text-[20px] md:text-[26px] tracking-[5px] m-0 leading-none text-white text-center w-full">MINALS</h1>
-            <h2 className="font-inter text-[9px] md:text-[11px] font-medium tracking-[0.2px] mt-[2px] uppercase text-white/90 w-full text-center">RAMAIAH ENTERPRISES</h2>
+            <h2 className="font-montserrat text-[9px] md:text-[11px] font-medium tracking-[0.2px] mt-[2px] uppercase text-white/90 w-full text-center">RAMAIAH ENTERPRISES</h2>
             <div className="flex items-center gap-1 md:gap-2 mt-[2px]">
               <span className="w-[10px] md:w-[20px] h-px bg-secondary" />
               <span className="text-secondary text-[8px] md:text-[10px] font-semibold tracking-[1px] uppercase">SINCE 1962</span>

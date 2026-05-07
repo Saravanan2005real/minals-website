@@ -21,6 +21,7 @@ const config: Config = {
       fontFamily: {
         inter:    ['var(--font-inter)', 'sans-serif'],
         playfair: ['var(--font-playfair)', 'serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
       },
       boxShadow: {
         card:   '0 10px 26px rgba(0,0,0,0.03)',

@@ -12,7 +12,7 @@ export default function Footer() {
             <img src="/logo.png" alt="Minals Logo" className="h-[50px] lg:h-[70px] drop-shadow-md" />
             <div className="flex flex-col items-center border-l border-white/20 pl-4 lg:pl-5">
               <h1 className="text-[24px] lg:text-[32px] tracking-[5px] m-0 leading-none text-white text-center w-full">MINALS</h1>
-              <h2 className="text-[10px] lg:text-[13.5px] font-medium tracking-[0.2px] mt-[2px] uppercase text-white/90 w-full text-center">RAMAIAH ENTERPRISES</h2>
+              <h2 className="text-[10px] lg:text-[13.5px] font-montserrat font-medium tracking-[0.2px] mt-[2px] uppercase text-white/90 w-full text-center">RAMAIAH ENTERPRISES</h2>
               <div className="flex items-center gap-2 mt-[2px]">
                 <span className="w-[15px] lg:w-[25px] h-px bg-secondary" />
                 <span className="text-secondary text-[9px] lg:text-[11px] font-semibold tracking-[1px] uppercase">SINCE 1962</span>
@@ -91,7 +91,7 @@ export default function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="text-[15px] font-bold mb-[18px] text-white whitespace-nowrap uppercase tracking-[0.3px] border-b-2 border-secondary/50 pb-[10px]">{title}</h4>
+      <h4 className="text-[15px] font-montserrat font-bold mb-[18px] text-white whitespace-nowrap uppercase tracking-[0.3px] border-b-2 border-secondary/50 pb-[10px]">{title}</h4>
       <ul className="flex flex-col gap-3">{children}</ul>
     </div>
   );

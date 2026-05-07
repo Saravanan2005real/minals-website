@@ -110,7 +110,7 @@ export default async function ProductsPage({
       <section className="px-[5%] py-[44px] bg-gradient-to-b from-[#fbfdff] to-white border-b border-[#f0f0f0]">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-[30px] items-center max-w-[1200px] mx-auto text-center lg:text-left">
           <div>
-            <p className="font-inter text-[14px] font-bold text-primary/85 tracking-[0.2px] mb-[10px]">Our Product Categories</p>
+            <p className="font-montserrat text-[14px] font-bold text-primary/85 tracking-[0.2px] mb-[10px]">Our Product Categories</p>
             <h2 className="text-[42px] text-primary leading-[1.25]">
               High-performance <span className="text-secondary">solutions</span> for every need
             </h2>
@@ -133,7 +133,7 @@ export default async function ProductsPage({
           {/* Filter sidebar */}
           <aside className="products-filter-sticky self-start rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
             <div className="px-4 py-[14px] bg-gradient-to-r from-[#062e5e] to-primary text-white">
-              <span className="font-inter text-[14px] font-bold tracking-[0.2px]">Categories</span>
+              <span className="font-montserrat text-[14px] font-bold tracking-[0.2px]">Categories</span>
             </div>
             <div className="flex flex-col" role="tablist" aria-label="Product categories">
               {filterItems.map(({ cat, icon }) => (
