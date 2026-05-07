@@ -47,9 +47,9 @@ export default function DealersPage() {
       <div className="px-[5%] py-[50px] lg:py-[80px] flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-20 max-w-[1400px] mx-auto text-center sm:text-left">
 
         {/* Left info */}
-        <div className="flex-1 lg:flex-[1.2] flex flex-col gap-[40px] w-full">
-          <div>
-            <h2 className="text-[32px] lg:text-[42px] text-primary font-bold mb-[20px]">Our Dealer Network</h2>
+        <div className="flex-1 lg:flex-[1.2] flex flex-col items-center lg:items-start gap-[40px] w-full text-center lg:text-left">
+          <div className="w-full">
+            <h2 className="text-[32px] lg:text-[42px] text-primary font-bold mb-[20px] leading-tight">Our Dealer Network</h2>
             <p className="text-[15px] lg:text-[16px] text-text-light leading-[1.8] w-full lg:max-w-[95%] text-justify">
               Partner with us and grow together. We are building a strong network across India to deliver quality food and cleaning products to every home. Join a legacy of over 60 years built on trust. Our dealer program empowers local businesses with high-quality inventory, consistent supply chains, and a brand name families have relied on since 1962.
             </p>
