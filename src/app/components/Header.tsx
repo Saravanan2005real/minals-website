@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface HeaderProps {
@@ -18,8 +19,15 @@ export default function Header({ activePage }: HeaderProps) {
   return (
     <header className="bg-primary text-white px-[5%] py-[10px] flex justify-between items-center sticky top-0 z-[1000] flex-wrap lg:flex-nowrap">
       <div className="flex items-center justify-between w-full lg:w-auto">
-        <a href="/" className="flex items-center gap-[12px] no-underline">
-          <img src="/logo.png" alt="Minals Logo" className="h-[40px] md:h-[52px] drop-shadow-md" />
+        <Link href="/" className="flex items-center gap-[12px] no-underline">
+          <div className="relative w-[40px] h-[40px] md:w-[52px] md:h-[52px] drop-shadow-md">
+            <Image 
+              src="/logo.png" 
+              alt="Minals Logo" 
+              fill
+              className="object-contain"
+            />
+          </div>
           <div className="flex flex-col items-center border-l border-white/20 pl-3 md:pl-4">
             <h1 className="text-[20px] md:text-[26px] tracking-[5px] m-0 leading-none text-white text-center w-full">MINALS</h1>
             <h2 className="font-montserrat text-[9px] md:text-[11px] font-medium tracking-[0.2px] mt-[2px] uppercase text-white/90 w-full text-center">RAMAIAH ENTERPRISES</h2>
@@ -29,7 +37,7 @@ export default function Header({ activePage }: HeaderProps) {
               <span className="w-[10px] md:w-[20px] h-px bg-secondary" />
             </div>
           </div>
-        </a>
+        </Link>
         
         {/* Mobile menu button */}
         <button 

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -8,8 +9,15 @@ export default function Footer() {
 
         {/* Brand */}
         <div className="flex flex-col gap-5 lg:pr-[30px] lg:border-r border-white/10 sm:col-span-2 lg:col-span-1">
-          <a href="/" className="flex items-center gap-[15px] no-underline">
-            <img src="/logo.png" alt="Minals Logo" className="h-[50px] lg:h-[70px] drop-shadow-md" />
+          <Link href="/" className="flex items-center gap-[15px] no-underline">
+            <div className="relative w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] drop-shadow-md">
+              <Image 
+                src="/logo.png" 
+                alt="Minals Logo" 
+                fill
+                className="object-contain"
+              />
+            </div>
             <div className="flex flex-col items-center border-l border-white/20 pl-4 lg:pl-5">
               <h1 className="text-[24px] lg:text-[32px] tracking-[5px] m-0 leading-none text-white text-center w-full">MINALS</h1>
               <h2 className="text-[10px] lg:text-[13.5px] font-montserrat font-medium tracking-[0.2px] mt-[2px] uppercase text-white/90 w-full text-center">RAMAIAH ENTERPRISES</h2>
@@ -19,7 +27,7 @@ export default function Footer() {
                 <span className="w-[15px] lg:w-[25px] h-px bg-secondary" />
               </div>
             </div>
-          </a>
+          </Link>
           <p className="text-[13px] lg:text-[14px] leading-[1.6] text-[#e0e0e0] max-w-full lg:max-w-[280px]">
             <strong className="font-semibold text-white block mb-[5px]">Rooted in values. Driven by trust.</strong>
             Serving generations with quality and care since 1962.
