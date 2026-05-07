@@ -54,12 +54,22 @@ const PRODUCTS: Product[] = [
 
   // Wellness
   { name: 'Sri Lakshmi Sandal Scented Tablet & Powder', category: 'wellness', image: '/products/premium_231347_1778132347775.png', desc: 'Traditional Sandal scented tablets and powder for spiritual, aromatic, and wellness applications.' },
+  { name: 'Lion Kesari Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-kesari-cloth-bag.png', desc: 'Premium Lion Kesari Colour elegantly packaged in a traditional cloth bag. Perfect for gifting and holistic wellness applications.' },
+  { name: 'Lion Lemon Yellow Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-lemon-yellow-cloth-bag.png', desc: 'Vibrant Lion Lemon Yellow Colour beautifully presented in a traditional cloth bag. Adds a touch of tradition and wellness.' },
+  { name: 'Lion Orange Red Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-orange-red-cloth-bag.png', desc: 'Rich Lion Orange Red Colour securely packed in a classic cloth bag. Ideal for traditional ceremonies and personal wellness.' },
 
   // Lion Food Products
-  { name: 'Lion Artificial Flavouring Agents', category: 'food', image: '/products/premium_231637_1778132383123.png', desc: 'A premium set of artificial food flavouring agents including Vanilla, Rose, and Pineapple.' },
-  { name: 'Lion Soft Drink Concentrates', category: 'food', image: '/products/premium_231701_1778132402024.png', desc: 'Delicious synthetic soft drink concentrates available in Rose Milk, Grape, Almond, and Pista flavors.' },
-  { name: 'Lion Biryani Flavouring Agent', category: 'food', image: '/products/premium_231720_1778132418120.png', desc: 'A specialized biryani flavouring agent crafted with a blend of natural spices for authentic culinary richness.' },
-  { name: 'Lion Rose Milk Mix', category: 'food', image: '/products/premium_231739_1778132433601.png', desc: 'Classic Rose Milk Mix concentrate for preparing refreshing and flavorful rose milk beverages.' }
+  { name: 'Lion Artificial Flavouring Agents', category: 'food', image: '/products/lion-artificial-flavouring-agents.png', desc: 'A classic collection of high-quality artificial flavouring agents including Vanilla, Rose, and Pine Apple. Perfect for baking and desserts.' },
+  { name: 'Lion Soft Drink Concentrates', category: 'food', image: '/products/lion-soft-drink-concentrates.png', desc: 'Delicious synthetic soft drink concentrates in popular flavors like Rose Milk, Grape, Almond, and Pista. Easy to mix and incredibly refreshing.' },
+  { name: 'Lion Biryani Flavouring Agent', category: 'food', image: '/products/lion-biryani-flavouring.png', desc: 'A special blend of natural spices formulated as a convenient flavouring agent to bring authentic, aromatic biryani taste to your kitchen.' },
+  { name: 'Lion Milk Mix Badam', category: 'food', image: '/products/lion-milk-mix-badam.png', desc: 'A rich, creamy synthetic soft drink concentrate infused with the authentic taste of almonds (Badam). Perfect for a refreshing beverage.' },
+  { name: 'Lion Milk Mix Pista Elachi', category: 'food', image: '/products/lion-milk-mix-pista-elachi.png', desc: 'A delightful synthetic soft drink concentrate combining the nutty goodness of pistachio with the aromatic essence of cardamom (Elachi). A true classic.' },
+  { name: 'Lion Milk Mix Rose', category: 'food', image: '/products/lion-milk-mix-rose.png', desc: 'A vibrant synthetic soft drink concentrate bursting with the sweet, floral flavor of fresh roses. A delicious and colorful treat.' },
+  { name: 'Lion Special Food Colors', category: 'food', image: '/products/lion-food-colors-special.png', desc: 'High-quality special synthetic food colours in large jars for commercial and frequent culinary use.' },
+  { name: 'Lion Cardamom Powder', category: 'food', image: '/products/lion-cardamom-powder.png', desc: 'Finely ground, aromatic cardamom powder made from superior quality seeds. Enhances the flavor of desserts and beverages.' },
+  { name: 'Lion Pachai Karpooram', category: 'food', image: '/products/lion-pachai-karpooram.png', desc: 'Premium quality edible camphor (Pachai Karpooram) traditionally used to flavor sweets and for spiritual offerings.' },
+  { name: 'Lion Corn Flour', category: 'food', image: '/products/lion-corn-flour.png', desc: '100% pure corn flour made from selected seeds. Excellent for thickening soups, sauces, and preparing crispy fried dishes.' },
+  { name: 'Lion Baking Powder', category: 'food', image: '/products/lion-baking-powder.png', desc: 'Fine quality baking powder ensuring perfectly risen, fluffy cakes and baked goods. Enjoy the true taste of baking.' }
 ];
 
 function categoryLabel(c: ProductCategory) {
