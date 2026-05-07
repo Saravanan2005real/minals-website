@@ -9,7 +9,7 @@ type Product = {
   desc: string;
 };
 
-const WHATSAPP_PHONE_E164 = '919566002233';
+const WHATSAPP_PHONE_E164 = '918220012671';
 
 function buildWhatsAppUrl(message: string) {
   return `https://wa.me/${WHATSAPP_PHONE_E164}?text=${encodeURIComponent(message)}`;
@@ -23,7 +23,7 @@ function ProductCard({ p }: { p: Product }) {
   // raw string shown in the input while the user is typing
   const [raw, setRaw] = useState('1');
 
-  const message = `Hi, I'm interested in ${p.name} (Qty: ${qty}). Please share details and availability.`;
+  const message = `Hello sir, I want details about this product: ${p.name} (Qty: ${qty})`;
 
   return (
     <div

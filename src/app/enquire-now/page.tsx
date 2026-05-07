@@ -10,7 +10,7 @@ const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] 
 function EnquireNowContent() {
   const searchParams = useSearchParams();
   const product = (searchParams.get('product') || '').trim();
-  const phone = '919566002233';
+  const phone = '918220012671';
   const message = product
     ? `Hi, I'm interested in ${product}. Please share details/price and availability.`
     : `Hi, I’d like to enquire about your products. Please share details.`;
@@ -155,7 +155,7 @@ function EnquireNowContent() {
             <div className="grid grid-cols-2 gap-[15px] mt-4">
               {[
                 { icon: 'fa-map-marker-alt', title: 'Registered Office', text: 'No 56, Govindappa Street,\nChennai - 600 001' },
-                { icon: 'fa-phone-alt',      title: 'Phone',             text: '044 - 25212585\n+91 9566002233' },
+                { icon: 'fa-phone-alt',      title: 'Phone',             text: '044 - 25212585\n+91 8220012671' },
                 { icon: 'fa-envelope',       title: 'Email',             text: 'ramaiah25@gmail.com' },
                 { clock: true,               title: 'Business Hours',    text: 'Mon - Sat: 9:00 AM - 6:00 PM\nSunday: Closed' },
               ].map((t, i) => (
