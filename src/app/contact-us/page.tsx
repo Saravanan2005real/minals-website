@@ -55,17 +55,17 @@ export default function ContactUsPage() {
 
           <div className="flex flex-col gap-[20px] lg:gap-[30px]">
             {[
-              { icon: 'fa-map-marker-alt', title: 'Registered Office', lines: ['10+ Years Manufacturer, Gerotta, Dlad,', 'Chennai Boag, South India – 600 001.', 'Tamil Nadu, India.'] },
-              { icon: 'fa-phone fa-flip-horizontal', title: 'Phone',    lines: ['+91 44 1234 5678', '+91 98765 43210'] },
-              { icon: 'fa-envelope',    title: 'Email',          lines: ['info@minals.in', 'enquiry@minals.in'] },
-              { icon: null, clock: true, title: 'Business Hours', lines: ['Mon – Sat: 9:00 AM – 6:00 PM', 'Sunday: Closed'] },
+              { icon: 'fa-map-marker-alt', title: 'Our Shop', lines: ['56, Govindappa Street, Seven Wells South,', 'George Town, Chennai,', 'Tamil Nadu – 600001, India.'] },
+              { icon: 'fa-phone fa-flip-horizontal', title: 'Phone',    lines: ['+91 95660 02233', '044 - 25212585'] },
+              { icon: 'fa-envelope',    title: 'Email',          lines: ['ramaiah25@gmail.com', 'info@minals.in'] },
+              { icon: null, clock: true, title: 'Business Hours', lines: ['Mon – Sat: 9:00 AM – 7:00 PM', 'Sunday: Closed'] },
             ].map((item) => (
               <div key={item.title} className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-5">
                 <div className="w-[45px] h-[45px] bg-primary rounded-full flex items-center justify-center shrink-0">
                   <i className={`${item.clock ? 'far fa-clock' : `fas ${item.icon}`} text-secondary text-[20px]`} />
                 </div>
                 <div className="text-center sm:text-left">
-                  <h4 className="text-[15px] lg:text-[16px] text-primary font-bold mb-[5px]">{item.title}</h4>
+                  <h4 className="text-[15px] lg:text-[16px] text-primary font-bold mb-[5px] font-montserrat">{item.title}</h4>
                   <p className="text-[13px] text-text-light leading-[1.5] m-0 whitespace-pre-line">{item.lines.join('\n')}</p>
                 </div>
               </div>
@@ -127,6 +127,36 @@ export default function ContactUsPage() {
               )}
             </button>
           </form>
+        </div>
+
+        {/* Right Area - Small Map Card */}
+        <div className="w-full lg:w-[350px] shrink-0">
+          <div className="bg-white rounded-[12px] p-3 shadow-[0_10px_40px_rgba(0,0,0,0.06)] h-full min-h-[300px] flex flex-col">
+            <h4 className="text-[14px] font-bold text-primary mb-3 px-1 font-montserrat flex items-center gap-2">
+              <i className="fas fa-map-marked-alt text-secondary" /> Find us on Maps
+            </h4>
+            <div className="flex-1 rounded-[8px] overflow-hidden border border-black/5">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62177.08115945303!2d80.28218!3d13.094904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f5737d50fa1%3A0xde2dd720f9245dbe!2sRAMAIAH%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1778161580549!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0, minHeight: '280px' }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ramaiah Enterprises Location"
+                className="grayscale-[0.1] contrast-[1.05]"
+              ></iframe>
+            </div>
+            <a 
+              href="https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-3 text-[12px] text-secondary font-bold hover:text-accent flex items-center justify-center gap-1 no-underline"
+            >
+              Open in Google Maps <i className="fas fa-external-link-alt text-[10px]" />
+            </a>
+          </div>
         </div>
       </div>
 

@@ -64,8 +64,8 @@ export default function Footer() {
               <span className="text-[#c8cdd3] text-[13px]">044 - 25212585</span>
             </li>
             <li className="flex flex-col gap-[1px]">
-              <span className="text-white text-[12px] font-semibold uppercase tracking-[0.5px]">Customer Care</span>
-              <span className="text-[#c8cdd3] text-[13px]">+91 8220012671</span>
+              <span className="text-white text-[12px] font-semibold uppercase tracking-[0.5px]">Mobile</span>
+              <span className="text-[#c8cdd3] text-[13px]">+91 95660 02233</span>
             </li>
             <li className="flex flex-col gap-[1px]">
               <span className="text-white text-[12px] font-semibold uppercase tracking-[0.5px]">Mail Us</span>
