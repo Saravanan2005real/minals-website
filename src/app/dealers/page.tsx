@@ -55,7 +55,7 @@ export default function DealersPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8 lg:gap-10 mt-[10px]">
+          <div className="flex flex-col gap-5 lg:gap-6 mt-[10px]">
             {[
               { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Comprehensive Pan India presence with optimized distribution.' },
               { icon: 'fa-users',          title: 'Reliable Partners', desc: 'Join a family of trusted business partners across generations.' },
