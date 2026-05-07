@@ -85,7 +85,7 @@ export default async function ProductsPage({
 
       {/* ─── Products Hero ─── */}
       <section className="px-[5%] py-[44px] bg-gradient-to-b from-[#fbfdff] to-white border-b border-[#f0f0f0]">
-        <div className="grid grid-cols-[1.1fr_0.9fr] gap-[30px] items-center max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-[30px] items-center max-w-[1200px] mx-auto text-center lg:text-left">
           <div>
             <p className="font-inter text-[14px] font-bold text-primary/85 tracking-[0.2px] mb-[10px]">Our Product Categories</p>
             <h2 className="text-[42px] text-primary leading-[1.25]">
@@ -105,7 +105,7 @@ export default async function ProductsPage({
 
       {/* ─── Products Section ─── */}
       <section className="px-[5%] pt-[18px] pb-[70px] bg-white" id="products-section">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-[280px_1fr] gap-[26px] items-start">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-[26px] items-start">
 
           {/* Filter sidebar */}
           <aside className="products-filter-sticky self-start rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
@@ -134,7 +134,7 @@ export default async function ProductsPage({
           {/* Products grid */}
           <div className="min-w-0">
             {/* Results bar */}
-            <div className="flex justify-between items-center bg-white border border-black/[0.07] rounded-[10px] shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-5 py-3 mb-5">
+            <div className="flex flex-col sm:flex-row justify-between items-center bg-white border border-black/[0.07] rounded-[10px] shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-5 py-3 mb-5 gap-3 sm:gap-0">
               <h3 className="text-[16px] font-bold text-primary">{categoryLabel(activeCategory)}</h3>
               <div className="flex items-center gap-5">
                 {/* Count badge */}

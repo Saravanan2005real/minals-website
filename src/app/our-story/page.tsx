@@ -10,32 +10,24 @@ export default function OurStoryPage() {
       <Header activePage="our-story" />
 
       {/* ─── Hero ─── */}
-      {/* The right panel uses bg-primary same as the header.
-          A 3px secondary (gold) top-border on the panel creates
-          a clear visual separation from the sticky header.
-          The logo image gets mix-blend-mode:multiply so its
-          built-in background multiplies against #002B5B and
-          vanishes, leaving only the badge artwork visible. */}
-      <section className="flex border-b border-[#eaeaea] relative overflow-hidden bg-white">
+      <section className="flex flex-col lg:flex-row border-b border-[#eaeaea] relative overflow-hidden bg-white">
         {/* Left */}
-        <div className="flex-1 px-[5%] py-[80px] flex flex-col justify-center z-10 bg-white">
-          <h1 className="text-[42px] text-primary mb-[15px]">Our Story</h1>
-          <p className="text-[16px] font-semibold text-[#444] mb-5">A journey of trust, quality and commitment since 1962.</p>
-          <p className="text-[15px] text-text-light mb-[30px] leading-[1.6] max-w-[90%]">
+        <div className="flex-1 px-[5%] py-[60px] lg:py-[80px] flex flex-col justify-center z-10 bg-white text-center lg:text-left items-center lg:items-start">
+          <h1 className="text-[36px] lg:text-[42px] text-primary mb-[15px]">Our Story</h1>
+          <p className="text-[15px] lg:text-[16px] font-semibold text-[#444] mb-5">A journey of trust, quality and commitment since 1962.</p>
+          <p className="text-[14px] lg:text-[15px] text-text-light mb-[30px] leading-[1.6] max-w-[90%]">
             What began in 1962 as a small trading business has today grown into a trusted name in households and industries across India.
           </p>
-          <a href="#journey" className="bg-secondary text-white px-[25px] py-3 rounded-[5px] font-semibold inline-flex items-center gap-[10px] no-underline w-fit hover:bg-accent hover:-translate-y-0.5">
+          <a href="#journey" className="bg-secondary text-white px-[25px] py-3 rounded-[5px] font-semibold flex items-center justify-center gap-[10px] no-underline w-fit hover:bg-accent hover:-translate-y-0.5">
             Our Journey <i className="fas fa-arrow-right" />
           </a>
         </div>
         {/* Middle photo */}
-        <div className="flex-[1.5] relative py-[40px] pr-[5%] bg-white">
+        <div className="w-full lg:flex-[1.5] relative py-[20px] lg:py-[40px] px-[5%] lg:pl-0 lg:pr-[5%] bg-white h-[300px] lg:h-auto">
           <img src="/vintage.png" alt="Ramaiah Enterprises 1962" className="w-full h-full object-cover rounded-[16px] shadow-[0_10px_40px_rgba(0,0,0,0.1)] [filter:sepia(0.6)_contrast(1.1)]" />
         </div>
-        {/* Right panel — separated from header by a gold accent border-top */}
-        <div className="flex-[0.8] bg-primary text-white flex flex-col items-center justify-center p-10 text-center border-t-[3px] border-secondary">
-          {/* mix-blend-mode:multiply makes the image's own background
-              multiply with #002B5B → white×blue = blue → background vanishes */}
+        {/* Right panel */}
+        <div className="w-full lg:flex-[0.8] bg-primary text-white flex flex-col items-center justify-center p-10 text-center border-t-[3px] lg:border-t-0 lg:border-l-[3px] border-secondary">
           <img
             src="/60 years.png"
             alt="60+ Years of Trust"
@@ -46,13 +38,13 @@ export default function OurStoryPage() {
       </section>
 
       {/* ─── Legacy Section ─── */}
-      <section className="px-[5%] py-[60px] bg-white">
+      <section className="px-[5%] py-[40px] lg:py-[60px] bg-white">
         <div className="text-center mb-10">
-          <h2 className="text-[32px] text-primary inline-block relative after:block after:w-[50px] after:h-[2px] after:bg-secondary after:mx-auto after:mt-[10px]">
+          <h2 className="text-[28px] lg:text-[32px] text-primary inline-block relative after:block after:w-[50px] after:h-[2px] after:bg-secondary after:mx-auto after:mt-[10px]">
             Our Legacy. Your Trust.
           </h2>
         </div>
-        <div className="flex justify-between gap-[30px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-[30px]">
           {[
             {
               icon: 'fa-handshake',
@@ -75,11 +67,11 @@ export default function OurStoryPage() {
               desc: 'Committed to improving lives with every product we deliver, ensuring care, consistency, and customer satisfaction.',
             },
           ].map((item) => (
-            <div key={item.title} className="flex-1 flex items-start gap-[15px]">
+            <div key={item.title} className="flex flex-col items-center sm:items-start text-center sm:text-left gap-[15px]">
               <i className={`fas ${item.icon} text-[28px] text-primary mt-1`} />
               <div>
-                <h4 className="text-[15px] text-text-main font-bold mb-2">{item.title}</h4>
-                <p className="text-[13px] text-text-light leading-[1.5]">{item.desc}</p>
+                <h4 className="text-[16px] lg:text-[15px] text-text-main font-bold mb-2">{item.title}</h4>
+                <p className="text-[14px] lg:text-[13px] text-text-light leading-[1.5]">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -87,15 +79,15 @@ export default function OurStoryPage() {
       </section>
 
       {/* ─── Journey Timeline ─── */}
-      <section id="journey" className="px-[5%] py-[80px] bg-[radial-gradient(circle_at_right_center,#f4f7f9_0%,#ffffff_100%)] relative">
+      <section id="journey" className="px-[5%] py-[50px] lg:py-[80px] bg-[radial-gradient(circle_at_right_center,#f4f7f9_0%,#ffffff_100%)] relative">
         <div className="text-center mb-10">
-          <h2 className="text-[32px] text-primary inline-block relative after:block after:w-[50px] after:h-[2px] after:bg-secondary after:mx-auto after:mt-[10px]">
+          <h2 className="text-[28px] lg:text-[32px] text-primary inline-block relative after:block after:w-[50px] after:h-[2px] after:bg-secondary after:mx-auto after:mt-[10px]">
             Our Journey
           </h2>
         </div>
-        <div className="flex gap-[60px] max-w-[1400px] mx-auto">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-[60px] max-w-[1400px] mx-auto">
           {/* Timeline */}
-          <div className="flex-1 flex flex-col relative before:content-[''] before:absolute before:left-[45px] before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:z-0">
+          <div className="flex-1 flex flex-col relative before:content-[''] before:absolute before:left-[30px] sm:before:left-[45px] before:top-0 before:bottom-0 before:w-[2px] before:bg-primary before:z-0">
             {[
               {
                 icon: 'fa-handshake',
@@ -124,23 +116,23 @@ export default function OurStoryPage() {
                 desc: 'Celebrating 50 years of excellence. Honoring our winners and our continued journey. This milestone reflects decades of trust, dedication, and customer satisfaction. The company continues to evolve with innovation while staying committed to its legacy.',
               },
             ].map((item, i) => (
-              <div key={i} className="flex gap-[30px] mb-10 relative z-10">
-                <div className="w-[90px] min-h-[90px] bg-white border-2 border-primary [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] flex items-center justify-center shrink-0">
+              <div key={i} className="flex gap-[15px] sm:gap-[30px] mb-10 relative z-10">
+                <div className="w-[60px] min-h-[60px] sm:w-[90px] sm:min-h-[90px] bg-white border-2 border-primary [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] flex items-center justify-center shrink-0">
                   {item.icon
-                    ? <i className={`fas ${item.icon} text-[32px] text-secondary`} />
-                    : <span className="font-bold text-[18px] text-secondary">{item.year}</span>
+                    ? <i className={`fas ${item.icon} text-[20px] sm:text-[32px] text-secondary`} />
+                    : <span className="font-bold text-[14px] sm:text-[18px] text-secondary">{item.year}</span>
                   }
                 </div>
-                <div className="pt-[15px]">
-                  <h3 className="text-[22px] text-primary mb-[10px]">{item.title}</h3>
-                  <p className="text-[14px] text-text-light leading-[1.6]">{item.desc}</p>
+                <div className="pt-2 sm:pt-[15px]">
+                  <h3 className="text-[18px] sm:text-[22px] text-primary mb-[10px]">{item.title}</h3>
+                  <p className="text-[13px] sm:text-[14px] text-text-light leading-[1.6]">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Photos */}
-          <div className="flex-1 flex flex-col gap-[30px]">
+          <div className="flex-1 flex flex-col gap-[30px] lg:mt-[50px]">
             <div className="flex gap-5 justify-center flex-wrap">
               {[
                 { rot: '-3deg', year: '1962',   caption: 'The Founders and Early Pioneers' },
@@ -148,16 +140,16 @@ export default function OurStoryPage() {
                 { rot: '-1deg', year: '1962-4', caption: 'The Founders and Early Pioneers' },
               ].map((p) => (
                 <div key={p.year} style={{ transform: `rotate(${p.rot})${p.ty ? ` translateY(${p.ty})` : ''}` }}
-                  className="w-[200px] bg-[#fffaf0] p-2 border-[3px] border-secondary shadow-[0_10px_25px_rgba(0,0,0,0.15)] flex flex-col items-center">
+                  className="w-[150px] sm:w-[200px] bg-[#fffaf0] p-2 border-[3px] border-secondary shadow-[0_10px_25px_rgba(0,0,0,0.15)] flex flex-col items-center">
                   <img src="/vintage.png" alt={`Founders ${p.year}`} className="w-full h-auto object-cover [filter:sepia(0.8)_contrast(1.2)]" />
-                  <div className="font-inter text-[11px] font-semibold text-text-main text-center mt-2 leading-[1.2]">
-                    <strong className="block text-[13px] text-primary">{p.year}</strong>
-                    {p.caption}
+                  <div className="font-inter text-[10px] sm:text-[11px] font-semibold text-text-main text-center mt-2 leading-[1.2]">
+                    <strong className="block text-[12px] sm:text-[13px] text-primary">{p.year}</strong>
+                    <span className="hidden sm:inline">{p.caption}</span>
                   </div>
                 </div>
               ))}
             </div>
-            <div style={{ transform: 'rotate(1deg)' }} className="w-[90%] mx-auto mt-5 bg-[#fffaf0] p-2 border-[3px] border-secondary shadow-[0_10px_25px_rgba(0,0,0,0.15)] flex flex-col items-center">
+            <div style={{ transform: 'rotate(1deg)' }} className="w-[90%] mx-auto mt-5 sm:mt-10 bg-[#fffaf0] p-2 border-[3px] border-secondary shadow-[0_10px_25px_rgba(0,0,0,0.15)] flex flex-col items-center">
               <img src="/vintage.png" alt="Golden Jubilee" className="w-full h-auto object-cover [filter:sepia(0.8)_contrast(1.2)]" />
               <div className="font-inter text-[11px] font-semibold text-text-main text-center mt-2">
                 <strong className="block text-[13px] text-primary">50 Golden Jubilee</strong>
@@ -168,9 +160,9 @@ export default function OurStoryPage() {
       </section>
 
       {/* ─── Promise Banner ─── */}
-      <div className="bg-primary text-white px-[5%] py-10 mx-[5%] rounded-[12px] relative overflow-hidden mb-10">
-        <h3 className="text-[24px] text-secondary mb-[5px] relative z-10">From one family's promise to a nation's trust.</h3>
-        <p className="text-[15px] text-[#e0e0e0] relative z-10">And the journey continues...</p>
+      <div className="bg-primary text-white px-[5%] py-10 mx-[5%] rounded-[12px] relative overflow-hidden mb-10 text-center sm:text-left">
+        <h3 className="text-[20px] sm:text-[24px] text-secondary mb-[5px] relative z-10">From one family's promise to a nation's trust.</h3>
+        <p className="text-[14px] sm:text-[15px] text-[#e0e0e0] relative z-10">And the journey continues...</p>
       </div>
 
       <Footer />

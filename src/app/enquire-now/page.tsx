@@ -21,13 +21,13 @@ function EnquireNowContent() {
       <Header activePage="enquire-now" />
 
       {/* ─── Hero ─── */}
-      <section className="flex px-[5%] py-[60px] bg-gradient-to-r from-[#fdfdfd] to-[#f4f7f9] border-b border-[#eaeaea] items-center">
-        <div className="flex-[1.2] pr-[40px]">
-          <h1 className="text-[48px] text-primary mb-[15px]">Enquire Now</h1>
-          <p className="text-[16px] text-text-main leading-[1.6] mb-[30px] max-w-[90%]">
+      <section className="flex flex-col lg:flex-row px-[5%] py-[40px] lg:py-[60px] bg-gradient-to-r from-[#fdfdfd] to-[#f4f7f9] border-b border-[#eaeaea] items-center text-center lg:text-left gap-8 lg:gap-0">
+        <div className="flex-[1.2] lg:pr-[40px] w-full">
+          <h1 className="text-[36px] md:text-[48px] text-primary mb-[15px]">Enquire Now</h1>
+          <p className="text-[16px] text-text-main leading-[1.6] mb-[30px] w-full lg:max-w-[90%]">
             We'd love to hear from you. Share your requirements and our team will get in touch shortly.
           </p>
-          <div className="flex gap-[30px]">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-[30px]">
             {[
               { icon: 'far fa-clock',         label: 'Quick Response' },
               { icon: 'fas fa-shield-alt',     label: 'Trusted Support' },
@@ -41,19 +41,19 @@ function EnquireNowContent() {
             ))}
           </div>
         </div>
-        <div className="flex-1 flex justify-end">
-          <img src="/hero.png" alt="Minals Products" className="max-w-full h-auto object-contain max-h-[350px]" />
+        <div className="flex-1 flex justify-center lg:justify-end w-full lg:w-auto">
+          <img src="/hero.png" alt="Minals Products" className="max-w-[80%] sm:max-w-full h-auto object-contain max-h-[350px]" />
         </div>
       </section>
 
       {/* ─── Main content ─── */}
-      <section className="px-[5%] py-[60px] flex gap-10 max-w-[1400px] mx-auto">
+      <section className="px-[5%] py-[40px] lg:py-[60px] flex flex-col lg:flex-row gap-10 max-w-[1400px] mx-auto">
 
         {/* Form */}
-        <div className="flex-[1.2] bg-white rounded-[12px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
-          <h2 className="text-[24px] text-primary mb-[30px]">Send us your enquiry</h2>
+        <div className="flex-[1.2] bg-white rounded-[12px] p-6 sm:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.04)] w-full">
+          <h2 className="text-[20px] sm:text-[24px] text-primary mb-[20px] sm:mb-[30px]">Send us your enquiry</h2>
           <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
-            <div className="flex gap-5">
+            <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Full Name<span className="text-[#e53935]">*</span></label>
                 <input type="text" placeholder="Your full name" required className={inputClass} />
@@ -63,7 +63,7 @@ function EnquireNowContent() {
                 <input type="tel" placeholder="Enter your mobile number" required className={inputClass} />
               </div>
             </div>
-            <div className="flex gap-5">
+            <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Email Address</label>
                 <input type="email" placeholder="your.email@example.com" className={inputClass} />
@@ -73,7 +73,7 @@ function EnquireNowContent() {
                 <input type="text" placeholder="Optional" className={inputClass} />
               </div>
             </div>
-            <div className="flex gap-5">
+            <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">State<span className="text-[#e53935]">*</span></label>
                 <select required className={`${inputClass} select-arrow`}>
@@ -98,22 +98,22 @@ function EnquireNowContent() {
               <label className="text-[13px] font-semibold text-text-main">Message / Requirements<span className="text-[#e53935]">*</span></label>
               <textarea placeholder="Tell us about your requirements..." required className={`${inputClass} resize-y min-h-[100px]`} />
             </div>
-            <div className="flex items-center gap-[10px] mt-[10px]">
-              <input type="checkbox" id="agree" required className="w-4 h-4 accent-secondary" />
-              <label htmlFor="agree" className="text-[13px] text-text-main font-medium">I agree to be contacted by Minals (Ramaiah Enterprises)</label>
+            <div className="flex items-start sm:items-center gap-[10px] mt-[10px]">
+              <input type="checkbox" id="agree" required className="w-4 h-4 accent-secondary mt-1 sm:mt-0 shrink-0" />
+              <label htmlFor="agree" className="text-[12px] sm:text-[13px] text-text-main font-medium">I agree to be contacted by Minals (Ramaiah Enterprises)</label>
             </div>
-            <button type="submit" className="bg-secondary text-white border-none py-[14px] px-[30px] rounded-[6px] text-[16px] font-semibold cursor-pointer flex items-center justify-center gap-[10px] mt-5 w-fit self-center hover:bg-accent">
+            <button type="submit" className="bg-secondary text-white border-none py-[14px] px-[30px] rounded-[6px] text-[15px] sm:text-[16px] font-semibold cursor-pointer flex items-center justify-center gap-[10px] mt-5 w-full sm:w-fit self-center hover:bg-accent">
               Submit Enquiry <i className="fas fa-arrow-right" />
             </button>
           </form>
         </div>
 
         {/* Sidebar */}
-        <div className="flex-1 flex flex-col gap-[30px]">
+        <div className="flex-1 flex flex-col gap-[30px] w-full">
           {/* I'm interested in */}
-          <div className="bg-white rounded-[12px] p-[30px] shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
-            <h3 className="text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">I'm interested in:</h3>
-            <div className="grid grid-cols-2 gap-[15px] mt-4">
+          <div className="bg-white rounded-[12px] p-[20px] lg:p-[30px] shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+            <h3 className="text-[20px] lg:text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">I'm interested in:</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[15px] mt-4">
               {[
                 { icon: 'fa-leaf',        color: '#4CAF50', label: 'Food Products' },
                 { icon: 'fa-pump-soap',   color: '#2196F3', label: 'Cleaning Products' },
@@ -129,8 +129,8 @@ function EnquireNowContent() {
           </div>
 
           {/* WhatsApp */}
-          <div className="bg-[#e8f4f8] rounded-[12px] p-[25px] flex items-center justify-between">
-            <div className="flex-1 flex items-start gap-[15px]">
+          <div className="bg-[#e8f4f8] rounded-[12px] p-[20px] lg:p-[25px] flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4 sm:gap-0">
+            <div className="flex-1 flex flex-col sm:flex-row items-center sm:items-start gap-[15px]">
               <div className="w-10 h-10 bg-[#4CAF50] rounded-full flex items-center justify-center text-white text-[20px] shrink-0">
                 <i className="fab fa-whatsapp" />
               </div>
@@ -143,7 +143,7 @@ function EnquireNowContent() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white px-5 py-3 rounded-[6px] no-underline font-semibold text-[13px] flex items-center gap-2 hover:bg-[#001a3d] ml-4"
+              className="bg-primary text-white px-5 py-3 rounded-[6px] no-underline font-semibold text-[13px] flex items-center justify-center gap-2 hover:bg-[#001a3d] sm:ml-4 w-full sm:w-auto mt-2 sm:mt-0"
             >
               <i className="fab fa-whatsapp text-[#4CAF50] text-[16px]" /> Chat on WhatsApp
             </a>
@@ -151,8 +151,8 @@ function EnquireNowContent() {
 
           {/* Get in touch */}
           <div>
-            <h3 className="text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">Get in touch</h3>
-            <div className="grid grid-cols-2 gap-[15px] mt-4">
+            <h3 className="text-[20px] lg:text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">Get in touch</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[15px] mt-4">
               {[
                 { icon: 'fa-map-marker-alt', title: 'Registered Office', text: 'No 56, Govindappa Street,\nChennai - 600 001' },
                 { icon: 'fa-phone-alt',      title: 'Phone',             text: '044 - 25212585\n+91 8220012671' },

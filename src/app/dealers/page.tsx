@@ -12,26 +12,26 @@ export default function DealersPage() {
       <Header activePage="dealers" />
 
       {/* ─── Main Layout ─── */}
-      <div className="px-[5%] py-[60px] flex justify-between items-start gap-10 max-w-[1400px] mx-auto">
+      <div className="px-[5%] py-[40px] lg:py-[60px] flex flex-col lg:flex-row justify-between items-start gap-10 max-w-[1400px] mx-auto text-center sm:text-left">
 
         {/* Left info */}
-        <div className="flex-[1.2] flex flex-col gap-[30px]">
+        <div className="flex-1 lg:flex-[1.2] flex flex-col gap-[30px] w-full">
           <div>
-            <h2 className="text-[36px] text-primary font-bold mb-[15px]">Our Dealer Network</h2>
-            <p className="text-[15px] text-text-light leading-[1.6] max-w-[90%]">
+            <h2 className="text-[28px] lg:text-[36px] text-primary font-bold mb-[15px]">Our Dealer Network</h2>
+            <p className="text-[14px] lg:text-[15px] text-text-light leading-[1.6] w-full lg:max-w-[90%]">
               Partner with us and grow together. We are building a strong network across India to deliver quality products to every home and business.
             </p>
           </div>
 
-          <div className="flex gap-5 mt-[10px]">
+          <div className="flex flex-col sm:flex-row gap-5 lg:gap-5 mt-[10px] justify-center sm:justify-start">
             {[
               { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Pan India presence' },
               { icon: 'fa-users',          title: 'Reliable Partners', desc: 'Growing together' },
               { icon: 'fa-headset',        title: 'Timely Support',    desc: 'Always at your service' },
             ].map((f) => (
-              <div key={f.title} className="flex items-start gap-3">
-                <i className={`fas ${f.icon} text-[24px] text-primary mt-[3px]`} />
-                <div>
+              <div key={f.title} className="flex items-center sm:items-start gap-3">
+                <i className={`fas ${f.icon} text-[24px] text-primary sm:mt-[3px]`} />
+                <div className="text-left">
                   <h4 className="text-[14px] text-text-main font-bold mb-[2px]">{f.title}</h4>
                   <p className="text-[12px] text-text-light">{f.desc}</p>
                 </div>
@@ -39,9 +39,9 @@ export default function DealersPage() {
             ))}
           </div>
 
-          <div className="bg-white rounded-[12px] p-[25px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/5 mt-[10px]">
-            <h3 className="font-inter text-[16px] text-primary font-bold text-center mb-[25px]">Who Can Partner With Us?</h3>
-            <div className="flex justify-between">
+          <div className="bg-white rounded-[12px] p-[20px] lg:p-[25px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/5 mt-[10px]">
+            <h3 className="font-inter text-[16px] text-primary font-bold text-center mb-[20px] lg:mb-[25px]">Who Can Partner With Us?</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4">
               {[
                 { icon: 'fa-truck-loading', label: 'Distributors' },
                 { icon: 'fa-boxes',          label: 'Wholesalers' },
@@ -49,8 +49,8 @@ export default function DealersPage() {
                 { icon: 'fa-building',       label: 'Institutional Suppliers' },
               ].map((p) => (
                 <div key={p.label} className="flex flex-col items-center gap-[10px] text-center">
-                  <i className={`fas ${p.icon} text-[30px] text-primary`} />
-                  <span className="text-[12px] font-semibold text-primary">{p.label}</span>
+                  <i className={`fas ${p.icon} text-[24px] lg:text-[30px] text-primary`} />
+                  <span className="text-[11px] lg:text-[12px] font-semibold text-primary">{p.label}</span>
                 </div>
               ))}
             </div>
@@ -58,21 +58,21 @@ export default function DealersPage() {
         </div>
 
         {/* Map */}
-        <div className="flex-1 flex justify-center items-center">
-          <img src="/india-map.png" alt="India Map with Locations" className="max-w-full h-auto object-contain" />
+        <div className="w-full lg:flex-1 flex justify-center items-center">
+          <img src="/india-map.png" alt="India Map with Locations" className="max-w-[80%] lg:max-w-full h-auto object-contain" />
         </div>
 
         {/* Form */}
-        <div className="flex-[0.8] bg-white rounded-[12px] px-[30px] py-[35px] shadow-panel border border-black/5">
-          <h3 className="text-[24px] text-primary mb-[10px]">Become a Dealer</h3>
-          <p className="text-[13px] text-text-light mb-[25px] leading-[1.5]">
+        <div className="w-full lg:flex-[0.8] bg-white rounded-[12px] px-[20px] lg:px-[30px] py-[25px] lg:py-[35px] shadow-panel border border-black/5 text-left">
+          <h3 className="text-[20px] lg:text-[24px] text-primary mb-[10px]">Become a Dealer</h3>
+          <p className="text-[12px] lg:text-[13px] text-text-light mb-[20px] lg:mb-[25px] leading-[1.5]">
             Join hands with Minals (Ramaiah Enterprises) and grow your business with a trusted brand.
           </p>
           <form className="flex flex-col gap-[15px]" onSubmit={(e) => e.preventDefault()}>
             {['Your Name', 'Mobile Number', 'Email Address', 'City', 'State'].map((ph, i) => (
               <input key={i} type={ph.includes('Email') ? 'email' : 'text'} placeholder={ph} className={inputClass} />
             ))}
-            <button type="submit" className="bg-secondary text-white border-none py-[14px] rounded-[6px] text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] mt-[10px] hover:bg-accent">
+            <button type="submit" className="bg-secondary text-white border-none py-[12px] lg:py-[14px] rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] mt-[10px] hover:bg-accent w-full">
               Submit Enquiry <i className="fas fa-arrow-right" />
             </button>
           </form>
