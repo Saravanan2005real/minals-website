@@ -86,7 +86,7 @@ export default function DealersPage() {
         <div className="w-full lg:flex-1 flex flex-col items-center gap-8 lg:pt-[40px]">
           <div className="relative w-full max-w-[480px] aspect-[1/1.1] transition-transform hover:scale-[1.02] duration-500">
             <Image 
-              src="/india-map.png" 
+              src="/india-network-map.png" 
               alt="India Map with Locations" 
               fill
               priority

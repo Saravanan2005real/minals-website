@@ -56,7 +56,7 @@ export default function OurStoryPage() {
               <div className="w-full sm:flex-[1] bg-primary text-white flex flex-col items-center justify-center p-6 lg:p-8 text-center relative">
                 <div className="relative w-[105px] h-[105px] lg:w-[120px] lg:h-[120px] mb-5">
                   <Image
-                    src="/60 years.png"
+                    src="/60-years-trust.png"
                     alt="60+ Years of Trust"
                     fill
                     className="object-contain drop-shadow-xl"
