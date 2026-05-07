@@ -12,76 +12,75 @@ This document outlines the design language, color palette, typography, and compo
 
 ## 2. Typography
 
-The project uses two Google Fonts to balance modernity with tradition:
+The project uses a curated font pairing to balance tradition and modern professionalism:
 
 - **Primary Font (Headings)**: `Playfair Display` (Serif)
-  - Used for titles (`h1`, `h2`, `h3`) and the main brand name to convey heritage, elegance, and trust.
-- **Secondary Font (Body Text)**: `Inter` (Sans-serif)
-  - Used for body text, navigation, and UI elements to ensure high legibility and a clean, modern look.
+  - Used for hero titles, section headings, and the brand name.
+  - Conveys heritage, high-end quality, and the "Since 1962" legacy.
+- **Secondary Font (Body Text)**: `Inter` & `Montserrat` (Sans-serif)
+  - `Inter` is used for primary body copy for maximum legibility.
+  - `Montserrat` is used for labels, badges, and UI elements to add a modern, geometric feel.
 
 ## 3. Color Palette
 
 The color system is defined in `tailwind.config.ts`:
 
 ### Core Colors
-- **Primary**: `#002B5B` (Deep Navy Blue) - Used for headers, primary buttons, and strong emphasis.
-- **Secondary**: `#B8860B` (Dark Goldenrod) - Used for accents, badges, and secondary buttons.
-- **Accent**: `#D4AF37` (Metallic Gold) - Used for hover states, active navigation links, and highlights.
+- **Primary**: `#002B5B` (Deep Navy Blue) - Represents trust, depth, and corporate stability.
+- **Secondary**: `#B8860B` (Dark Goldenrod) - Represents excellence, quality, and heritage.
+- **Accent**: `#D4AF37` (Metallic Gold) - Used for critical CTAs and active states.
 
-### Text Colors
-- **Main Text**: `#333333` - Used for primary body copy.
-- **Light Text**: `#666666` - Used for subtitles, descriptions, and less emphasized text.
+### Semantic Categories
+- **Sanitizers**: `#e8f4fa` (Light Blue)
+- **Cleaning**: `#eef5fa` (Soft Navy)
+- **Wellness**: `#eef8ed` (Sage Green)
+- **Food**: `#fdf4e6` (Wheat/Cream)
 
-### Background Colors
-- **Light Background**: `#f9f9f9` - Standard off-white background.
-- **Food Category Background**: `#f0f4f0` - Subtle greenish tint for food product areas.
-- **Cleaning Category Background**: `#f0f7ff` - Subtle bluish tint for cleaning product areas.
+## 4. Folder Structure (Aligned)
 
-## 4. Layout & Grid System
+The repository follows a clean Next.js 15 App Router structure:
 
-The application uses standard Tailwind CSS flexbox and grid layouts, with specific custom grids defined for recurring components:
-- `footer`: `1.8fr 1fr 1fr 1fr 1fr`
-- `products-shell`: `280px 1fr`
-- `products-hero`: `1.1fr 0.9fr`
-- `features-bar`: `repeat(4, 1fr)`
-- `heritage`: `0.65fr 2fr`
+```
+interian-ai-2/
+├── public/                 # Static assets
+│   ├── products/           # 44 Descriptive named product images
+│   ├── logo.png            # Main brand logo
+│   └── hero.png            # Optimized hero visuals
+├── src/
+│   └── app/                # Main application logic
+│       ├── components/     # Shared UI (Header, Footer)
+│       ├── dealers/        # Dealer network page
+│       ├── products/       # Dynamic product catalog
+│       └── ...             # Other pages (Story, Contact)
+├── design.md               # This document
+└── README.md               # Project overview & guide
+```
 
-Container padding is generally set using responsive percentages (e.g., `px-[5%]`) to ensure scalability across screen sizes.
+## 5. Product Catalog (44 Products)
 
-## 5. UI Elements & Effects
+The catalog is divided into four main pillars:
 
-### Shadows
-Custom shadows are applied to elevate elements:
-- `card`: `0 10px 26px rgba(0,0,0,0.03)`
-- `panel`: `0 10px 30px rgba(0,0,0,0.05)`
-- `soft`: `0 4px 15px rgba(0,0,0,0.1)`
-- `filter`: `0 10px 30px rgba(0,0,0,0.03)`
+### I. Sanitizers (11)
+- Ceylon Citronella, German Rose, Italian Herbs, London Lavender, Malaysian Sandal, Minals Sanitizer Fluid, Royal Jasmine, Sentol (Jasmine, Lavender, Lemon), Spanish Limon.
 
-### Transitions & Hover States
-- Interactive elements (cards, buttons) feature slight Y-axis translations (`-translate-y-[5px]` or `-translate-y-0.5`) on hover.
-- Links and navigation items switch to the `Accent` color on hover.
+### II. Cleaning Solutions (13)
+- Minals Black Power, Premier (Bleaching Powder, Ant Powder, Toilet Cleaner, Liquid Soap, Floor Cleaners: Lemon/Floral/Neem, Bathroom Cleaner, Power Plus, Dishwash, Super Washing Soda, Glass Cleaner).
 
-### Special Effects
-- **Hero Image Masking**: The hero images utilize CSS masking (`mask-image` with linear gradients) and `mix-blend-mode: multiply` to seamlessly blend into the background.
+### III. Wellness & Care (7)
+- Minals (Castor Oil, Neem Oil, Rose Water), Sri Lakshmi Sandal Tablet, Lion Colours (Kesari, Lemon Yellow, Orange Red).
 
-## 6. Iconography
+### IV. Food Products (13)
+- Martin Vinegar, Omum Water, Lion (Artificial Flavours, Soft Drink Concentrates, Biryani Flavour, Milk Mixes: Badam/Pista/Rose, Special Colors, Cardamom Powder, Pachai Karpooram, Corn Flour, Baking Powder).
 
-The project uses **Font Awesome 6 (Free/Solid)** for iconography. Icons are heavily utilized in:
-- Navigation (dropdown arrows)
-- Features Bar (`fa-shield`, `fa-handshake`, `fa-users`, `fa-location-dot`)
-- Buttons (arrows, WhatsApp icon)
+## 6. Architecture & Logic
 
-## 7. Component Structure
+- **Framework**: Next.js 15 (App Router).
+- **Styling**: Tailwind CSS v3 with custom brand tokens.
+- **Enquiry Logic**: 
+  - Integrated WhatsApp CTA with pre-filled product/quantity details.
+  - Automated lead capture via Google Sheets API (No-Code backend integration).
+- **Responsiveness**: "Mobile-First" approach with specific "Above the Fold" optimizations for small screens.
 
-- **Header**: Sticky (`sticky top-0 z-[1000]`), primary background color, white text, includes brand logo, navigation links, and Quick Enquiry buttons.
-- **Hero Section**: Features a radial gradient background, large typography, and a masked hero image.
-- **Features Bar**: A white card overlaid on a light gray background outlining the 4 main value propositions.
-- **Category Grid**: Split cards highlighting 'Food' and 'Cleaning' product categories with distinct, tinted backgrounds.
-- **Heritage Banner**: A robust section using the primary background with a vintage image and trust badges.
-- **Footer**: Simple, clean layout with copyright information and policy links.
+---
+*Last Updated: May 2026*
 
-## 8. Development Stack
-
-- **Framework**: Next.js (App Router)
-- **Styling**: Tailwind CSS
-- **Language**: TypeScript
