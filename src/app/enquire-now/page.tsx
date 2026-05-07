@@ -17,6 +17,16 @@ function EnquireNowContent() {
     : `Hello, I would like to enquire about your product range. Could you please share more details? Thank you.`;
   const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
+  const [formData, setFormData] = React.useState({
+    name: '',
+    phone: '',
+    email: '',
+    company: '',
+    state: '',
+    city: '',
+    message: ''
+  });
+  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
   const [selectedInterests, setSelectedInterests] = React.useState<string[]>([]);
 
   const toggleInterest = (label: string) => {
