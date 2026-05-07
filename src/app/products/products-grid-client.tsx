@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 type Product = {
   name: string;
@@ -18,17 +18,8 @@ function buildWhatsAppUrl(message: string) {
 function ProductCard({ p }: { p: Product }) {
   const key = `${p.category}:${p.name}`;
 
-  const handleEnquiry = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const input = window.prompt(`How many units of ${p.name} would you like to enquire about?`, '1');
-    if (input === null) return; // User cancelled
-    
-    const parsedQty = parseInt(input.replace(/[^0-9]/g, ''), 10);
-    const finalQty = isNaN(parsedQty) || parsedQty < 1 ? 1 : parsedQty;
-    
-    const message = `Hello, I am interested in purchasing ${p.name} (Quantity: ${finalQty}). Could you please provide more details regarding pricing and availability? Thank you.`;
-    window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
-  };
+  const [isEnquiring, setIsEnquiring] = useState(false);
+  const [qty, setQty] = useState('1');
 
   return (
     <div
@@ -66,12 +57,53 @@ function ProductCard({ p }: { p: Product }) {
         <div className="text-[15px] font-extrabold text-[#12283d] mb-[6px]">{p.name}</div>
         <div className="text-[12px] text-[#5a6875] mb-[12px] leading-[1.6] whitespace-pre-line">{p.desc}</div>
 
-        <button
-          onClick={handleEnquiry}
-          className="mt-auto inline-flex items-center justify-center gap-2 bg-primary text-white px-[18px] py-[9px] rounded-[6px] text-[13px] font-semibold no-underline hover:bg-secondary w-full transition-colors cursor-pointer border-none"
-        >
-          <i className="fab fa-whatsapp" /> Enquiry on WhatsApp
-        </button>
+        <div className="mt-auto">
+          {!isEnquiring ? (
+            <button
+              onClick={() => setIsEnquiring(true)}
+              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-[18px] py-[9px] rounded-[6px] text-[13px] font-semibold no-underline hover:bg-secondary w-full transition-colors cursor-pointer border-none"
+            >
+              <i className="fab fa-whatsapp" /> Enquiry on WhatsApp
+            </button>
+          ) : (
+            <div className="flex items-center justify-between bg-[#f8f9fa] border border-black/[0.08] rounded-[6px] p-1 h-[37px]">
+              <div className="flex items-center gap-2 px-2 flex-1">
+                <label className="text-[12px] font-bold text-[#5a6875] whitespace-nowrap">Qty:</label>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={qty}
+                  autoFocus
+                  onFocus={(e) => e.target.select()}
+                  onChange={(e) => setQty(e.target.value.replace(/[^0-9]/g, ''))}
+                  className="w-full text-[13px] font-bold text-[#12283d] bg-transparent focus:outline-none"
+                  placeholder="1"
+                />
+              </div>
+              <div className="flex items-center gap-1 pr-1">
+                <button
+                  onClick={() => {
+                    const finalQty = Math.max(1, parseInt(qty || '1', 10));
+                    const message = `Hello, I am interested in purchasing ${p.name} (Quantity: ${finalQty}). Could you please provide more details regarding pricing and availability? Thank you.`;
+                    window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
+                    setIsEnquiring(false);
+                    setQty('1');
+                  }}
+                  className="bg-[#25D366] text-white px-3 py-1 rounded-[4px] text-[12px] font-bold hover:bg-[#1ebe5b] transition-colors flex items-center gap-1"
+                >
+                  <i className="fab fa-whatsapp" /> Send
+                </button>
+                <button
+                  onClick={() => setIsEnquiring(false)}
+                  className="text-[#5a6875] w-[24px] h-[24px] flex items-center justify-center rounded-full hover:bg-black/[0.05] hover:text-red-500 transition-colors"
+                  aria-label="Cancel"
+                >
+                  <i className="fas fa-times text-[12px]"></i>
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
