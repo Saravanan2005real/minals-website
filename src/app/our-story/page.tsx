@@ -38,11 +38,11 @@ export default function OurStoryPage() {
           </div>
 
           {/* Right Side */}
-          <div className="w-full lg:w-[60%] pt-[28px] lg:pt-[34px]">
+          <div className="w-full lg:w-[60%] pt-[40px] lg:pt-[126px]">
             {/* Smaller Image Card */}
             <div className="w-full flex flex-col sm:flex-row rounded-[14px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-[#ececec] mb-7">
               {/* Left Image */}
-              <div className="w-full sm:flex-[2.2] relative h-[250px] lg:h-[380px]">
+              <div className="w-full sm:flex-[2.2] relative h-[220px] lg:h-[300px]">
                 <Image
                   src="/vintage.png"
                   alt="Ramaiah Enterprises 1962"
