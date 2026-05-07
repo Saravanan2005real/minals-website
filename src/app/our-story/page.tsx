@@ -44,11 +44,11 @@ export default function OurStoryPage() {
               {/* Left Image */}
               <div className="w-full sm:flex-[2.2] relative h-[220px] lg:h-[300px]">
                 <Image
-                  src="/vintage.png"
+                  src="/vintage-cleaning-store-tamil-corrected.png"
                   alt="Ramaiah Enterprises 1962"
                   fill
                   priority
-                  className="object-cover [filter:sepia(0.3)_contrast(1.05)]"
+                  className="object-cover object-[center_10%] [filter:sepia(0.3)_contrast(1.05)]"
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
               </div>
