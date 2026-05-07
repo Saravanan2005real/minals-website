@@ -71,10 +71,41 @@ export default function ContactUsPage() {
               </div>
             ))}
           </div>
+
+          {/* Square Map Card */}
+          <div className="mt-10 lg:mt-12 group">
+            <div className="w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] bg-white rounded-[20px] p-2 shadow-[0_15px_45px_rgba(0,0,0,0.08)] border border-black/5 mx-auto sm:mx-0 relative">
+              <div className="w-full h-full rounded-[15px] overflow-hidden relative">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62177.08115945303!2d80.28218!3d13.094904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f5737d50fa1%3A0xde2dd720f9245dbe!2sRAMAIAH%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1778161580549!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ramaiah Enterprises Location"
+                  className="grayscale-[0.2] contrast-[1.1] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                ></iframe>
+                <div className="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-md z-10 font-montserrat">
+                  OUR SHOP
+                </div>
+              </div>
+              <a 
+                href="https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="absolute -bottom-4 -right-4 bg-secondary text-white w-[50px] h-[50px] rounded-full flex items-center justify-center shadow-xl hover:bg-accent hover:scale-110 transition-all z-20 group-hover:-translate-y-1"
+                title="Get Directions"
+              >
+                <i className="fas fa-directions text-[22px]" />
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Right form */}
-        <div className="w-full lg:flex-[1.2] bg-white rounded-[12px] p-6 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.06)] mt-8 lg:mt-0 text-left">
+        <div className="w-full lg:flex-[1.2] bg-white rounded-[12px] p-6 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.06)] mt-8 lg:mt-0 text-left h-fit">
           <h3 className="text-[20px] lg:text-[24px] text-primary mb-[10px]">Send Us a Message</h3>
           <p className="text-[13px] lg:text-[14px] text-text-light mb-[20px] lg:mb-[30px]">Fill in the form and our team will get back to you shortly.</p>
 
@@ -127,36 +158,6 @@ export default function ContactUsPage() {
               )}
             </button>
           </form>
-        </div>
-
-        {/* Right Area - Small Map Card */}
-        <div className="w-full lg:w-[350px] shrink-0">
-          <div className="bg-white rounded-[12px] p-3 shadow-[0_10px_40px_rgba(0,0,0,0.06)] h-full min-h-[300px] flex flex-col">
-            <h4 className="text-[14px] font-bold text-primary mb-3 px-1 font-montserrat flex items-center gap-2">
-              <i className="fas fa-map-marked-alt text-secondary" /> Find us on Maps
-            </h4>
-            <div className="flex-1 rounded-[8px] overflow-hidden border border-black/5">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62177.08115945303!2d80.28218!3d13.094904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f5737d50fa1%3A0xde2dd720f9245dbe!2sRAMAIAH%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1778161580549!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, minHeight: '280px' }} 
-                allowFullScreen={true} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ramaiah Enterprises Location"
-                className="grayscale-[0.1] contrast-[1.05]"
-              ></iframe>
-            </div>
-            <a 
-              href="https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="mt-3 text-[12px] text-secondary font-bold hover:text-accent flex items-center justify-center gap-1 no-underline"
-            >
-              Open in Google Maps <i className="fas fa-external-link-alt text-[10px]" />
-            </a>
-          </div>
         </div>
       </div>
 
