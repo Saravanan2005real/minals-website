@@ -134,124 +134,124 @@ export default function OurStoryPage() {
 </section>
 
        {/* ─── Journey Timeline ─── */}
-      <section
-        id="journey"
-        className="py-[20px] lg:py-[30px] bg-[radial-gradient(circle_at_top,#f8f9fa_0%,#ffffff_100%)] relative overflow-hidden"
+<section
+  id="journey"
+  className="py-[20px] lg:py-[30px] bg-[radial-gradient(circle_at_top,#f8f9fa_0%,#ffffff_100%)] relative overflow-hidden"
+>
+
+  <div className="text-center mb-[35px]">
+
+    <span className="text-secondary font-bold tracking-[3px] uppercase text-[11px] mb-2 block">
+      Our Milestones
+    </span>
+
+    <h2 className="text-[30px] lg:text-[40px] text-primary font-playfair font-bold inline-block relative">
+      The Minals Journey
+
+      <div className="w-[70px] h-[3px] bg-secondary mx-auto mt-4 rounded-full"></div>
+    </h2>
+  </div>
+
+  <div className="max-w-[1000px] mx-auto px-[5%] relative">
+
+    {/* Central Line Desktop */}
+    <div className="hidden md:block absolute left-1/2 top-[20px] bottom-[40px] w-[2px] bg-gradient-to-b from-secondary/60 via-secondary/20 to-transparent -translate-x-1/2 z-0"></div>
+
+    {/* Central Line Mobile */}
+    <div className="block md:hidden absolute left-[30px] top-[20px] bottom-[40px] w-[2px] bg-gradient-to-b from-secondary/60 via-secondary/20 to-transparent z-0"></div>
+
+    {[
+      {
+        year: '1962',
+        title: 'Our Inauguration',
+        desc: 'Founded with unparalleled dedication by Mr. Ramaiah.',
+        img: '/timeline-3.jpg',
+        caption: 'Honoured by leaders.',
+      },
+      {
+        year: '1970s',
+        title: 'Expansion & Recognition',
+        desc: 'Expanded rapidly across South India.',
+        img: '/timeline-1.jpg',
+      },
+      {
+        year: '1985',
+        title: 'Pioneering White Phenyl',
+        desc: 'Introduced our innovative White Phenyl.',
+        img: '/timeline-2.jpg',
+      },
+      {
+        year: '1998',
+        title: 'A New Era of Leadership',
+        desc: 'Modern practices while preserving core values.',
+        img: '/timeline-3.jpg',
+      },
+      {
+        year: '2012 & Beyond',
+        title: '50 Golden Years',
+        desc: 'Celebrating decades of trust and innovation.',
+        img: '/timeline-4.jpg',
+        caption: 'Golden Jubilee',
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className={`relative flex flex-col md:flex-row items-center justify-between mb-[25px] md:mb-[35px] group ${
+          i % 2 !== 0 ? 'md:flex-row-reverse' : ''
+        }`}
       >
 
-        <div className="text-center mb-[35px]">
+        {/* Timeline Dot */}
+        <div className="absolute left-[30px] md:left-1/2 top-[28px] md:top-[34px] w-[16px] h-[16px] rounded-full bg-white border-[3px] border-secondary shadow-[0_0_0_3px_rgba(184,134,11,0.1)] -translate-x-1/2 z-10"></div>
 
-          <span className="text-secondary font-bold tracking-[3px] uppercase text-[11px] mb-2 block">
-            Our Milestones
-          </span>
+        {/* Content */}
+        <div className="w-full md:w-[45%] pl-[60px] md:pl-0">
 
-          <h2 className="text-[30px] lg:text-[40px] text-primary font-playfair font-bold inline-block relative">
-            The Minals Journey
+          <div
+            className={`group bg-white p-4 md:p-5 rounded-[14px] shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-black/[0.03] relative hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 cursor-pointer ${
+              i % 2 !== 0 ? 'md:text-left' : 'md:text-right'
+            }`}
+          >
 
-            <div className="w-[70px] h-[3px] bg-secondary mx-auto mt-4 rounded-full"></div>
-          </h2>
+            <span className="inline-block px-3 py-1 bg-[#f4f7f9] text-secondary font-bold rounded-full text-[12px] tracking-[0.5px] mb-3 border border-secondary/20 transition-all duration-300 group-hover:bg-secondary group-hover:text-white">
+              {item.year}
+            </span>
+
+            <h3 className="text-[18px] md:text-[20px] font-bold text-primary mb-2 font-playfair transition-all duration-300 group-hover:text-secondary">
+              {item.title}
+            </h3>
+
+            <p className="text-text-light text-[13px] md:text-[14px] leading-[1.6]">
+              {item.desc}
+            </p>
+          </div>
         </div>
 
-        <div className="max-w-[1000px] mx-auto px-[5%] relative">
+        {/* Image */}
+        <div className="w-full md:w-[45%] pl-[60px] md:pl-0 mt-4 md:mt-0">
 
-          {/* Central Line Desktop */}
-          <div className="hidden md:block absolute left-1/2 top-[20px] bottom-[40px] w-[2px] bg-gradient-to-b from-secondary/60 via-secondary/20 to-transparent -translate-x-1/2 z-0"></div>
+          <div className="group relative rounded-[14px] overflow-hidden shadow-md border-[3px] border-white hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 cursor-pointer">
 
-          {/* Central Line Mobile */}
-          <div className="block md:hidden absolute left-[30px] top-[20px] bottom-[40px] w-[2px] bg-gradient-to-b from-secondary/60 via-secondary/20 to-transparent z-0"></div>
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-auto object-cover max-h-[220px] transition-all duration-500 group-hover:scale-110"
+            />
 
-          {[
-            {
-              year: '1962',
-              title: 'Our Inauguration',
-              desc: 'Founded with unparalleled dedication by Mr. Ramaiah.',
-              img: '/timeline-3.jpg',
-              caption: 'Honoured by leaders.',
-            },
-            {
-              year: '1970s',
-              title: 'Expansion & Recognition',
-              desc: 'Expanded rapidly across South India.',
-              img: '/timeline-1.jpg',
-            },
-            {
-              year: '1985',
-              title: 'Pioneering White Phenyl',
-              desc: 'Introduced our innovative White Phenyl.',
-              img: '/timeline-2.jpg',
-            },
-            {
-              year: '1998',
-              title: 'A New Era of Leadership',
-              desc: 'Modern practices while preserving core values.',
-              img: '/timeline-3.jpg',
-            },
-            {
-              year: '2012 & Beyond',
-              title: '50 Golden Years',
-              desc: 'Celebrating decades of trust and innovation.',
-              img: '/timeline-4.jpg',
-              caption: 'Golden Jubilee',
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className={`relative flex flex-col md:flex-row items-center justify-between mb-[25px] md:mb-[35px] group ${
-                i % 2 !== 0 ? 'md:flex-row-reverse' : ''
-              }`}
-            >
+            {item.caption && (
+              <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm p-2 text-center border-t border-black/5">
 
-              {/* Timeline Dot */}
-              <div className="absolute left-[30px] md:left-1/2 top-[28px] md:top-[34px] w-[16px] h-[16px] rounded-full bg-white border-[3px] border-secondary shadow-[0_0_0_3px_rgba(184,134,11,0.1)] -translate-x-1/2 z-10"></div>
-
-              {/* Content */}
-              <div className="w-full md:w-[45%] pl-[60px] md:pl-0">
-
-                <div
-                  className={`bg-white p-4 md:p-5 rounded-[14px] shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-black/[0.03] relative ${
-                    i % 2 !== 0 ? 'md:text-left' : 'md:text-right'
-                  }`}
-                >
-
-                  <span className="inline-block px-3 py-1 bg-[#f4f7f9] text-secondary font-bold rounded-full text-[12px] tracking-[0.5px] mb-3 border border-secondary/20">
-                    {item.year}
-                  </span>
-
-                  <h3 className="text-[18px] md:text-[20px] font-bold text-primary mb-2 font-playfair">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-text-light text-[13px] md:text-[14px] leading-[1.6]">
-                    {item.desc}
-                  </p>
-                </div>
+                <p className="text-[12px] font-semibold text-primary m-0 transition-all duration-300 group-hover:text-secondary">
+                  {item.caption}
+                </p>
               </div>
-
-              {/* Image */}
-              <div className="w-full md:w-[45%] pl-[60px] md:pl-0 mt-4 md:mt-0">
-
-                <div className="relative rounded-[14px] overflow-hidden shadow-md border-[3px] border-white">
-
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-auto object-cover max-h-[220px]"
-                  />
-
-                  {item.caption && (
-                    <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm p-2 text-center border-t border-black/5">
-
-                      <p className="text-[12px] font-semibold text-primary m-0">
-                        {item.caption}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
+            )}
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* ─── Promise Banner ─── */}
       <div className="bg-primary text-white px-[5%] py-6 mx-[5%] rounded-[12px] relative overflow-hidden mb-4 text-center sm:text-left">
