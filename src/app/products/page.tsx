@@ -38,30 +38,28 @@ const PRODUCTS: Product[] = [
   { name: 'Martin Vinegar', category: 'food', image: '/products/martin-vinegar.png', desc: 'High-quality, distinctively crafted vinegar perfect for enhancing your culinary masterpieces. Brings the ideal balance of acidity to dressings, marinades, and pickling.' },
   { name: 'Omum Water', category: 'food', image: '/products/omum-water.png', desc: 'A traditional, highly refreshing Ajwain (Omum) water preparation. Known for its soothing digestive benefits and naturally uplifting flavor profile.' },
 
-  // Premium Sanitizers
-  { name: 'Minals Herbal Hand Sanitizer', category: 'sanitizers', image: '/products/premium_230608_1778132140397.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene with herbal extracts.' },
-  { name: 'Minals Aloe Vera Sanitizer', category: 'sanitizers', image: '/products/premium_230837_1778132156009.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, providing gentle care with aloe vera.' },
-  { name: 'Minals Ocean Breeze Sanitizer', category: 'sanitizers', image: '/products/premium_230850_1778132173613.png', desc: 'An ultra-premium commercial grade sanitizer from Minals with a refreshing ocean breeze fragrance.' },
-  { name: 'Minals Citrus Burst Sanitizer', category: 'sanitizers', image: '/products/premium_230905_1778132191800.png', desc: 'An ultra-premium commercial grade sanitizer from Minals featuring an invigorating citrus blend.' },
-  
-  // Premium Cleaning
-  { name: 'Minals Multi-Surface Cleaner', category: 'cleaning', image: '/products/premium_230919_1778132208037.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results on all surfaces.' },
-  { name: 'Minals Glass & Window Cleaner', category: 'cleaning', image: '/products/premium_230932_1778132227394.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for streak-free windows and glass.' },
-  { name: 'Minals Heavy Duty Floor Cleaner', category: 'cleaning', image: '/products/premium_230957_1778132243028.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for tough stains and floor maintenance.' },
-  { name: 'Minals Bathroom Disinfectant', category: 'cleaning', image: '/products/premium_231229_1778132259816.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals ensuring maximum hygiene in washrooms.' },
-  
-  // Premium Wellness
-  { name: 'Minals Pure Almond Oil', category: 'wellness', image: '/products/premium_231251_1778132278589.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for maximum purity and nourishment.' },
-  { name: 'Minals Eucalyptus Essential Oil', category: 'wellness', image: '/products/premium_231312_1778132299383.png', desc: 'An ultra-premium commercial grade wellness product from Minals, offering soothing and aromatic benefits.' },
-  { name: 'Minals Tea Tree Extract', category: 'wellness', image: '/products/premium_231331_1778132329976.png', desc: 'An ultra-premium commercial grade wellness product from Minals, known for its natural purifying properties.' },
-  { name: 'Minals Virgin Coconut Oil', category: 'wellness', image: '/products/premium_231347_1778132347775.png', desc: 'An ultra-premium commercial grade wellness product from Minals, cold-pressed for superior quality.' },
+  // Premier Cleaning Products
+  { name: 'Premier Bleaching Powder', category: 'cleaning', image: '/products/premium_230608_1778132140397.png', desc: 'High-quality bleaching powder designed for effective stain removal and surface disinfection.' },
+  { name: 'Premier Ant Powder', category: 'cleaning', image: '/products/premium_230837_1778132156009.png', desc: 'A highly effective ant repellent powder ensuring a pest-free and clean environment.' },
+  { name: 'Premier Toilet Cleaner', category: 'cleaning', image: '/products/premium_230850_1778132173613.png', desc: 'Powerful toilet cleaner from Premier for thorough hygiene and spotless ceramics.' },
+  { name: 'Premier Liquid Soap', category: 'cleaning', image: '/products/premium_230905_1778132191800.png', desc: 'Multi-purpose liquid soap suitable for a variety of deep cleaning and maintenance tasks.' },
+  { name: 'Premier Lemon Floor Cleaner', category: 'cleaning', image: '/products/premium_230919_1778132208037.png', desc: 'Citrus-infused floor cleaner that leaves a lingering lemon fragrance and a spotless shine.' },
+  { name: 'Premier Floral Floor Cleaner', category: 'cleaning', image: '/products/premium_230932_1778132227394.png', desc: 'Pleasantly scented floral floor cleaner offering superior dirt removal and lasting freshness.' },
+  { name: 'Premier Neem Floor Cleaner', category: 'cleaning', image: '/products/premium_230957_1778132243028.png', desc: 'Natural neem-based floor cleaner combining traditional antimicrobial properties with powerful cleaning.' },
+  { name: 'Premier Bathroom Cleaner', category: 'cleaning', image: '/products/premium_231229_1778132259816.png', desc: 'A specialized bathroom cleaner that effortlessly removes tough water stains and soap scum.' },
+  { name: 'Premier Power Plus Toilet Cleaner', category: 'cleaning', image: '/products/premium_231251_1778132278589.png', desc: 'Advanced Power Plus formula for ultimate toilet sanitation and stubborn stain eradication.' },
+  { name: 'Premier Dishwash', category: 'cleaning', image: '/products/premium_231312_1778132299383.png', desc: 'Premium dishwashing liquid formulated to cut through grease and leave utensils sparkling clean.' },
+  { name: 'Premier Super Washing Soda', category: 'cleaning', image: '/products/premium_231331_1778132329976.png', desc: 'Household cleaner and laundry booster designed to tackle the most stubborn dirt and stains.' },
+  { name: 'Premier Glass Cleaner', category: 'cleaning', image: '/products/premium_231613_1778132365703.png', desc: 'Advanced formula glass cleaner that provides a streak-free, sparkling clear finish for windows and mirrors.' },
 
-  // Premium Food
-  { name: 'Minals Apple Cider Vinegar', category: 'food', image: '/products/premium_231613_1778132365703.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition for health and taste.' },
-  { name: 'Minals Synthetic White Vinegar', category: 'food', image: '/products/premium_231637_1778132383123.png', desc: 'An ultra-premium commercial grade food product from Minals, perfect for culinary and preservative needs.' },
-  { name: 'Minals Premium Rose Syrup', category: 'food', image: '/products/premium_231701_1778132402024.png', desc: 'An ultra-premium commercial grade food product from Minals, delivering an authentic and refreshing floral flavor.' },
-  { name: 'Minals Traditional Nannari Syrup', category: 'food', image: '/products/premium_231720_1778132418120.png', desc: 'An ultra-premium commercial grade food product from Minals, an ancient recipe for natural summer cooling.' },
-  { name: 'Minals Jeera Water (Cumin Water)', category: 'food', image: '/products/premium_231739_1778132433601.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted for excellent digestive health.' }
+  // Wellness
+  { name: 'Sri Lakshmi Sandal Scented Tablet & Powder', category: 'wellness', image: '/products/premium_231347_1778132347775.png', desc: 'Traditional Sandal scented tablets and powder for spiritual, aromatic, and wellness applications.' },
+
+  // Lion Food Products
+  { name: 'Lion Artificial Flavouring Agents', category: 'food', image: '/products/premium_231637_1778132383123.png', desc: 'A premium set of artificial food flavouring agents including Vanilla, Rose, and Pineapple.' },
+  { name: 'Lion Soft Drink Concentrates', category: 'food', image: '/products/premium_231701_1778132402024.png', desc: 'Delicious synthetic soft drink concentrates available in Rose Milk, Grape, Almond, and Pista flavors.' },
+  { name: 'Lion Biryani Flavouring Agent', category: 'food', image: '/products/premium_231720_1778132418120.png', desc: 'A specialized biryani flavouring agent crafted with a blend of natural spices for authentic culinary richness.' },
+  { name: 'Lion Rose Milk Mix', category: 'food', image: '/products/premium_231739_1778132433601.png', desc: 'Classic Rose Milk Mix concentrate for preparing refreshing and flavorful rose milk beverages.' }
 ];
 
 function categoryLabel(c: ProductCategory) {
