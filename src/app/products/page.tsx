@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductsGridClient from './products-grid-client';
@@ -56,7 +57,7 @@ const PRODUCTS: Product[] = [
   { name: 'Sri Lakshmi Sandal Scented Tablet & Powder', category: 'wellness', image: '/products/premium_231347_1778132347775.png', desc: 'Traditional Sandal scented tablets and powder for spiritual, aromatic, and wellness applications.' },
   { name: 'Lion Kesari Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-kesari-cloth-bag.png', desc: 'Premium Lion Kesari Colour elegantly packaged in a traditional cloth bag. Perfect for gifting and holistic wellness applications.' },
   { name: 'Lion Lemon Yellow Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-lemon-yellow-cloth-bag.png', desc: 'Vibrant Lion Lemon Yellow Colour beautifully presented in a traditional cloth bag. Adds a touch of tradition and wellness.' },
-  { name: 'Lion Orange Red Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-orange-red-cloth-bag.png', desc: 'Rich Lion Orange Red Colour securely packed in a classic cloth bag. Ideal for traditional ceremonies and personal wellness.' },
+  { name: 'Lion Orange Red Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-orange-red-colour-cloth-bag.png', desc: 'Rich Lion Orange Red Colour securely packed in a classic cloth bag. Ideal for traditional ceremonies and personal wellness.' },
 
   // Lion Food Products
   { name: 'Lion Artificial Flavouring Agents', category: 'food', image: '/products/lion-artificial-flavouring-agents.png', desc: 'A classic collection of high-quality artificial flavouring agents including Vanilla, Rose, and Pine Apple. Perfect for baking and desserts.' },
@@ -129,8 +130,15 @@ export default async function ProductsPage({
             </p>
           </div>
           <div className="flex justify-end">
-            <div className="w-full max-w-[520px] rounded-[14px] bg-white border border-black/5 shadow-panel overflow-hidden">
-              <img src="/hero.png" alt="" className="w-full h-full block object-cover contrast-105 saturate-105" />
+            <div className="w-full max-w-[520px] rounded-[14px] bg-white border border-black/5 shadow-panel overflow-hidden relative h-[300px]">
+              <Image 
+                src="/hero.png" 
+                alt="Products Hero" 
+                fill
+                priority
+                className="block object-cover contrast-105 saturate-105"
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
             </div>
           </div>
         </div>
@@ -186,3 +194,4 @@ export default async function ProductsPage({
     </main>
   );
 }
+

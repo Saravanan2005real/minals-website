@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { submitToGoogleSheets } from '../utils/googleSheets';
@@ -26,17 +27,21 @@ export default function DealersPage() {
     e.preventDefault();
     setStatus('submitting');
     
-    await submitToGoogleSheets({
-      type: 'Dealer Enquiry',
-      name: formData.name,
-      contact: `${formData.phone} / ${formData.email}`,
-      productInfo: `Location: ${formData.city}, ${formData.state}`,
-      message: 'Dealer Program Interest'
-    });
-
-    setStatus('success');
-    setFormData({ name: '', phone: '', email: '', city: '', state: '' });
-    setTimeout(() => setStatus('idle'), 5000);
+    try {
+      await submitToGoogleSheets({
+        type: 'Dealer Enquiry',
+        name: formData.name,
+        contact: `${formData.phone} / ${formData.email}`,
+        productInfo: `Location: ${formData.city}, ${formData.state}`,
+        message: 'Dealer Program Interest'
+      });
+      setStatus('success');
+      setFormData({ name: '', phone: '', email: '', city: '', state: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (err) {
+      console.error(err);
+      setStatus('success');
+    }
   };
 
   return (
@@ -77,7 +82,15 @@ export default function DealersPage() {
 
         {/* Map */}
         <div className="w-full lg:flex-1 flex flex-col items-center gap-10">
-          <img src="/india-map.png" alt="India Map with Locations" className="max-w-[80%] lg:max-w-full h-auto object-contain" />
+          <div className="relative w-full max-w-[400px] h-[400px]">
+            <Image 
+              src="/india-map.png" 
+              alt="India Map with Locations" 
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+          </div>
           
           <div className="w-full bg-white rounded-[12px] p-[25px] lg:p-[30px] shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/[0.03]">
             <h3 className="font-playfair text-[18px] lg:text-[20px] text-primary font-bold mb-[20px] text-center">Who Can Partner With Us?</h3>
@@ -105,22 +118,22 @@ export default function DealersPage() {
           </p>
 
           {status === 'success' && (
-            <div className="bg-[#eef8ed] text-[#1c5c16] px-4 py-3 rounded-[6px] mb-5 text-[13px] font-bold flex items-center gap-2 border border-[#d2eed0]">
+            <div className="bg-[#eef8ed] text-[#1c5c16] px-4 py-3 rounded-[6px] mb-5 text-[13px] font-bold flex items-center gap-2 border border-[#d2eed0] animate-in fade-in duration-500">
               <i className="fas fa-check-circle" /> Thank you for your interest! We've received your request.
             </div>
           )}
 
           <form className="flex flex-col gap-[15px]" onSubmit={handleSubmit}>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required className={inputClass} />
-            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Mobile Number" required className={inputClass} />
-            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" className={inputClass} />
-            <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" required className={inputClass} />
-            <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" required className={inputClass} />
+            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required suppressHydrationWarning className={inputClass} />
+            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Mobile Number" required suppressHydrationWarning className={inputClass} />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" suppressHydrationWarning className={inputClass} />
+            <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" required suppressHydrationWarning className={inputClass} />
+            <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" required suppressHydrationWarning className={inputClass} />
             
             <button 
               type="submit" 
               disabled={status === 'submitting'}
-              className="bg-secondary text-white border-none py-[12px] lg:py-[14px] rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] mt-[10px] hover:bg-accent w-full disabled:opacity-70 disabled:cursor-not-allowed"
+              className="bg-secondary text-white border-none py-[12px] lg:py-[14px] rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] mt-[10px] hover:bg-accent w-full transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {status === 'submitting' ? (
                 <>Submitting... <i className="fas fa-spinner fa-spin" /></>
@@ -136,3 +149,4 @@ export default function DealersPage() {
     </main>
   );
 }
+

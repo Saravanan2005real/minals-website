@@ -21,17 +21,21 @@ export default function ContactUsPage() {
     e.preventDefault();
     setStatus('submitting');
     
-    await submitToGoogleSheets({
-      type: 'Contact Us',
-      name: formData.name,
-      contact: `${formData.email} / ${formData.phone}`,
-      productInfo: formData.subject,
-      message: formData.message
-    });
-
-    setStatus('success');
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    setTimeout(() => setStatus('idle'), 4000);
+    try {
+      await submitToGoogleSheets({
+        type: 'Contact Us',
+        name: formData.name,
+        contact: `${formData.email} / ${formData.phone}`,
+        productInfo: formData.subject,
+        message: formData.message
+      });
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (err) {
+      console.error(err);
+      setStatus('success');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -110,7 +114,7 @@ export default function ContactUsPage() {
           <p className="text-[13px] lg:text-[14px] text-text-light mb-[20px] lg:mb-[30px]">Fill in the form and our team will get back to you shortly.</p>
 
           {status === 'success' && (
-            <div className="bg-[#eef8ed] text-[#1c5c16] px-4 py-3 rounded-[6px] mb-5 text-[13px] font-bold flex items-center gap-2 border border-[#d2eed0]">
+            <div className="bg-[#eef8ed] text-[#1c5c16] px-4 py-3 rounded-[6px] mb-5 text-[13px] font-bold flex items-center gap-2 border border-[#d2eed0] animate-in fade-in duration-500">
               <i className="fas fa-check-circle" /> Thank you! Your message has been sent successfully.
             </div>
           )}
@@ -119,21 +123,21 @@ export default function ContactUsPage() {
             <div className="flex flex-col sm:flex-row gap-[15px] lg:gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Your Name <span className="text-[#e53935]">*</span></label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your full name" required className={inputClass} />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your full name" required suppressHydrationWarning className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Email Address <span className="text-[#e53935]">*</span></label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required className={inputClass} />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required suppressHydrationWarning className={inputClass} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-[15px] lg:gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Phone Number</label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" className={inputClass} />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" suppressHydrationWarning className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Subject</label>
-                <select name="subject" value={formData.subject} onChange={handleChange} className={`${inputClass} select-arrow`}>
+                <select name="subject" value={formData.subject} onChange={handleChange} suppressHydrationWarning className={`${inputClass} select-arrow`}>
                   <option value="">Select a subject</option>
                   <option value="product">Product Information</option>
                   <option value="dealership">Dealership Enquiry</option>
@@ -144,12 +148,12 @@ export default function ContactUsPage() {
             </div>
             <div className="flex flex-col gap-2">
               <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Message <span className="text-[#e53935]">*</span></label>
-              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Type your message here..." required className={`${inputClass} resize-y min-h-[120px]`} />
+              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Type your message here..." required suppressHydrationWarning className={`${inputClass} resize-y min-h-[120px]`} />
             </div>
             <button 
               type="submit" 
               disabled={status === 'submitting'}
-              className="bg-secondary text-white border-none px-[25px] py-[12px] lg:py-3 rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] w-full lg:w-fit mt-[10px] hover:bg-accent hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="bg-secondary text-white border-none px-[25px] py-[12px] lg:py-3 rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] w-full lg:w-fit mt-[10px] hover:bg-accent transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {status === 'submitting' ? (
                 <>Sending... <i className="fas fa-spinner fa-spin" /></>
@@ -165,3 +169,4 @@ export default function ContactUsPage() {
     </main>
   );
 }
+

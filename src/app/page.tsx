@@ -1,6 +1,7 @@
 'use client';
-
+ 
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -23,7 +24,16 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full lg:w-auto">
-          <img src="/hero.png" alt="Minals Products" className="hero-products-img max-w-[80%] sm:max-w-full" />
+          <div className="hero-products-img-container relative w-full max-w-[500px] h-[350px] md:h-[450px]">
+            <Image 
+              src="/hero.png" 
+              alt="Minals Products" 
+              fill
+              priority
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
 
@@ -59,7 +69,13 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex-1 relative h-full">
-            <img src="/food.png" alt="Food Products" className="w-full h-full object-cover object-center" />
+            <Image 
+              src="/food.png" 
+              alt="Food Products" 
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 25vw"
+            />
           </div>
         </div>
         {/* Cleaning */}
@@ -72,7 +88,13 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex-1 relative h-full">
-            <img src="/cleaning.png" alt="Cleaning Products" className="w-full h-full object-cover object-center" />
+            <Image 
+              src="/cleaning.png" 
+              alt="Cleaning Products" 
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 25vw"
+            />
           </div>
         </div>
       </section>
@@ -80,8 +102,14 @@ export default function Home() {
       {/* ─── Heritage Banner ─── */}
       <section className="px-[5%] py-[40px] lg:py-[60px]">
         <div className="bg-primary rounded-[12px] flex flex-col lg:flex-row overflow-hidden min-h-auto lg:min-h-[140px]">
-          <div className="w-full lg:flex-[0.65] h-[150px] lg:h-auto">
-            <img src="/vintage.png" alt="Ramaiah Enterprises Heritage" className="w-full h-full object-cover" />
+          <div className="w-full lg:flex-[0.65] h-[150px] lg:h-auto relative">
+            <Image 
+              src="/vintage.png" 
+              alt="Ramaiah Enterprises Heritage" 
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 20vw"
+            />
           </div>
           <div className="flex-1 lg:flex-[2] px-[20px] sm:px-[30px] py-[20px] sm:py-[30px] lg:py-[10px] flex flex-col lg:flex-row items-center lg:justify-between gap-6 lg:gap-0 text-center lg:text-left">
             <div className="w-full lg:flex-[1.2] lg:pr-5">
@@ -110,3 +138,4 @@ export default function Home() {
     </main>
   );
 }
+

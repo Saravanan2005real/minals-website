@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Image from 'next/image';
 import { submitToGoogleSheets } from '../utils/googleSheets';
 
 type Product = {
@@ -28,8 +29,14 @@ function ProductCard({ p }: { p: Product }) {
       className="rounded-[14px] border border-black/[0.06] bg-white shadow-card hover:-translate-y-[3px] hover:shadow-[0_14px_36px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col"
       role="listitem"
     >
-      <div className="w-full h-[220px] bg-[#f8f9fa] border-b border-black/[0.04] p-4 flex items-center justify-center">
-        <img src={p.image} alt={p.name} className="w-full h-full object-contain" />
+      <div className="w-full h-[220px] bg-[#f8f9fa] border-b border-black/[0.04] p-4 flex items-center justify-center relative">
+        <Image 
+          src={p.image} 
+          alt={p.name} 
+          fill
+          className="object-contain p-4"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
       </div>
       <div className="p-[18px] flex flex-col flex-1">
         <div className="flex justify-between items-center mb-[14px]">
@@ -132,3 +139,4 @@ export default function ProductsGridClient({ products }: { products: Product[] }
     </div>
   );
 }
+
