@@ -11,7 +11,7 @@ export default function Home() {
       <Header activePage="home" />
 
       {/* ─── Hero ─── */}
-      <section className="px-[5%] pt-[20px] pb-[50px] lg:pt-[40px] lg:pb-[70px] flex flex-col lg:flex-row items-center bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[75vh] lg:min-h-[85vh] text-center lg:text-left gap-10 lg:gap-0 overflow-hidden">
+      <section className="px-[5%] pt-[10px] pb-[50px] lg:pt-[20px] lg:pb-[70px] flex flex-col lg:flex-row items-center bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[75vh] lg:min-h-[85vh] text-center lg:text-left gap-10 lg:gap-0 overflow-hidden">
         <div className="flex-1 max-w-[500px] relative order-2 lg:order-1">
           <h2 className="text-[36px] md:text-[48px] text-primary leading-[1.3]">
             A Legacy of Purity. <span className="text-secondary block mt-[5px]">A Future of Promise.</span>
