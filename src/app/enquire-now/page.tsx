@@ -1,13 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] text-[14px] font-inter focus:outline-none focus:border-secondary focus:shadow-[0_0_0_2px_rgba(184,134,11,0.1)]";
 
-export default function EnquireNowPage() {
+function EnquireNowContent() {
   const searchParams = useSearchParams();
   const product = (searchParams.get('product') || '').trim();
   const phone = '919566002233';
@@ -172,5 +172,13 @@ export default function EnquireNowPage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function EnquireNowPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <EnquireNowContent />
+    </Suspense>
   );
 }
