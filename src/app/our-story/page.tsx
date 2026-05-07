@@ -9,132 +9,126 @@ export default function OurStoryPage() {
     <main className="bg-white">
       <Header activePage="our-story" />
 
-      {/* ─── Hero Section ─── */}
-      <section className="px-[5%] py-[35px] lg:py-[45px] bg-white relative flex flex-col lg:flex-row items-center gap-[25px] lg:gap-[35px]">
+      {/* ─── Hero + Legacy Combined Section ─── */}
+<section className="px-[5%] py-[35px] lg:py-[45px] bg-white">
 
-        {/* Decorative Background Leaf */}
-        <div className="absolute left-[-5%] top-[10%] w-[300px] opacity-10 pointer-events-none hidden lg:block">
-          {/* <img src="/leaf.png" alt="" className="w-full h-auto" /> */}
+  <div className="flex flex-col lg:flex-row items-start gap-[35px]">
+
+    {/* Left Content */}
+    <div className="w-full lg:w-[40%] pt-[65px] lg:pt-[80px]">
+
+      <h1 className="text-[64px] lg:text-[72px] leading-none text-primary mb-[20px] font-light">
+        Our Story
+      </h1>
+
+      <div className="w-[60px] h-[2px] bg-secondary mb-[28px] relative after:content-[''] after:absolute after:w-[8px] after:h-[8px] after:bg-secondary after:rotate-45 after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2"></div>
+
+      <p className="text-[18px] lg:text-[20px] font-bold text-primary mb-5 leading-[1.5]">
+        A journey of trust, quality and unwavering commitment since 1962.
+      </p>
+
+      <p className="text-[16px] lg:text-[17px] text-text-light text-justify mb-5 leading-[2]">
+        What began over six decades ago as a humble trading enterprise founded by the visionary Mr. Ramaiah has blossomed into a trusted household name across South India. With an enduring passion for purity, we've dedicated our lives to creating products that genuinely care for your family and home.
+      </p>
+
+      <p className="text-[16px] lg:text-[17px] text-text-light text-justify mb-[24px] leading-[2]">
+        Through changing times, our core philosophy remains untouched: to blend traditional values of integrity with modern manufacturing excellence. Every Minals product carries a piece of our rich heritage, crafted to bring reliability and brilliance into your everyday life.
+      </p>
+
+      <a
+        href="#journey"
+        className="group bg-gradient-to-r from-secondary to-accent text-white px-[30px] py-[13px] rounded-[8px] font-bold tracking-[0.5px] shadow-[0_8px_20px_rgba(184,134,11,0.35)] inline-flex items-center gap-[10px] no-underline hover:shadow-[0_12px_25px_rgba(184,134,11,0.5)] hover:-translate-y-1 transition-all duration-300"
+      >
+        Explore Our Journey
+
+        <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300" />
+      </a>
+    </div>
+
+    {/* Right Side */}
+    <div className="w-full lg:w-[60%] pt-[150px] lg:pt-[165px]">
+
+      {/* Smaller Image Card */}
+      <div className="w-full flex flex-col sm:flex-row rounded-[14px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-[#ececec] mb-7">
+
+        {/* Left Image */}
+        <div className="w-full sm:flex-[2.2] relative h-[250px] lg:h-[320px]">
+
+          <img
+            src="/vintage.png"
+            alt="Ramaiah Enterprises 1962"
+            className="w-full h-full object-cover [filter:sepia(0.3)_contrast(1.05)]"
+          />
         </div>
 
-        {/* Left: Text Content */}
-        <div className="w-full lg:flex-[0.7] z-10 text-center lg:text-left">
+        {/* Right Panel */}
+        <div className="w-full sm:flex-[1] bg-primary text-white flex flex-col items-center justify-center p-6 lg:p-8 text-center">
 
-          <h1 className="text-[36px] lg:text-[46px] text-primary mb-[10px]">
-            Our Story
-          </h1>
+          <img
+            src="/60 years.png"
+            alt="60+ Years of Trust"
+            className="w-[105px] lg:w-[120px] mb-5 drop-shadow-xl"
+          />
 
-          <div className="w-[60px] h-[2px] bg-secondary mb-[20px] mx-auto lg:mx-0 relative after:content-[''] after:absolute after:w-[6px] after:h-[6px] after:bg-secondary after:rotate-45 after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2"></div>
-
-          <p className="text-[16px] lg:text-[18px] font-bold text-primary mb-3 leading-[1.5]">
-            A journey of trust, quality and unwavering commitment since 1962.
+          <p className="text-[15px] lg:text-[16px] leading-[1.7]">
+            Six decades of delivering purity, reliability and excellence.
           </p>
+        </div>
+      </div>
 
-          <p className="text-[15px] lg:text-[16px] text-text-light mb-3 leading-[1.7] max-w-[95%] mx-auto lg:mx-0">
-            What began over six decades ago as a humble trading enterprise founded by the visionary Mr. Ramaiah has blossomed into a trusted household name across South India. With an enduring passion for purity, we've dedicated our lives to creating products that genuinely care for your family and home.
-          </p>
+      {/* Legacy Points */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7">
 
-          <p className="text-[15px] lg:text-[16px] text-text-light mb-[20px] leading-[1.7] max-w-[95%] mx-auto lg:mx-0">
-            Through changing times, our core philosophy remains untouched: to blend traditional values of integrity with modern manufacturing excellence. Every Minals product carries a piece of our rich heritage, crafted to bring reliability and brilliance into your everyday life.
-          </p>
-
-          <a
-            href="#journey"
-            className="group bg-gradient-to-r from-secondary to-accent text-white px-[28px] py-[12px] rounded-[8px] font-bold tracking-[0.5px] shadow-[0_8px_20px_rgba(184,134,11,0.35)] flex items-center justify-center lg:justify-start gap-[10px] no-underline w-fit mx-auto lg:mx-0 hover:shadow-[0_12px_25px_rgba(184,134,11,0.5)] hover:-translate-y-1 transition-all duration-300"
+        {[
+          {
+            icon: 'fa-handshake',
+            title: 'Trust',
+            desc: 'Built on honesty, transparency and lasting customer relationships.',
+          },
+          {
+            icon: 'fa-medal',
+            title: 'Quality',
+            desc: 'Delivering the highest standards of purity and product safety.',
+          },
+          {
+            icon: 'fa-compass',
+            title: 'Pioneers',
+            desc: 'Leading cleaning and food solutions since 1962.',
+          },
+          {
+            icon: 'fa-circle-check',
+            title: 'Commitment',
+            desc: 'Dedicated to care, consistency and customer satisfaction.',
+          },
+        ].map((item) => (
+          <div
+            key={item.title}
+            className="flex items-start gap-4"
           >
-            Explore Our Journey
-            <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300" />
-          </a>
-        </div>
 
-        {/* Right: Banner Card */}
-        <div className="w-full lg:flex-[1.2] flex flex-col sm:flex-row rounded-[12px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.1)] border border-[#eaeaea]">
+            {/* Icon */}
+            <div className="w-[48px] h-[48px] rounded-full bg-primary text-white flex items-center justify-center shrink-0 mt-[2px]">
 
-          {/* Left Image */}
-          <div className="w-full sm:flex-[2] relative h-[260px] sm:h-[340px]">
-            <img
-              src="/vintage.png"
-              alt="Ramaiah Enterprises 1962"
-              className="w-full h-full object-cover [filter:sepia(0.3)_contrast(1.05)]"
-            />
-          </div>
-
-          {/* Right Panel */}
-          <div className="w-full sm:flex-[1] bg-primary text-white flex flex-col items-center justify-center p-6 sm:p-8 text-center">
-
-            <img
-              src="/60 years.png"
-              alt="60+ Years of Trust"
-              className="w-[110px] sm:w-[130px] mb-4 drop-shadow-xl"
-            />
-
-            <p className="text-[14px] sm:text-[15px] leading-[1.5] font-inter">
-              Six decades of delivering purity, reliability and excellence.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Legacy Section ─── */}
-      <section className="px-[5%] py-[12px] lg:py-[18px] bg-white">
-
-        <div className="text-center mb-6 max-w-[800px] mx-auto">
-
-          <h2 className="text-[28px] lg:text-[32px] text-primary inline-block relative after:block after:w-[50px] after:h-[2px] after:bg-secondary after:mx-auto after:mt-[10px] mb-4">
-            Our Legacy. Your Trust.
-          </h2>
-
-          <p className="text-[15px] lg:text-[16px] text-text-light leading-[1.6]">
-            For over 60 years, the Minals name has stood as a hallmark of quality.
-            Our growth from a modest local supplier to an industry pioneer is deeply
-            rooted in the four foundational pillars that guide everything we do.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-[18px]">
-
-          {[
-            {
-              icon: 'fa-handshake',
-              title: 'Trust',
-              desc: 'Built on honesty, transparency and lasting customer relationships.',
-            },
-            {
-              icon: 'fa-medal',
-              title: 'Quality',
-              desc: 'Delivering the highest standards of purity and product safety.',
-            },
-            {
-              icon: 'fa-compass',
-              title: 'Pioneers',
-              desc: 'Leading cleaning and food solutions since 1962.',
-            },
-            {
-              icon: 'fa-circle-check',
-              title: 'Commitment',
-              desc: 'Dedicated to care, consistency and customer satisfaction.',
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="flex flex-col items-center sm:items-start text-center sm:text-left gap-[10px]"
-            >
-
-              <i className={`fas ${item.icon} text-[24px] text-primary mt-1`} />
-
-              <div>
-                <h4 className="text-[15px] text-text-main font-bold mb-1">
-                  {item.title}
-                </h4>
-
-                <p className="text-[13px] text-text-light leading-[1.5]">
-                  {item.desc}
-                </p>
-              </div>
+              <i className={`fas ${item.icon} text-[16px]`} />
             </div>
-          ))}
-        </div>
-      </section>
+
+            {/* Text */}
+            <div>
+
+              <h4 className="text-[17px] font-bold text-primary mb-[3px]">
+                {item.title}
+              </h4>
+
+              <p className="text-[14px] text-text-light leading-[1.6]">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ─── Journey Timeline ─── */}
       <section
