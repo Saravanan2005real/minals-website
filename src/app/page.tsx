@@ -11,8 +11,8 @@ export default function Home() {
       <Header activePage="home" />
 
       {/* ─── Hero ─── */}
-      <section className="px-[5%] pt-[15px] lg:pt-[25px] pb-[60px] lg:pb-[80px] flex flex-col lg:flex-row items-start bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[75vh] text-center lg:text-left gap-10 lg:gap-0 overflow-hidden relative">
-        <div className="flex-1 max-w-[500px] relative order-2 lg:order-1 lg:mt-10">
+      <section className="px-[5%] pt-[30px] lg:pt-[40px] pb-[20px] flex flex-col lg:flex-row items-center bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[60vh] text-center lg:text-left gap-10 lg:gap-0 overflow-hidden relative">
+        <div className="flex-1 max-w-[500px] relative order-2 lg:order-1">
           <h2 className="text-[36px] md:text-[48px] text-primary leading-[1.3]">
             A Legacy of Purity. <span className="text-secondary block mt-[5px]">A Future of Promise.</span>
           </h2>
@@ -24,13 +24,13 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full lg:w-auto">
-          <div className="hero-products-img-container relative w-full max-w-[750px] h-[400px] md:h-[550px] lg:h-[650px]">
+          <div className="hero-products-img-container relative w-full max-w-[800px] h-[450px] md:h-[550px] lg:h-[600px]">
             <Image 
               src="/hero.png" 
               alt="Minals Products" 
               fill
               priority
-              className="object-contain object-top hero-products-img"
+              className="object-contain hero-products-img"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
@@ -38,7 +38,7 @@ export default function Home() {
       </section>
 
       {/* ─── Features Bar ─── */}
-      <section className="px-[5%] py-[30px] bg-[#fafafa]">
+      <section className="px-[5%] pt-0 pb-[30px] bg-[#fafafa]">
         <div className="bg-white rounded-[12px] py-10 px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 shadow-[0_5px_25px_rgba(0,0,0,0.03)] border border-[#f0f0f0]">
           {[
             { icon: 'fa-shield',       title: 'QUALITY YOU CAN TRUST',  desc: 'Every product meets the highest quality standards.' },
