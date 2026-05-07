@@ -1,10 +1,7 @@
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZfk1BkZ-_Z2fLJjAzQEI5GeOd4DuLb2tWUY3qbrB29j_OUGbMH5lOe4AcWWBxo2SUMA/exec";
 
 export async function submitToGoogleSheets(data: Record<string, string>) {
-  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "" || GOOGLE_SCRIPT_URL.includes("YOUR_GOOGLE_SCRIPT")) {
-    console.warn("Google Script URL is not set. Data not submitted.");
-    return false;
-  }
+  if (!GOOGLE_SCRIPT_URL) return false;
   
   try {
     // Using no-cors requires headers to be "safelisted". 
