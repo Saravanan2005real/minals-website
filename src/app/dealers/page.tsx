@@ -128,8 +128,7 @@ export default function DealersPage() {
           </form>
         </div>
       </div>
-      </div>
-
+      
       <Footer />
     </main>
   );
