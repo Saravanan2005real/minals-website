@@ -77,60 +77,63 @@ export default function OurStoryPage() {
       </div>
 
       {/* Legacy Points */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7">
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-        {[
-          {
-            icon: 'fa-handshake',
-            title: 'Trust',
-            desc: 'Built on honesty, transparency and lasting customer relationships.',
-          },
-          {
-            icon: 'fa-medal',
-            title: 'Quality',
-            desc: 'Delivering the highest standards of purity and product safety.',
-          },
-          {
-            icon: 'fa-compass',
-            title: 'Pioneers',
-            desc: 'Leading cleaning and food solutions since 1962.',
-          },
-          {
-            icon: 'fa-circle-check',
-            title: 'Commitment',
-            desc: 'Dedicated to care, consistency and customer satisfaction.',
-          },
-        ].map((item) => (
-          <div
-            key={item.title}
-            className="flex items-start gap-4"
-          >
+  {[
+    {
+      icon: 'fa-handshake',
+      title: 'Trust',
+      desc: 'Built on honesty, transparency and lasting customer relationships.',
+    },
+    {
+      icon: 'fa-medal',
+      title: 'Quality',
+      desc: 'Delivering the highest standards of purity and product safety.',
+    },
+    {
+      icon: 'fa-compass',
+      title: 'Pioneers',
+      desc: 'Leading cleaning and food solutions since 1962.',
+    },
+    {
+      icon: 'fa-circle-check',
+      title: 'Commitment',
+      desc: 'Dedicated to care, consistency and customer satisfaction.',
+    },
+  ].map((item) => (
+    <div
+      key={item.title}
+      className="group bg-white border border-[#e8e8e8] rounded-[16px] p-5 shadow-[0_6px_18px_rgba(0,0,0,0.04)] hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 cursor-pointer"
+    >
 
-            {/* Icon */}
-            <div className="w-[48px] h-[48px] rounded-full bg-primary text-white flex items-center justify-center shrink-0 mt-[2px]">
+      <div className="flex items-start gap-4">
 
-              <i className={`fas ${item.icon} text-[16px]`} />
-            </div>
+        {/* Icon */}
+        <div className="w-[50px] h-[50px] rounded-full bg-primary text-white flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-secondary group-hover:rotate-6 group-hover:scale-110">
 
-            {/* Text */}
-            <div>
+          <i className={`fas ${item.icon} text-[16px]`} />
+        </div>
 
-              <h4 className="text-[17px] font-bold text-primary mb-[3px]">
-                {item.title}
-              </h4>
+        {/* Text */}
+        <div>
 
-              <p className="text-[14px] text-text-light leading-[1.6]">
-                {item.desc}
-              </p>
-            </div>
-          </div>
-        ))}
+          <h4 className="text-[17px] font-bold text-primary mb-[4px] leading-none transition-all duration-300 group-hover:text-secondary">
+            {item.title}
+          </h4>
+
+          <p className="text-[14px] text-text-light leading-[1.6]">
+            {item.desc}
+          </p>
+        </div>
       </div>
+    </div>
+  ))}
+</div>
     </div>
   </div>
 </section>
 
-      {/* ─── Journey Timeline ─── */}
+       {/* ─── Journey Timeline ─── */}
       <section
         id="journey"
         className="py-[20px] lg:py-[30px] bg-[radial-gradient(circle_at_top,#f8f9fa_0%,#ffffff_100%)] relative overflow-hidden"
