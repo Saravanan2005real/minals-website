@@ -23,7 +23,7 @@ function ProductCard({ p }: { p: Product }) {
   // raw string shown in the input while the user is typing
   const [raw, setRaw] = useState('1');
 
-  const message = `Hello sir, I want details about this product: ${p.name} (Qty: ${qty})`;
+  const message = `Hello, I am interested in purchasing ${p.name} (Quantity: ${qty}). Could you please provide more details regarding pricing and availability? Thank you.`;
 
   return (
     <div
@@ -31,8 +31,8 @@ function ProductCard({ p }: { p: Product }) {
       className="rounded-[14px] border border-black/[0.06] bg-white shadow-card hover:-translate-y-[3px] hover:shadow-[0_14px_36px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col"
       role="listitem"
     >
-      <div className="w-full h-[220px] bg-[#f8f9fa] border-b border-black/[0.04]">
-        <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+      <div className="w-full h-[220px] bg-[#f8f9fa] border-b border-black/[0.04] p-4 flex items-center justify-center">
+        <img src={p.image} alt={p.name} className="w-full h-full object-contain" />
       </div>
       <div className="p-[18px] flex flex-col flex-1">
         <div className="flex justify-between items-center mb-[14px]">

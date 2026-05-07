@@ -12,8 +12,8 @@ function EnquireNowContent() {
   const product = (searchParams.get('product') || '').trim();
   const phone = '918220012671';
   const message = product
-    ? `Hi, I'm interested in ${product}. Please share details/price and availability.`
-    : `Hi, I’d like to enquire about your products. Please share details.`;
+    ? `Hello, I am interested in the ${product}. Could you please provide more details regarding pricing and availability? Thank you.`
+    : `Hello, I would like to enquire about your product range. Could you please share more details? Thank you.`;
   const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   return (
