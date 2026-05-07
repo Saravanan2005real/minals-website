@@ -31,9 +31,11 @@
   }
 
   /* Sidebar filter sticky positioning calculation */
-  .products-filter-sticky {
-    position: sticky;
-    top: max(20px, calc(50vh - 115px));
+  @media (min-width: 1024px) {
+    .products-filter-sticky {
+      position: sticky;
+      top: max(20px, calc(50vh - 115px));
+    }
   }
 
   /* Form select custom arrow */

@@ -23,15 +23,15 @@ export default function DealersPage() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-5 lg:gap-5 mt-[10px] justify-center sm:justify-start">
+          <div className="flex flex-col sm:flex-row gap-5 lg:gap-5 mt-[10px] items-center sm:items-start justify-center sm:justify-start">
             {[
               { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Pan India presence' },
               { icon: 'fa-users',          title: 'Reliable Partners', desc: 'Growing together' },
               { icon: 'fa-headset',        title: 'Timely Support',    desc: 'Always at your service' },
             ].map((f) => (
-              <div key={f.title} className="flex items-center sm:items-start gap-3">
+              <div key={f.title} className="flex flex-col sm:flex-row items-center sm:items-start gap-3">
                 <i className={`fas ${f.icon} text-[24px] text-primary sm:mt-[3px]`} />
-                <div className="text-left">
+                <div className="text-center sm:text-left">
                   <h4 className="text-[14px] text-text-main font-bold mb-[2px]">{f.title}</h4>
                   <p className="text-[12px] text-text-light">{f.desc}</p>
                 </div>
