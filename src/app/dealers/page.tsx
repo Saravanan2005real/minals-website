@@ -73,8 +73,14 @@ export default function DealersPage() {
             ))}
           </div>
 
-          <div className="bg-white rounded-[12px] p-[25px] lg:p-[35px] shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/[0.03] mt-[10px]">
-            <h3 className="font-playfair text-[18px] lg:text-[22px] text-primary font-bold mb-[25px]">Who Can Partner With Us?</h3>
+        </div>
+
+        {/* Map */}
+        <div className="w-full lg:flex-1 flex flex-col items-center gap-10">
+          <img src="/india-map.png" alt="India Map with Locations" className="max-w-[80%] lg:max-w-full h-auto object-contain" />
+          
+          <div className="w-full bg-white rounded-[12px] p-[25px] lg:p-[30px] shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/[0.03]">
+            <h3 className="font-playfair text-[18px] lg:text-[20px] text-primary font-bold mb-[20px] text-center">Who Can Partner With Us?</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
               {[
                 { icon: 'fa-truck-loading', label: 'Distributors' },
@@ -83,17 +89,12 @@ export default function DealersPage() {
                 { icon: 'fa-building',       label: 'Institutional Suppliers' },
               ].map((p) => (
                 <div key={p.label} className="flex flex-col items-center gap-[10px] text-center">
-                  <i className={`fas ${p.icon} text-[22px] lg:text-[26px] text-primary`} />
-                  <span className="text-[12px] font-bold text-primary">{p.label}</span>
+                  <i className={`fas ${p.icon} text-[20px] lg:text-[24px] text-primary`} />
+                  <span className="text-[11px] font-bold text-primary">{p.label}</span>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Map */}
-        <div className="w-full lg:flex-1 flex justify-center items-center">
-          <img src="/india-map.png" alt="India Map with Locations" className="max-w-[80%] lg:max-w-full h-auto object-contain" />
         </div>
 
         {/* Form */}
