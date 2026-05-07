@@ -17,16 +17,27 @@ function EnquireNowContent() {
     : `Hello, I would like to enquire about your product range. Could you please share more details? Thank you.`;
   const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
-  const [formData, setFormData] = React.useState({
-    name: '',
-    phone: '',
-    email: '',
-    company: '',
-    state: '',
-    city: '',
-    message: ''
-  });
-  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
+  const [selectedInterests, setSelectedInterests] = React.useState<string[]>([]);
+
+  const toggleInterest = (label: string) => {
+    setSelectedInterests(prev => {
+      const next = prev.includes(label) ? prev.filter(i => i !== label) : [...prev, label];
+      
+      // Update message field based on selected interests
+      if (next.length > 0) {
+        setFormData(f => ({
+          ...f,
+          message: `I am interested in ${next.join(', ')}. ${f.message.replace(/^I am interested in .*?\. /, '')}`
+        }));
+      } else {
+        setFormData(f => ({
+          ...f,
+          message: f.message.replace(/^I am interested in .*?\. /, '')
+        }));
+      }
+      return next;
+    });
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,12 +51,13 @@ function EnquireNowContent() {
       type: 'Website Enquiry',
       name: formData.name,
       contact: `${formData.phone} / ${formData.email}`,
-      productInfo: `${product ? `Product: ${product} | ` : ''}Company: ${formData.company} | Location: ${formData.city}, ${formData.state}`,
+      productInfo: `${product ? `Product: ${product} | ` : ''}Interests: ${selectedInterests.join(', ')} | Company: ${formData.company} | Location: ${formData.city}, ${formData.state}`,
       message: formData.message
     });
 
     setStatus('success');
     setFormData({ name: '', phone: '', email: '', company: '', state: '', city: '', message: '' });
+    setSelectedInterests([]);
     setTimeout(() => setStatus('idle'), 5000);
   };
 
@@ -168,9 +180,13 @@ function EnquireNowContent() {
                 { icon: 'fa-handshake',   color: '#3F51B5', label: 'Distributorship' },
                 { icon: 'fa-box-open',    color: '#FF9800', label: 'Bulk Orders' },
               ].map((c) => (
-                <div key={c.label} className="border border-[#e0e0e0] rounded-[8px] p-[15px] flex items-center gap-3 cursor-pointer hover:border-secondary hover:bg-[#fcfaf5]">
-                  <i className={`fas ${c.icon} text-[20px]`} style={{ color: c.color }} />
-                  <span className="text-[13px] font-semibold text-text-main">{c.label}</span>
+                <div 
+                  key={c.label} 
+                  onClick={() => toggleInterest(c.label)}
+                  className={`border rounded-[8px] p-[15px] flex items-center gap-3 cursor-pointer transition-all duration-200 ${selectedInterests.includes(c.label) ? 'border-secondary bg-[#fcfaf5] shadow-sm scale-[1.02]' : 'border-[#e0e0e0] hover:border-secondary/50 hover:bg-[#fafafa]'}`}
+                >
+                  <i className={`fas ${c.icon} text-[20px]`} style={{ color: selectedInterests.includes(c.label) ? c.color : '#999' }} />
+                  <span className={`text-[13px] font-semibold ${selectedInterests.includes(c.label) ? 'text-primary' : 'text-text-main'}`}>{c.label}</span>
                 </div>
               ))}
             </div>
