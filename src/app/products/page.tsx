@@ -39,29 +39,29 @@ const PRODUCTS: Product[] = [
   { name: 'Omum Water', category: 'food', image: '/products/omum-water.png', desc: 'A traditional, highly refreshing Ajwain (Omum) water preparation. Known for its soothing digestive benefits and naturally uplifting flavor profile.' },
 
   // Premium Sanitizers
-  { name: 'Premium Edition 230608', category: 'sanitizers', image: '/products/premium_230608_1778132140397.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
-  { name: 'Premium Edition 230837', category: 'sanitizers', image: '/products/premium_230837_1778132156009.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
-  { name: 'Premium Edition 230850', category: 'sanitizers', image: '/products/premium_230850_1778132173613.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
-  { name: 'Premium Edition 230905', category: 'sanitizers', image: '/products/premium_230905_1778132191800.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
+  { name: 'Minals Herbal Hand Sanitizer', category: 'sanitizers', image: '/products/premium_230608_1778132140397.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene with herbal extracts.' },
+  { name: 'Minals Aloe Vera Sanitizer', category: 'sanitizers', image: '/products/premium_230837_1778132156009.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, providing gentle care with aloe vera.' },
+  { name: 'Minals Ocean Breeze Sanitizer', category: 'sanitizers', image: '/products/premium_230850_1778132173613.png', desc: 'An ultra-premium commercial grade sanitizer from Minals with a refreshing ocean breeze fragrance.' },
+  { name: 'Minals Citrus Burst Sanitizer', category: 'sanitizers', image: '/products/premium_230905_1778132191800.png', desc: 'An ultra-premium commercial grade sanitizer from Minals featuring an invigorating citrus blend.' },
   
   // Premium Cleaning
-  { name: 'Premium Edition 230919', category: 'cleaning', image: '/products/premium_230919_1778132208037.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
-  { name: 'Premium Edition 230932', category: 'cleaning', image: '/products/premium_230932_1778132227394.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
-  { name: 'Premium Edition 230957', category: 'cleaning', image: '/products/premium_230957_1778132243028.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
-  { name: 'Premium Edition 231229', category: 'cleaning', image: '/products/premium_231229_1778132259816.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
+  { name: 'Minals Multi-Surface Cleaner', category: 'cleaning', image: '/products/premium_230919_1778132208037.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results on all surfaces.' },
+  { name: 'Minals Glass & Window Cleaner', category: 'cleaning', image: '/products/premium_230932_1778132227394.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for streak-free windows and glass.' },
+  { name: 'Minals Heavy Duty Floor Cleaner', category: 'cleaning', image: '/products/premium_230957_1778132243028.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for tough stains and floor maintenance.' },
+  { name: 'Minals Bathroom Disinfectant', category: 'cleaning', image: '/products/premium_231229_1778132259816.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals ensuring maximum hygiene in washrooms.' },
   
   // Premium Wellness
-  { name: 'Premium Edition 231251', category: 'wellness', image: '/products/premium_231251_1778132278589.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
-  { name: 'Premium Edition 231312', category: 'wellness', image: '/products/premium_231312_1778132299383.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
-  { name: 'Premium Edition 231331', category: 'wellness', image: '/products/premium_231331_1778132329976.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
-  { name: 'Premium Edition 231347', category: 'wellness', image: '/products/premium_231347_1778132347775.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
+  { name: 'Minals Pure Almond Oil', category: 'wellness', image: '/products/premium_231251_1778132278589.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for maximum purity and nourishment.' },
+  { name: 'Minals Eucalyptus Essential Oil', category: 'wellness', image: '/products/premium_231312_1778132299383.png', desc: 'An ultra-premium commercial grade wellness product from Minals, offering soothing and aromatic benefits.' },
+  { name: 'Minals Tea Tree Extract', category: 'wellness', image: '/products/premium_231331_1778132329976.png', desc: 'An ultra-premium commercial grade wellness product from Minals, known for its natural purifying properties.' },
+  { name: 'Minals Virgin Coconut Oil', category: 'wellness', image: '/products/premium_231347_1778132347775.png', desc: 'An ultra-premium commercial grade wellness product from Minals, cold-pressed for superior quality.' },
 
   // Premium Food
-  { name: 'Premium Edition 231613', category: 'food', image: '/products/premium_231613_1778132365703.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
-  { name: 'Premium Edition 231637', category: 'food', image: '/products/premium_231637_1778132383123.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
-  { name: 'Premium Edition 231701', category: 'food', image: '/products/premium_231701_1778132402024.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
-  { name: 'Premium Edition 231720', category: 'food', image: '/products/premium_231720_1778132418120.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
-  { name: 'Premium Edition 231739', category: 'food', image: '/products/premium_231739_1778132433601.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' }
+  { name: 'Minals Apple Cider Vinegar', category: 'food', image: '/products/premium_231613_1778132365703.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition for health and taste.' },
+  { name: 'Minals Synthetic White Vinegar', category: 'food', image: '/products/premium_231637_1778132383123.png', desc: 'An ultra-premium commercial grade food product from Minals, perfect for culinary and preservative needs.' },
+  { name: 'Minals Premium Rose Syrup', category: 'food', image: '/products/premium_231701_1778132402024.png', desc: 'An ultra-premium commercial grade food product from Minals, delivering an authentic and refreshing floral flavor.' },
+  { name: 'Minals Traditional Nannari Syrup', category: 'food', image: '/products/premium_231720_1778132418120.png', desc: 'An ultra-premium commercial grade food product from Minals, an ancient recipe for natural summer cooling.' },
+  { name: 'Minals Jeera Water (Cumin Water)', category: 'food', image: '/products/premium_231739_1778132433601.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted for excellent digestive health.' }
 ];
 
 function categoryLabel(c: ProductCategory) {
