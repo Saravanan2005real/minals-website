@@ -24,7 +24,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full lg:w-auto">
-          <div className="hero-products-img-container relative w-full max-w-[800px] h-[450px] md:h-[550px] lg:h-[600px]">
+          <div className="hero-products-img-container relative w-full max-w-[850px] h-[450px] md:h-[550px] lg:h-[650px]">
             <Image 
               src="/hero.png" 
               alt="Minals Products" 
