@@ -49,25 +49,25 @@ export default function DealersPage() {
         {/* Left info */}
         <div className="flex-1 lg:flex-[1.2] flex flex-col gap-[40px] w-full">
           <div>
-            <h2 className="text-[32px] lg:text-[42px] text-primary font-bold mb-[15px]">Our Dealer Network</h2>
-            <p className="text-[15px] lg:text-[16px] text-text-light leading-[1.6] w-full lg:max-w-[90%]">
-              Partner with us and grow together. We are building a strong network across India to deliver quality products to every home and business.
+            <h2 className="text-[32px] lg:text-[42px] text-primary font-bold mb-[20px]">Our Dealer Network</h2>
+            <p className="text-[15px] lg:text-[16px] text-text-light leading-[1.8] w-full lg:max-w-[95%]">
+              Partner with us and grow together. We are building a strong network across India to deliver quality products to every home and business. Join a legacy of over 60 years in providing premium food and cleaning solutions. Our dealer program is specifically designed to empower local businesses with high-quality inventory, consistent supply chains, and a trusted brand name that families have relied on since 1962.
             </p>
           </div>
 
-          <div className="flex flex-col gap-6 lg:gap-8 mt-[10px]">
+          <div className="flex flex-col gap-8 lg:gap-10 mt-[10px]">
             {[
-              { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Pan India presence with strong distribution network.' },
-              { icon: 'fa-users',          title: 'Reliable Partners', desc: 'Join a family of trusted partners since 1962.' },
+              { icon: 'fa-map-marker-alt', title: 'Wide Reach',       desc: 'Comprehensive Pan India presence with optimized distribution.' },
+              { icon: 'fa-users',          title: 'Reliable Partners', desc: 'Join a family of trusted business partners across generations.' },
               { icon: 'fa-headset',        title: 'Timely Support',    desc: 'Professional support for all your business needs.' },
             ].map((f) => (
-              <div key={f.title} className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shrink-0">
+              <div key={f.title} className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shrink-0 shadow-sm">
                   <i className={`fas ${f.icon} text-secondary text-[20px]`} />
                 </div>
                 <div className="text-center sm:text-left">
-                  <h4 className="text-[16px] text-primary font-bold mb-[4px]">{f.title}</h4>
-                  <p className="text-[14px] text-text-light leading-[1.5]">{f.desc}</p>
+                  <h4 className="text-[16px] text-primary font-bold mb-[5px]">{f.title}</h4>
+                  <p className="text-[14px] text-text-light leading-[1.6]">{f.desc}</p>
                 </div>
               </div>
             ))}
