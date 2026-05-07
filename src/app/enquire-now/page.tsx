@@ -12,10 +12,10 @@ function EnquireNowContent() {
   const searchParams = useSearchParams();
   const product = (searchParams.get('product') || '').trim();
   const phone = '918220012671';
-  const message = product
+  
+  const initialMessage = product
     ? `Hello, I am interested in the ${product}. Could you please provide more details regarding pricing and availability? Thank you.`
     : `Hello, I would like to enquire about your product range. Could you please share more details? Thank you.`;
-  const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   const [formData, setFormData] = React.useState({
     name: '',
@@ -24,10 +24,12 @@ function EnquireNowContent() {
     company: '',
     state: '',
     city: '',
-    message: ''
+    message: initialMessage
   });
   const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
   const [selectedInterests, setSelectedInterests] = React.useState<string[]>([]);
+
+  const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(formData.message || initialMessage)}`;
 
   const toggleInterest = (label: string) => {
     setSelectedInterests(prev => {
@@ -66,7 +68,7 @@ function EnquireNowContent() {
     });
 
     setStatus('success');
-    setFormData({ name: '', phone: '', email: '', company: '', state: '', city: '', message: '' });
+    setFormData({ name: '', phone: '', email: '', company: '', state: '', city: '', message: initialMessage });
     setSelectedInterests([]);
     setTimeout(() => setStatus('idle'), 5000);
   };
@@ -118,27 +120,27 @@ function EnquireNowContent() {
             <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Full Name<span className="text-[#e53935]">*</span></label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" required className={inputClass} />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" required suppressHydrationWarning className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Mobile Number<span className="text-[#e53935]">*</span></label>
-                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your mobile number" required className={inputClass} />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your mobile number" required suppressHydrationWarning className={inputClass} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Email Address</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="your.email@example.com" className={inputClass} />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="your.email@example.com" suppressHydrationWarning className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Company / Business Name</label>
-                <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Optional" className={inputClass} />
+                <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Optional" suppressHydrationWarning className={inputClass} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">State<span className="text-[#e53935]">*</span></label>
-                <select name="state" value={formData.state} onChange={handleChange} required className={`${inputClass} select-arrow`}>
+                <select name="state" value={formData.state} onChange={handleChange} required suppressHydrationWarning className={`${inputClass} select-arrow`}>
                   <option value="">Select your state</option>
                   <option value="tn">Tamil Nadu</option>
                   <option value="ka">Karnataka</option>
@@ -148,7 +150,7 @@ function EnquireNowContent() {
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">City<span className="text-[#e53935]">*</span></label>
-                <select name="city" value={formData.city} onChange={handleChange} required className={`${inputClass} select-arrow`}>
+                <select name="city" value={formData.city} onChange={handleChange} required suppressHydrationWarning className={`${inputClass} select-arrow`}>
                   <option value="">Select your city</option>
                   <option value="chennai">Chennai</option>
                   <option value="bangalore">Bangalore</option>
@@ -158,10 +160,10 @@ function EnquireNowContent() {
             </div>
             <div className="flex flex-col gap-2">
               <label className="text-[13px] font-semibold text-text-main">Message / Requirements<span className="text-[#e53935]">*</span></label>
-              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your requirements..." required className={`${inputClass} resize-y min-h-[100px]`} />
+              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your requirements..." required suppressHydrationWarning className={`${inputClass} resize-y min-h-[100px]`} />
             </div>
             <div className="flex items-start sm:items-center gap-[10px] mt-[10px]">
-              <input type="checkbox" id="agree" required className="w-4 h-4 accent-secondary mt-1 sm:mt-0 shrink-0" />
+              <input type="checkbox" id="agree" required suppressHydrationWarning className="w-4 h-4 accent-secondary mt-1 sm:mt-0 shrink-0" />
               <label htmlFor="agree" className="text-[12px] sm:text-[13px] text-text-main font-medium">I agree to be contacted by Minals (Ramaiah Enterprises)</label>
             </div>
             <button 
