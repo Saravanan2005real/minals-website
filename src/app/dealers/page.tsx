@@ -1,12 +1,44 @@
 'use client';
 
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { submitToGoogleSheets } from '../utils/googleSheets';
 
 const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] text-[14px] font-inter bg-[#fdfdfd] focus:outline-none focus:border-secondary focus:shadow-[0_0_0_2px_rgba(184,134,11,0.1)]";
 
 export default function DealersPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    city: '',
+    state: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    await submitToGoogleSheets({
+      type: 'Dealer Enquiry',
+      name: formData.name,
+      contact: `${formData.phone} / ${formData.email}`,
+      productInfo: `Location: ${formData.city}, ${formData.state}`,
+      message: 'Dealer Program Interest'
+    });
+
+    setStatus('success');
+    setFormData({ name: '', phone: '', email: '', city: '', state: '' });
+    setTimeout(() => setStatus('idle'), 5000);
+  };
+
   return (
     <main className="bg-bg-light">
       <Header activePage="dealers" />
@@ -68,15 +100,34 @@ export default function DealersPage() {
           <p className="text-[12px] lg:text-[13px] text-text-light mb-[20px] lg:mb-[25px] leading-[1.5]">
             Join hands with Minals (Ramaiah Enterprises) and grow your business with a trusted brand.
           </p>
-          <form className="flex flex-col gap-[15px]" onSubmit={(e) => e.preventDefault()}>
-            {['Your Name', 'Mobile Number', 'Email Address', 'City', 'State'].map((ph, i) => (
-              <input key={i} type={ph.includes('Email') ? 'email' : 'text'} placeholder={ph} className={inputClass} />
-            ))}
-            <button type="submit" className="bg-secondary text-white border-none py-[12px] lg:py-[14px] rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] mt-[10px] hover:bg-accent w-full">
-              Submit Enquiry <i className="fas fa-arrow-right" />
+
+          {status === 'success' && (
+            <div className="bg-[#eef8ed] text-[#1c5c16] px-4 py-3 rounded-[6px] mb-5 text-[13px] font-bold flex items-center gap-2 border border-[#d2eed0]">
+              <i className="fas fa-check-circle" /> Thank you for your interest! We've received your request.
+            </div>
+          )}
+
+          <form className="flex flex-col gap-[15px]" onSubmit={handleSubmit}>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required className={inputClass} />
+            <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Mobile Number" required className={inputClass} />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" className={inputClass} />
+            <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" required className={inputClass} />
+            <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" required className={inputClass} />
+            
+            <button 
+              type="submit" 
+              disabled={status === 'submitting'}
+              className="bg-secondary text-white border-none py-[12px] lg:py-[14px] rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] mt-[10px] hover:bg-accent w-full disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {status === 'submitting' ? (
+                <>Submitting... <i className="fas fa-spinner fa-spin" /></>
+              ) : (
+                <>Submit Enquiry <i className="fas fa-arrow-right" /> </>
+              )}
             </button>
           </form>
         </div>
+      </div>
       </div>
 
       <Footer />

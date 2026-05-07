@@ -16,6 +16,38 @@ function EnquireNowContent() {
     : `Hello, I would like to enquire about your product range. Could you please share more details? Thank you.`;
   const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
+  const [formData, setFormData] = React.useState({
+    name: '',
+    phone: '',
+    email: '',
+    company: '',
+    state: '',
+    city: '',
+    message: ''
+  });
+  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    await submitToGoogleSheets({
+      type: 'Website Enquiry',
+      name: formData.name,
+      contact: `${formData.phone} / ${formData.email}`,
+      productInfo: `${product ? `Product: ${product} | ` : ''}Company: ${formData.company} | Location: ${formData.city}, ${formData.state}`,
+      message: formData.message
+    });
+
+    setStatus('success');
+    setFormData({ name: '', phone: '', email: '', company: '', state: '', city: '', message: '' });
+    setTimeout(() => setStatus('idle'), 5000);
+  };
+
   return (
     <main className="bg-[#f4f7f9]">
       <Header activePage="enquire-now" />
@@ -52,31 +84,38 @@ function EnquireNowContent() {
         {/* Form */}
         <div className="flex-[1.2] bg-white rounded-[12px] p-6 sm:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.04)] w-full">
           <h2 className="text-[20px] sm:text-[24px] text-primary mb-[20px] sm:mb-[30px]">Send us your enquiry</h2>
-          <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+          
+          {status === 'success' && (
+            <div className="bg-[#eef8ed] text-[#1c5c16] px-4 py-3 rounded-[6px] mb-5 text-[13px] font-bold flex items-center gap-2 border border-[#d2eed0]">
+              <i className="fas fa-check-circle" /> Thank you! Your enquiry has been submitted successfully. We will get back to you soon.
+            </div>
+          )}
+
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
             <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Full Name<span className="text-[#e53935]">*</span></label>
-                <input type="text" placeholder="Your full name" required className={inputClass} />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" required className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Mobile Number<span className="text-[#e53935]">*</span></label>
-                <input type="tel" placeholder="Enter your mobile number" required className={inputClass} />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your mobile number" required className={inputClass} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Email Address</label>
-                <input type="email" placeholder="your.email@example.com" className={inputClass} />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="your.email@example.com" className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">Company / Business Name</label>
-                <input type="text" placeholder="Optional" className={inputClass} />
+                <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Optional" className={inputClass} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">State<span className="text-[#e53935]">*</span></label>
-                <select required className={`${inputClass} select-arrow`}>
+                <select name="state" value={formData.state} onChange={handleChange} required className={`${inputClass} select-arrow`}>
                   <option value="">Select your state</option>
                   <option value="tn">Tamil Nadu</option>
                   <option value="ka">Karnataka</option>
@@ -86,7 +125,7 @@ function EnquireNowContent() {
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[13px] font-semibold text-text-main">City<span className="text-[#e53935]">*</span></label>
-                <select required className={`${inputClass} select-arrow`}>
+                <select name="city" value={formData.city} onChange={handleChange} required className={`${inputClass} select-arrow`}>
                   <option value="">Select your city</option>
                   <option value="chennai">Chennai</option>
                   <option value="bangalore">Bangalore</option>
@@ -96,14 +135,22 @@ function EnquireNowContent() {
             </div>
             <div className="flex flex-col gap-2">
               <label className="text-[13px] font-semibold text-text-main">Message / Requirements<span className="text-[#e53935]">*</span></label>
-              <textarea placeholder="Tell us about your requirements..." required className={`${inputClass} resize-y min-h-[100px]`} />
+              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your requirements..." required className={`${inputClass} resize-y min-h-[100px]`} />
             </div>
             <div className="flex items-start sm:items-center gap-[10px] mt-[10px]">
               <input type="checkbox" id="agree" required className="w-4 h-4 accent-secondary mt-1 sm:mt-0 shrink-0" />
               <label htmlFor="agree" className="text-[12px] sm:text-[13px] text-text-main font-medium">I agree to be contacted by Minals (Ramaiah Enterprises)</label>
             </div>
-            <button type="submit" className="bg-secondary text-white border-none py-[14px] px-[30px] rounded-[6px] text-[15px] sm:text-[16px] font-semibold cursor-pointer flex items-center justify-center gap-[10px] mt-5 w-full sm:w-fit self-center hover:bg-accent">
-              Submit Enquiry <i className="fas fa-arrow-right" />
+            <button 
+              type="submit" 
+              disabled={status === 'submitting'}
+              className="bg-secondary text-white border-none py-[14px] px-[30px] rounded-[6px] text-[15px] sm:text-[16px] font-semibold cursor-pointer flex items-center justify-center gap-[10px] mt-5 w-full sm:w-fit self-center hover:bg-accent disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {status === 'submitting' ? (
+                <>Submitting... <i className="fas fa-spinner fa-spin" /></>
+              ) : (
+                <>Submit Enquiry <i className="fas fa-arrow-right" /></>
+              )}
             </button>
           </form>
         </div>
