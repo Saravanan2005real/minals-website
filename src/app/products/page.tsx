@@ -36,7 +36,32 @@ const PRODUCTS: Product[] = [
 
   // Food
   { name: 'Martin Vinegar', category: 'food', image: '/products/martin-vinegar.png', desc: 'High-quality, distinctively crafted vinegar perfect for enhancing your culinary masterpieces. Brings the ideal balance of acidity to dressings, marinades, and pickling.' },
-  { name: 'Omum Water', category: 'food', image: '/products/omum-water.png', desc: 'A traditional, highly refreshing Ajwain (Omum) water preparation. Known for its soothing digestive benefits and naturally uplifting flavor profile.' }
+  { name: 'Omum Water', category: 'food', image: '/products/omum-water.png', desc: 'A traditional, highly refreshing Ajwain (Omum) water preparation. Known for its soothing digestive benefits and naturally uplifting flavor profile.' },
+
+  // Premium Sanitizers
+  { name: 'Premium Edition 230608', category: 'sanitizers', image: '/products/premium_230608_1778132140397.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
+  { name: 'Premium Edition 230837', category: 'sanitizers', image: '/products/premium_230837_1778132156009.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
+  { name: 'Premium Edition 230850', category: 'sanitizers', image: '/products/premium_230850_1778132173613.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
+  { name: 'Premium Edition 230905', category: 'sanitizers', image: '/products/premium_230905_1778132191800.png', desc: 'An ultra-premium commercial grade sanitizer from Minals, formulated for optimal hygiene.' },
+  
+  // Premium Cleaning
+  { name: 'Premium Edition 230919', category: 'cleaning', image: '/products/premium_230919_1778132208037.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
+  { name: 'Premium Edition 230932', category: 'cleaning', image: '/products/premium_230932_1778132227394.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
+  { name: 'Premium Edition 230957', category: 'cleaning', image: '/products/premium_230957_1778132243028.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
+  { name: 'Premium Edition 231229', category: 'cleaning', image: '/products/premium_231229_1778132259816.png', desc: 'An ultra-premium commercial grade cleaning solution from Minals for exceptional results.' },
+  
+  // Premium Wellness
+  { name: 'Premium Edition 231251', category: 'wellness', image: '/products/premium_231251_1778132278589.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
+  { name: 'Premium Edition 231312', category: 'wellness', image: '/products/premium_231312_1778132299383.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
+  { name: 'Premium Edition 231331', category: 'wellness', image: '/products/premium_231331_1778132329976.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
+  { name: 'Premium Edition 231347', category: 'wellness', image: '/products/premium_231347_1778132347775.png', desc: 'An ultra-premium commercial grade wellness product from Minals, refined for purity.' },
+
+  // Premium Food
+  { name: 'Premium Edition 231613', category: 'food', image: '/products/premium_231613_1778132365703.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
+  { name: 'Premium Edition 231637', category: 'food', image: '/products/premium_231637_1778132383123.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
+  { name: 'Premium Edition 231701', category: 'food', image: '/products/premium_231701_1778132402024.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
+  { name: 'Premium Edition 231720', category: 'food', image: '/products/premium_231720_1778132418120.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' },
+  { name: 'Premium Edition 231739', category: 'food', image: '/products/premium_231739_1778132433601.png', desc: 'An ultra-premium commercial grade food product from Minals, crafted with tradition.' }
 ];
 
 function categoryLabel(c: ProductCategory) {
