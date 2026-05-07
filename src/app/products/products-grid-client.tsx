@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { submitToGoogleSheets } from '../utils/googleSheets';
 
 type Product = {
   name: string;
@@ -84,6 +85,16 @@ function ProductCard({ p }: { p: Product }) {
                 <button
                   onClick={() => {
                     const finalQty = Math.max(1, parseInt(qty || '1', 10));
+                    
+                    // Fire-and-forget submission to Google Sheets
+                    submitToGoogleSheets({
+                      type: 'Product Enquiry',
+                      name: 'WhatsApp User', // Name unknown at this point
+                      contact: 'Via WhatsApp',
+                      productInfo: `${p.name} (Qty: ${finalQty})`,
+                      message: 'Clicked WhatsApp Enquiry Button'
+                    });
+
                     const message = `Hello, I am interested in purchasing ${p.name} (Quantity: ${finalQty}). Could you please provide more details regarding pricing and availability? Thank you.`;
                     window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
                     setIsEnquiring(false);

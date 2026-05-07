@@ -1,12 +1,43 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { submitToGoogleSheets } from '../utils/googleSheets';
 
 const inputClass = "w-full px-[15px] py-3 border border-[#e0e0e0] rounded-[6px] text-[14px] font-inter bg-[#fdfdfd] focus:outline-none focus:border-secondary focus:shadow-[0_0_0_2px_rgba(184,134,11,0.1)]";
 
 export default function ContactUsPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    await submitToGoogleSheets({
+      type: 'Contact Us',
+      name: formData.name,
+      contact: `${formData.email} / ${formData.phone}`,
+      productInfo: formData.subject,
+      message: formData.message
+    });
+
+    setStatus('success');
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setTimeout(() => setStatus('idle'), 4000);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <main className="bg-bg-light">
       <Header activePage="contact-us" />
@@ -47,25 +78,31 @@ export default function ContactUsPage() {
           <h3 className="text-[20px] lg:text-[24px] text-primary mb-[10px]">Send Us a Message</h3>
           <p className="text-[13px] lg:text-[14px] text-text-light mb-[20px] lg:mb-[30px]">Fill in the form and our team will get back to you shortly.</p>
 
-          <form className="flex flex-col gap-[15px] lg:gap-5" onSubmit={(e) => e.preventDefault()}>
+          {status === 'success' && (
+            <div className="bg-[#eef8ed] text-[#1c5c16] px-4 py-3 rounded-[6px] mb-5 text-[13px] font-bold flex items-center gap-2 border border-[#d2eed0]">
+              <i className="fas fa-check-circle" /> Thank you! Your message has been sent successfully.
+            </div>
+          )}
+
+          <form className="flex flex-col gap-[15px] lg:gap-5" onSubmit={handleSubmit}>
             <div className="flex flex-col sm:flex-row gap-[15px] lg:gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Your Name <span className="text-[#e53935]">*</span></label>
-                <input type="text" placeholder="Enter your full name" required className={inputClass} />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your full name" required className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Email Address <span className="text-[#e53935]">*</span></label>
-                <input type="email" placeholder="Enter your email" required className={inputClass} />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required className={inputClass} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-[15px] lg:gap-5">
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Phone Number</label>
-                <input type="tel" placeholder="Enter your phone number" className={inputClass} />
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" className={inputClass} />
               </div>
               <div className="flex-1 flex flex-col gap-2">
                 <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Subject</label>
-                <select className={`${inputClass} select-arrow`}>
+                <select name="subject" value={formData.subject} onChange={handleChange} className={`${inputClass} select-arrow`}>
                   <option value="">Select a subject</option>
                   <option value="product">Product Information</option>
                   <option value="dealership">Dealership Enquiry</option>
@@ -76,10 +113,18 @@ export default function ContactUsPage() {
             </div>
             <div className="flex flex-col gap-2">
               <label className="text-[12px] lg:text-[13px] font-semibold text-primary">Message <span className="text-[#e53935]">*</span></label>
-              <textarea placeholder="Type your message here..." required className={`${inputClass} resize-y min-h-[120px]`} />
+              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Type your message here..." required className={`${inputClass} resize-y min-h-[120px]`} />
             </div>
-            <button type="submit" className="bg-secondary text-white border-none px-[25px] py-[12px] lg:py-3 rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] w-full lg:w-fit mt-[10px] hover:bg-accent hover:-translate-y-0.5">
-              Send Message <i className="fas fa-arrow-right" />
+            <button 
+              type="submit" 
+              disabled={status === 'submitting'}
+              className="bg-secondary text-white border-none px-[25px] py-[12px] lg:py-3 rounded-[6px] text-[14px] lg:text-[15px] font-semibold cursor-pointer flex justify-center items-center gap-[10px] w-full lg:w-fit mt-[10px] hover:bg-accent hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {status === 'submitting' ? (
+                <>Sending... <i className="fas fa-spinner fa-spin" /></>
+              ) : (
+                <>Send Message <i className="fas fa-arrow-right" /></>
+              )}
             </button>
           </form>
         </div>
