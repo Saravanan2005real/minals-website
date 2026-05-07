@@ -82,7 +82,7 @@ export default function DealersPage() {
 
         {/* Map */}
         <div className="w-full lg:flex-1 flex flex-col items-center gap-10">
-          <div className="relative w-full max-w-[400px] h-[400px]">
+          <div className="relative w-full max-w-[450px] h-[450px] md:h-[500px]">
             <Image 
               src="/india-map.png" 
               alt="India Map with Locations" 

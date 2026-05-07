@@ -130,14 +130,14 @@ export default async function ProductsPage({
             </p>
           </div>
           <div className="flex justify-end">
-            <div className="w-full max-w-[520px] rounded-[14px] bg-white border border-black/5 shadow-panel overflow-hidden relative h-[300px]">
+            <div className="w-full max-w-[650px] rounded-[14px] bg-white border border-black/5 shadow-panel overflow-hidden relative h-[350px] md:h-[450px]">
               <Image 
                 src="/hero.png" 
                 alt="Products Hero" 
                 fill
                 priority
                 className="block object-cover contrast-105 saturate-105"
-                sizes="(max-width: 768px) 100vw, 40vw"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
           </div>

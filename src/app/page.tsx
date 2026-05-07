@@ -24,14 +24,14 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full lg:w-auto">
-          <div className="hero-products-img-container relative w-full max-w-[500px] h-[350px] md:h-[450px]">
+          <div className="hero-products-img-container relative w-full max-w-[700px] h-[400px] md:h-[550px] lg:h-[650px]">
             <Image 
               src="/hero.png" 
               alt="Minals Products" 
               fill
               priority
               className="object-contain"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
         </div>

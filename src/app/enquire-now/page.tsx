@@ -83,14 +83,14 @@ function EnquireNowContent() {
             ))}
           </div>
         </div>
-        <div className="flex-1 flex justify-center lg:justify-end w-full lg:w-auto relative h-[300px]">
+        <div className="flex-1 flex justify-center lg:justify-end w-full lg:w-auto relative h-[350px] md:h-[450px] max-w-[600px] mx-auto lg:mx-0">
           <Image 
             src="/hero.png" 
             alt="Minals Products" 
             fill
             priority
             className="object-contain" 
-            sizes="(max-width: 768px) 100vw, 40vw"
+            sizes="(max-width: 1024px) 100vw, 40vw"
           />
         </div>
       </section>

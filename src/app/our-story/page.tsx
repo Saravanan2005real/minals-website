@@ -42,7 +42,7 @@ export default function OurStoryPage() {
             {/* Smaller Image Card */}
             <div className="w-full flex flex-col sm:flex-row rounded-[14px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-[#ececec] mb-7">
               {/* Left Image */}
-              <div className="w-full sm:flex-[2.2] relative h-[250px] lg:h-[320px]">
+              <div className="w-full sm:flex-[2.2] relative h-[250px] lg:h-[380px]">
                 <Image
                   src="/vintage.png"
                   alt="Ramaiah Enterprises 1962"
