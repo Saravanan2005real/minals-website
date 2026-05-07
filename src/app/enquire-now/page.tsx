@@ -27,29 +27,8 @@ function EnquireNowContent() {
     message: initialMessage
   });
   const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
-  const [selectedInterests, setSelectedInterests] = React.useState<string[]>([]);
 
   const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(formData.message || initialMessage)}`;
-
-  const toggleInterest = (label: string) => {
-    setSelectedInterests(prev => {
-      const next = prev.includes(label) ? prev.filter(i => i !== label) : [...prev, label];
-      
-      // Update message field based on selected interests
-      if (next.length > 0) {
-        setFormData(f => ({
-          ...f,
-          message: `I am interested in ${next.join(', ')}. ${f.message.replace(/^I am interested in .*?\. /, '')}`
-        }));
-      } else {
-        setFormData(f => ({
-          ...f,
-          message: f.message.replace(/^I am interested in .*?\. /, '')
-        }));
-      }
-      return next;
-    });
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,13 +42,12 @@ function EnquireNowContent() {
       type: 'Website Enquiry',
       name: formData.name,
       contact: `${formData.phone} / ${formData.email}`,
-      productInfo: `${product ? `Product: ${product} | ` : ''}Interests: ${selectedInterests.join(', ')} | Company: ${formData.company} | Location: ${formData.city}, ${formData.state}`,
+      productInfo: `${product ? `Product: ${product} | ` : ''}Company: ${formData.company} | Location: ${formData.city}, ${formData.state}`,
       message: formData.message
     });
 
     setStatus('success');
     setFormData({ name: '', phone: '', email: '', company: '', state: '', city: '', message: initialMessage });
-    setSelectedInterests([]);
     setTimeout(() => setStatus('idle'), 5000);
   };
 
@@ -182,28 +160,6 @@ function EnquireNowContent() {
 
         {/* Sidebar */}
         <div className="flex-1 flex flex-col gap-[30px] w-full">
-          {/* I'm interested in */}
-          <div className="bg-white rounded-[12px] p-[20px] lg:p-[30px] shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
-            <h3 className="text-[20px] lg:text-[22px] text-primary mb-5 border-b-2 border-secondary pb-[5px] inline-block">I'm interested in:</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[15px] mt-4">
-              {[
-                { icon: 'fa-leaf',        color: '#4CAF50', label: 'Food Products' },
-                { icon: 'fa-pump-soap',   color: '#2196F3', label: 'Cleaning Products' },
-                { icon: 'fa-handshake',   color: '#3F51B5', label: 'Distributorship' },
-                { icon: 'fa-box-open',    color: '#FF9800', label: 'Bulk Orders' },
-              ].map((c) => (
-                <div 
-                  key={c.label} 
-                  onClick={() => toggleInterest(c.label)}
-                  className={`border rounded-[8px] p-[15px] flex items-center gap-3 cursor-pointer transition-all duration-200 ${selectedInterests.includes(c.label) ? 'border-secondary bg-[#fcfaf5] shadow-sm scale-[1.02]' : 'border-[#e0e0e0] hover:border-secondary/50 hover:bg-[#fafafa]'}`}
-                >
-                  <i className={`fas ${c.icon} text-[20px]`} style={{ color: selectedInterests.includes(c.label) ? c.color : '#999' }} />
-                  <span className={`text-[13px] font-semibold ${selectedInterests.includes(c.label) ? 'text-primary' : 'text-text-main'}`}>{c.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* WhatsApp */}
           <div className="bg-[#e8f4f8] rounded-[12px] p-[20px] lg:p-[25px] flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4 sm:gap-0">
             <div className="flex-1 flex flex-col sm:flex-row items-center sm:items-start gap-[15px]">
