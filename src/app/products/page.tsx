@@ -3,84 +3,78 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductsGridClient from './products-grid-client';
 
-type ProductCategory = 'all' | 'cleaning' | 'food';
+type ProductCategory = 'all' | 'sanitizers' | 'cleaning' | 'wellness' | 'food';
 
 type Product = {
   name: string;
   category: Exclude<ProductCategory, 'all'>;
   image: string;
-  price: string;
   desc: string;
 };
 
 const PRODUCTS: Product[] = [
-  // Cleaning
-  { name: 'Ceylon Citronella Sanitizer', category: 'cleaning', image: '/products/ceylon-citronella-sanitizer.png', price: '₹ 150', desc: 'Premium sanitizer infused with natural Ceylon Citronella.\\nKills 99.9% of germs instantly.' },
-  { name: 'German Rose Sanitizer', category: 'cleaning', image: '/products/german-rose-sanitizer.png', price: '₹ 150', desc: 'Effective sanitization with a gentle German Rose scent.\\nLeaves hands soft and refreshed.' },
-  { name: 'Italian Herbs Sanitizer', category: 'cleaning', image: '/products/italian-herbs-sanitizer.png', price: '₹ 160', desc: 'Refreshing Italian herbs blend for clean, soft hands.\\nLong-lasting protection.' },
-  { name: 'London Lavender Sanitizer', category: 'cleaning', image: '/products/london-lavender-sanitizer.png', price: '₹ 155', desc: 'Soothing London Lavender fragrance with powerful protection.\\nGentle on all skin types.' },
-  { name: 'Malaysian Sandal Sanitizer', category: 'cleaning', image: '/products/malaysian-sandal-sanitizer.png', price: '₹ 165', desc: 'Exotic Malaysian Sandalwood aroma in a premium sanitizer.\\nProvides complete hygiene.' },
-  { name: 'Minals Black Power', category: 'cleaning', image: '/products/minals-black-power.png', price: '₹ 120', desc: 'Ultimate cleaning power for tough stains and surfaces.\\nLeaves areas spotless.' },
-  { name: 'Minals Sanitizer Fluid', category: 'cleaning', image: '/products/minals-sanitizer-fluid.png', price: '₹ 95', desc: 'High-quality multi-purpose sanitizing fluid.\\nIdeal for home and office use.' },
-  { name: 'Royal Jasmine Sanitizer', category: 'cleaning', image: '/products/royal-jasmine-sanitizer.png', price: '₹ 150', desc: 'Rich and uplifting Royal Jasmine scent.\\nEffectively kills harmful bacteria.' },
-  { name: 'Sentol Jasmine Sanitizer', category: 'cleaning', image: '/products/sentol-jasmine-sanitizer.png', price: '₹ 140', desc: 'Reliable germ protection with an elegant Jasmine note.\\nTrusted formula.' },
-  { name: 'Sentol Lavender Sanitizer', category: 'cleaning', image: '/products/sentol-lavender-sanitizer.png', price: '₹ 140', desc: 'Relaxing Lavender fragrance infused in our classic formula.\\nPerfect for everyday use.' },
-  { name: 'Sentol Lemon Sanitizer', category: 'cleaning', image: '/products/sentol-lemon-sanitizer.png', price: '₹ 135', desc: 'Zesty lemon freshness with maximum germ kill.\\nEliminates odors instantly.' },
-  { name: 'Spanish Limon Sanitizer', category: 'cleaning', image: '/products/spanish-limon-sanitizer.png', price: '₹ 155', desc: 'Invigorating Spanish Limon scent for a refreshing feel.\\nPremium germ protection.' },
+  // Sanitizers
+  { name: 'Ceylon Citronella Sanitizer', category: 'sanitizers', image: '/products/ceylon-citronella-sanitizer.png', desc: 'A premium hand sanitizer infused with the natural, uplifting essence of Ceylon Citronella. Offers fast-acting protection while leaving hands feeling soft and remarkably fresh.' },
+  { name: 'German Rose Sanitizer', category: 'sanitizers', image: '/products/german-rose-sanitizer.png', desc: 'Experience superior hand hygiene with the delicate and romantic aroma of German Rose. Formulated to effectively kill germs while providing a soothing, floral touch.' },
+  { name: 'Italian Herbs Sanitizer', category: 'sanitizers', image: '/products/italian-herbs-sanitizer.png', desc: 'A unique and refreshing sanitizer enriched with a blend of Italian herbs. Protects against bacteria while leaving a crisp, herbaceous fragrance on your hands.' },
+  { name: 'London Lavender Sanitizer', category: 'sanitizers', image: '/products/london-lavender-sanitizer.png', desc: 'Calm your senses with the classic scent of London Lavender. This high-grade sanitizer provides maximum protection and a deeply relaxing aroma for everyday use.' },
+  { name: 'Malaysian Sandal Sanitizer', category: 'sanitizers', image: '/products/malaysian-sandal-sanitizer.png', desc: 'Infused with the rich, woody notes of exotic Malaysian Sandalwood. Delivers a luxurious hand sanitization experience with robust germ-killing efficacy.' },
+  { name: 'Minals Sanitizer Fluid', category: 'sanitizers', image: '/products/minals-sanitizer-fluid.png', desc: 'Our classic, high-performance sanitizing fluid designed for versatile use. Perfect for both personal hygiene and ensuring safe, germ-free surfaces in any environment.' },
+  { name: 'Royal Jasmine Sanitizer', category: 'sanitizers', image: '/products/royal-jasmine-sanitizer.png', desc: 'Indulge in the regal fragrance of Royal Jasmine. A fast-drying formula that eliminates harmful bacteria while leaving an elegant, lingering floral scent.' },
+  { name: 'Sentol Jasmine Sanitizer', category: 'sanitizers', image: '/products/sentol-jasmine-sanitizer.png', desc: 'A trusted sanitization formula enhanced with a pure Jasmine note. Provides uncompromising hygiene and an uplifting fragrance for your daily needs.' },
+  { name: 'Sentol Lavender Sanitizer', category: 'sanitizers', image: '/products/sentol-lavender-sanitizer.png', desc: 'Combines our reliable germ-fighting power with the timeless relaxation of Lavender. Keeps your hands clean, moisturized, and beautifully scented.' },
+  { name: 'Sentol Lemon Sanitizer', category: 'sanitizers', image: '/products/sentol-lemon-sanitizer.png', desc: 'A burst of zesty lemon freshness packed into a powerful hand sanitizer. Instantly eliminates germs and odors, leaving you feeling revitalized and protected.' },
+  { name: 'Spanish Limon Sanitizer', category: 'sanitizers', image: '/products/spanish-limon-sanitizer.png', desc: 'Invigorating Spanish Limon scent paired with premium sanitization. Designed to kill 99.9% of germs while delivering an intensely refreshing citrus aroma.' },
 
-  // Food & Wellness
-  { name: 'Martin Vinegar', category: 'food', image: '/products/martin-vinegar.png', price: '₹ 60', desc: 'Premium quality vinegar for authentic culinary recipes.\\nPerfect acidity.' },
-  { name: 'Minals Castor Oil', category: 'food', image: '/products/minals-castor-oil.png', price: '₹ 180', desc: 'Pure, cold-pressed castor oil.\\nMultipurpose use for health and wellness.' },
-  { name: 'Minals Neem Oil', category: 'food', image: '/products/minals-neem-oil.png', price: '₹ 190', desc: '100% natural neem oil extract.\\nIdeal for personal care and wellness.' },
-  { name: 'Minals Rose Water', category: 'food', image: '/products/minals-rose-water.png', price: '₹ 95', desc: 'Distilled pure rose water for food and personal care.\\nDelicate floral notes.' },
-  { name: 'Omum Water', category: 'food', image: '/products/omum-water.png', price: '₹ 85', desc: 'Traditional digestive and refreshing Omum (Ajwain) water.\\nSoothes the stomach.' }
+  // Cleaning
+  { name: 'Minals Black Power', category: 'cleaning', image: '/products/minals-black-power.png', desc: 'The ultimate heavy-duty cleaning solution for your toughest stains and grime. Specially formulated to restore pristine cleanliness to all treated surfaces.' },
+
+  // Wellness
+  { name: 'Minals Castor Oil', category: 'wellness', image: '/products/minals-castor-oil.png', desc: 'Pure, cold-pressed castor oil revered for its versatile benefits. Excellent for nourishing hair, deeply moisturizing skin, and supporting overall personal care routines.' },
+  { name: 'Minals Neem Oil', category: 'wellness', image: '/products/minals-neem-oil.png', desc: 'A 100% natural, potent neem oil extract packed with botanical goodness. Widely used for its remarkable protective and restorative properties in holistic wellness.' },
+  { name: 'Minals Rose Water', category: 'wellness', image: '/products/minals-rose-water.png', desc: 'Finely distilled, pure rose water offering a delicate floral essence. A revitalizing toner for skin care, and a beautiful aromatic addition to select culinary creations.' },
+
+  // Food
+  { name: 'Martin Vinegar', category: 'food', image: '/products/martin-vinegar.png', desc: 'High-quality, distinctively crafted vinegar perfect for enhancing your culinary masterpieces. Brings the ideal balance of acidity to dressings, marinades, and pickling.' },
+  { name: 'Omum Water', category: 'food', image: '/products/omum-water.png', desc: 'A traditional, highly refreshing Ajwain (Omum) water preparation. Known for its soothing digestive benefits and naturally uplifting flavor profile.' }
 ];
 
 function categoryLabel(c: ProductCategory) {
-  if (c === 'all') return 'All Products';
-  if (c === 'cleaning') return 'Cleaning Products';
-  return 'Food Products';
+  switch(c) {
+    case 'all': return 'All Products';
+    case 'sanitizers': return 'Sanitizers';
+    case 'cleaning': return 'Cleaning Products';
+    case 'wellness': return 'Wellness & Care';
+    case 'food': return 'Food Products';
+  }
 }
 
 const filterItems: { cat: ProductCategory; icon: string }[] = [
   { cat: 'all',      icon: 'fas fa-cubes' },
-  { cat: 'cleaning', icon: 'fas fa-pump-soap' },
+  { cat: 'sanitizers', icon: 'fas fa-hands-wash' },
+  { cat: 'cleaning', icon: 'fas fa-broom' },
+  { cat: 'wellness', icon: 'fas fa-leaf' },
   { cat: 'food',     icon: 'fas fa-utensils' },
 ];
-
-const WHATSAPP_PHONE_E164 = '919566002233';
-
-function buildWhatsAppUrl(message: string) {
-  const text = encodeURIComponent(message);
-  return `https://wa.me/${WHATSAPP_PHONE_E164}?text=${text}`;
-}
 
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ category?: string; sort?: string }>;
+  searchParams?: Promise<{ category?: string }>;
 }) {
   const params = (await searchParams) ?? {};
-  const raw = params.category;
+  const raw = params.category as ProductCategory;
   const activeCategory: ProductCategory =
-    raw === 'cleaning' || raw === 'food' ? raw : 'all';
-  const sort = params.sort || 'default';
+    ['sanitizers', 'cleaning', 'wellness', 'food'].includes(raw) ? raw : 'all';
 
-  let filteredProducts =
+  const filteredProducts =
     activeCategory === 'all'
       ? [...PRODUCTS]
       : PRODUCTS.filter((p) => p.category === activeCategory);
 
-  if (sort === 'price-asc') {
-    filteredProducts.sort((a, b) => Number(a.price.replace(/[^\d]/g, '')) - Number(b.price.replace(/[^\d]/g, '')));
-  } else if (sort === 'price-desc') {
-    filteredProducts.sort((a, b) => Number(b.price.replace(/[^\d]/g, '')) - Number(a.price.replace(/[^\d]/g, '')));
-  }
-
-  const buildUrl = (cat: string, s: string) => {
+  const buildUrl = (cat: string) => {
     const p = new URLSearchParams();
     if (cat !== 'all') p.set('category', cat);
-    if (s !== 'default') p.set('sort', s);
     const q = p.toString();
     return q ? `/products?${q}` : `/products`;
   };
@@ -98,7 +92,7 @@ export default async function ProductsPage({
               High-performance <span className="text-secondary">solutions</span> for every need
             </h2>
             <p className="mt-[14px] text-[15px] text-text-light max-w-[560px]">
-              Browse our complete range of food &amp; cleaning essentials. Filter by category to find exactly what you need.
+              Browse our complete range of wellness, food &amp; cleaning essentials. Filter by category to find exactly what you need.
             </p>
           </div>
           <div className="flex justify-end">
@@ -122,7 +116,7 @@ export default async function ProductsPage({
               {filterItems.map(({ cat, icon }) => (
                 <Link
                   key={cat}
-                  href={buildUrl(cat, sort)}
+                  href={buildUrl(cat)}
                   role="tab"
                   aria-selected={activeCategory === cat}
                   className={`w-full grid grid-cols-[34px_1fr_18px] items-center gap-[10px] px-4 py-3 border-t border-black/[0.06] text-left no-underline text-inherit hover:bg-[#f7fbff] ${activeCategory === cat ? 'bg-[#eef5fa]' : 'bg-white'}`}
@@ -139,31 +133,10 @@ export default async function ProductsPage({
 
           {/* Products grid */}
           <div className="min-w-0">
-            {/* Sort / results bar */}
+            {/* Results bar */}
             <div className="flex justify-between items-center bg-white border border-black/[0.07] rounded-[10px] shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-5 py-3 mb-5">
               <h3 className="text-[16px] font-bold text-primary">{categoryLabel(activeCategory)}</h3>
               <div className="flex items-center gap-5">
-                {/* Sort pill group */}
-                <div className="flex items-center gap-1 bg-[#f4f6f9] rounded-[8px] px-2 py-1">
-                  <span className="text-[12px] text-[#5a6875] font-semibold pr-2 border-r border-[#dde1e7] mr-1">Sort by</span>
-                  {[
-                    { label: 'Default',          value: 'default'    },
-                    { label: 'Price Low → High', value: 'price-asc'  },
-                    { label: 'Price High → Low', value: 'price-desc' },
-                  ].map(({ label, value }) => (
-                    <Link
-                      key={value}
-                      href={buildUrl(activeCategory, value)}
-                      className={`no-underline text-[12px] px-3 py-[5px] rounded-[6px] font-semibold whitespace-nowrap ${
-                        sort === value
-                          ? 'bg-primary text-white shadow-sm'
-                          : 'text-[#5a6875] hover:bg-white hover:text-primary'
-                      }`}
-                    >
-                      {label}
-                    </Link>
-                  ))}
-                </div>
                 {/* Count badge */}
                 <span className="text-[12px] font-semibold text-[#5a6875] bg-[#f4f6f9] border border-[#dde1e7] rounded-[6px] px-3 py-[5px] whitespace-nowrap">
                   {filteredProducts.length} item{filteredProducts.length === 1 ? '' : 's'}

@@ -4,9 +4,8 @@ import { useMemo, useState } from 'react';
 
 type Product = {
   name: string;
-  category: 'cleaning' | 'food';
+  category: 'sanitizers' | 'cleaning' | 'wellness' | 'food';
   image: string;
-  price: string;
   desc: string;
 };
 
@@ -24,7 +23,7 @@ function ProductCard({ p }: { p: Product }) {
   // raw string shown in the input while the user is typing
   const [raw, setRaw] = useState('1');
 
-  const message = `Hi, I'm interested in ${p.name} (Qty: ${qty}). Please share details/price and availability.`;
+  const message = `Hi, I'm interested in ${p.name} (Qty: ${qty}). Please share details and availability.`;
 
   return (
     <div
@@ -39,22 +38,30 @@ function ProductCard({ p }: { p: Product }) {
         <div className="flex justify-between items-center mb-[14px]">
           <span
             className={`text-[11px] font-extrabold px-[10px] py-[6px] rounded-full border border-black/[0.06] ${
-              p.category === 'cleaning' ? 'bg-[#eef5fa] text-[#0f2f54]' : 'bg-[#f4f6ef] text-[#294014]'
+              p.category === 'sanitizers' ? 'bg-[#e8f4fa] text-[#0d4a70]' :
+              p.category === 'cleaning' ? 'bg-[#eef5fa] text-[#0f2f54]' :
+              p.category === 'wellness' ? 'bg-[#eef8ed] text-[#1c5c16]' :
+              'bg-[#fdf4e6] text-[#7d4808]'
             }`}
           >
-            {p.category === 'cleaning' ? 'Cleaning' : 'Food'}
+             {p.category === 'sanitizers' ? 'Sanitizers' :
+              p.category === 'cleaning' ? 'Cleaning' :
+              p.category === 'wellness' ? 'Wellness' : 'Food'}
           </span>
           <div className="w-10 h-10 rounded-[12px] inline-flex items-center justify-center text-primary bg-primary/[0.06]" aria-hidden="true">
-            <i className={p.category === 'cleaning' ? 'fas fa-pump-soap' : 'fas fa-utensils'} />
+            <i className={
+              p.category === 'sanitizers' ? 'fas fa-hands-wash' :
+              p.category === 'cleaning' ? 'fas fa-broom' :
+              p.category === 'wellness' ? 'fas fa-leaf' :
+              'fas fa-utensils'
+            } />
           </div>
         </div>
 
         <div className="text-[15px] font-extrabold text-[#12283d] mb-[6px]">{p.name}</div>
-        <div className="text-[12px] text-[#5a6875] mb-[12px] leading-[1.4] whitespace-pre-line">{p.desc}</div>
+        <div className="text-[12px] text-[#5a6875] mb-[12px] leading-[1.6] whitespace-pre-line">{p.desc}</div>
 
-        <div className="mt-auto flex items-center justify-between gap-3 mb-[14px]">
-          <div className="text-[17px] font-bold text-secondary tracking-[0.3px]">{p.price}</div>
-
+        <div className="mt-auto flex items-center justify-end gap-3 mb-[14px]">
           <label className="flex items-center gap-2 text-[12px] font-bold text-[#5a6875]">
             Qty
             <input
@@ -106,4 +113,3 @@ export default function ProductsGridClient({ products }: { products: Product[] }
     </div>
   );
 }
-
