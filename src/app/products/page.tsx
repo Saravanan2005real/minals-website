@@ -117,26 +117,27 @@ export default async function ProductsPage({
     <main>
       <Header activePage="products" />
 
-      {/* ─── Compact Products Header ─── */}
-      <section className="px-[5%] py-[20px] bg-[#fbfdff] border-b border-[#f0f0f0]">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center max-w-[1200px] mx-auto text-center lg:text-left">
-          <div>
-            <h2 className="text-[32px] md:text-[38px] text-primary leading-[1.2]">
+      {/* ─── Refined Products Header ─── */}
+      <section className="px-[5%] pt-[30px] lg:pt-[45px] pb-[60px] lg:pb-[80px] bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-[1200px] mx-auto text-center lg:text-left">
+          <div className="relative z-10">
+
+            <h2 className="text-[36px] md:text-[42px] lg:text-[48px] text-primary leading-[1.2] mb-6">
               High-performance <span className="text-secondary">solutions</span> for every need
             </h2>
-            <p className="mt-[10px] text-[14px] text-text-light max-w-[500px]">
-              Browse our complete range of wellness, food &amp; cleaning essentials. Filter by category to find exactly what you need.
+            <p className="text-[16px] text-[#555] max-w-[520px] leading-relaxed">
+              Browse our complete range of food &amp; cleaning essentials. Filter by category to find exactly what you need.
             </p>
           </div>
-          <div className="hidden lg:flex justify-end">
-            <div className="w-full max-w-[400px] rounded-[10px] overflow-hidden relative h-[180px]">
+          <div className="flex justify-center lg:justify-end">
+            <div className="w-full max-w-[650px] aspect-[16/10] rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative">
               <Image 
                 src="/hero.png" 
                 alt="Products Hero" 
                 fill
                 priority
-                className="object-cover hero-products-img"
-                sizes="25vw"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
           </div>
