@@ -11,20 +11,20 @@ export default function Home() {
       <Header activePage="home" />
 
       {/* ─── Hero ─── */}
-      <section className="px-[5%] pt-[30px] lg:pt-[40px] pb-[20px] flex flex-col lg:flex-row items-center bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[60vh] text-center lg:text-left gap-10 lg:gap-0 overflow-hidden relative">
+      <section className="px-[5%] pt-[10px] lg:pt-[40px] pb-[20px] flex flex-col lg:flex-row items-center bg-[radial-gradient(circle_at_70%_50%,#ffffff_0%,#fafafa_100%)] min-h-[50vh] lg:min-h-[60vh] text-center lg:text-left gap-4 lg:gap-0 overflow-hidden relative">
         <div className="flex-1 max-w-[500px] relative order-2 lg:order-1">
-          <h2 className="text-[36px] md:text-[48px] text-primary leading-[1.3]">
-            A Legacy of Purity. <span className="text-secondary block mt-[5px]">A Future of Promise.</span>
+          <h2 className="text-[28px] md:text-[48px] text-primary leading-[1.2]">
+            A Legacy of Purity. <span className="text-secondary block mt-[2px]">A Future of Promise.</span>
           </h2>
-          <p className="text-[16px] md:text-[18px] text-text-light mb-[30px] md:mb-[50px] mt-[10px] lg:mt-0">From our family to yours, delivering quality and care since 1962.</p>
-          <div className="flex items-center justify-center lg:justify-start gap-[30px] mb-[30px] lg:mb-[60px]">
-            <Link href="/products" className="bg-secondary text-white px-[30px] py-[15px] rounded-[5px] font-semibold flex items-center gap-[10px] no-underline hover:bg-accent transition-all hover:-translate-y-1 shadow-lg active:scale-95">
+          <p className="text-[14px] md:text-[18px] text-text-light mb-[20px] md:mb-[50px] mt-[8px] lg:mt-0">From our family to yours, delivering quality and care since 1962.</p>
+          <div className="flex items-center justify-center lg:justify-start gap-[30px] mb-[15px] lg:mb-[60px]">
+            <Link href="/products" className="bg-secondary text-white px-[25px] py-[12px] rounded-[5px] font-semibold flex items-center gap-[10px] no-underline hover:bg-accent transition-all hover:-translate-y-1 shadow-lg active:scale-95">
               Explore Products <i className="fas fa-arrow-right" />
             </Link>
           </div>
         </div>
         <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full lg:w-auto">
-          <div className="hero-products-img-container relative w-full max-w-[850px] h-[450px] md:h-[550px] lg:h-[650px]">
+          <div className="hero-products-img-container relative w-full max-w-[850px] h-[320px] md:h-[550px] lg:h-[650px]">
             <Image 
               src="/hero.png" 
               alt="Minals Products" 
