@@ -63,10 +63,10 @@ export default function Header({ activePage }: HeaderProps) {
           <Link href="/enquire-now" className="bg-secondary text-white px-4 py-[8px] rounded-[5px] text-[13px] font-semibold flex items-center justify-center gap-[8px] no-underline hover:bg-accent hover:-translate-y-0.5 w-full sm:w-auto">
             Enquire Now <i className="fas fa-arrow-right text-[11px]" />
           </Link>
-          <a href="https://wa.me/918220012671" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/918220012671?text=Hello%20Minals,%20I%20am%20interested%20in%20your%20products.%20Please%20provide%20more%20details." target="_blank" rel="noopener noreferrer"
             className="border border-white/30 text-white px-4 py-[8px] rounded-[5px] text-[13px] flex items-center justify-center gap-[8px] no-underline hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors w-full sm:w-auto">
             <i className="fab fa-whatsapp text-[20px]" style={{ color: '#25D366' }} />
-            WhatsApp us
+            Quick Enquiry
           </a>
         </div>
       </div>
