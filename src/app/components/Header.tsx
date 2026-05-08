@@ -34,7 +34,7 @@ export default function Header({ activePage }: HeaderProps) {
   return (
     <header className="bg-primary text-white px-[5%] py-[10px] flex justify-between items-center sticky top-0 z-[1000] flex-wrap lg:flex-nowrap">
       <div className="flex items-center justify-between w-full lg:w-auto">
-        <Link href="/" className="flex items-center gap-[12px] no-underline" onClick={closeMenu}>
+        <Link href="/" className="flex items-center gap-[12px] no-underline relative z-[4000]" onClick={closeMenu}>
           <div className="relative w-[40px] h-[40px] md:w-[52px] md:h-[52px] drop-shadow-md">
             <Image 
               src="/logo.png" 
@@ -67,9 +67,10 @@ export default function Header({ activePage }: HeaderProps) {
 
       {/* Navigation Menu */}
       <div className={`
-        ${isMenuOpen ? 'fixed inset-0 flex bg-primary z-[3000] flex-col' : 'hidden'} 
-        lg:static lg:flex lg:flex-row lg:bg-transparent lg:z-auto lg:w-auto lg:mt-0
-        w-full items-center justify-center lg:justify-end
+        fixed inset-0 bg-primary z-[3000] flex flex-col w-full items-center justify-center
+        transition-transform duration-500 ease-in-out
+        ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} 
+        lg:static lg:translate-y-0 lg:flex-row lg:bg-transparent lg:z-auto lg:w-auto lg:mt-0 lg:justify-end
       `}>
         <nav className="w-full lg:w-auto mb-8 lg:mb-0 lg:mr-8 mt-20 lg:mt-0">
           <ul className="flex flex-col lg:flex-row gap-4 lg:gap-[26px] text-center lg:text-left w-full">
