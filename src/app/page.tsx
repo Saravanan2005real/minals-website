@@ -39,15 +39,17 @@ export default function Home() {
 
       {/* ─── Features Bar ─── */}
       <section className="px-[5%] pt-0 pb-[30px] bg-[#fafafa]">
-        <div className="bg-white rounded-[12px] py-10 px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 shadow-[0_5px_25px_rgba(0,0,0,0.03)] border border-[#f0f0f0]">
+        <div className="bg-white rounded-[12px] py-10 px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 shadow-[0_5px_25px_rgba(0,0,0,0.03)] border border-[#f0f0f0] overflow-hidden">
           {[
-            { icon: 'fa-shield',       title: 'QUALITY YOU CAN TRUST',  desc: 'Every product meets the highest quality standards.' },
-            { icon: 'fa-handshake',    title: '60+ YEARS OF LEGACY',     desc: 'Built on trust, integrity and hard work since 1962.' },
-            { icon: 'fa-users',        title: 'HAPPY CUSTOMERS',         desc: 'Serving millions of families across generations.' },
-            { icon: 'fa-location-dot', title: 'WIDE DISTRIBUTION',       desc: 'Strong network across South India ensuring easy availability.' },
+            { icon: 'fa-award',          title: 'QUALITY YOU CAN TRUST',  desc: 'Every product meets the highest quality standards.' },
+            { icon: 'fa-calendar-check', title: '60+ YEARS OF LEGACY',     desc: 'Built on trust, integrity and hard work since 1962.' },
+            { icon: 'fa-heart',          title: 'HAPPY CUSTOMERS',         desc: 'Serving millions of families across generations.' },
+            { icon: 'fa-truck-fast',     title: 'WIDE DISTRIBUTION',       desc: 'Strong network across South India ensuring easy availability.' },
           ].map((f, i) => (
-            <div key={i} className={`flex flex-row gap-[15px] items-center px-[10px] lg:px-[25px] ${i > 0 && i % 2 === 0 ? 'lg:border-l lg:border-[#e5e5e5]' : ''} ${i % 2 !== 0 ? 'sm:border-l sm:border-[#e5e5e5]' : ''}`}>
-              <i className={`fas ${f.icon} text-primary text-[32px] shrink-0 w-[45px] text-center`} />
+            <div key={i} className={`flex flex-row gap-[15px] items-center px-[10px] lg:px-[25px] py-4 transition-all duration-300 hover:bg-primary/[0.02] hover:-translate-y-1 group ${i > 0 && i % 2 === 0 ? 'lg:border-l lg:border-[#e5e5e5]' : ''} ${i % 2 !== 0 ? 'sm:border-l sm:border-[#e5e5e5]' : ''}`}>
+              <div className="w-[45px] h-[45px] bg-primary/5 rounded-full flex items-center justify-center shrink-0 group-hover:bg-secondary/20 transition-colors">
+                <i className={`fas ${f.icon} text-primary text-[20px] group-hover:scale-110 transition-transform`} />
+              </div>
               <div>
                 <h4 className="font-montserrat text-[13px] font-bold text-primary tracking-[0.5px] mb-[5px]">{f.title}</h4>
                 <p className="text-[12px] text-[#666] leading-[1.4] m-0">{f.desc}</p>
