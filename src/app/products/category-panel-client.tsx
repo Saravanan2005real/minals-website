@@ -66,8 +66,11 @@ export default function CategoryPanelClient({
 
   return (
     <>
-      {/* ══ DESKTOP (lg+): sticky collapsible sidebar ══ */}
-      <aside className="products-filter-sticky self-start hidden lg:block rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
+      {/* ══ DESKTOP (lg+): sticky collapsible sidebar ══
+          Wrapper is self-stretch so the grid cell is as tall as the products
+          column — this gives the sticky aside room to actually scroll & lock. */}
+      <div className="hidden lg:block self-stretch">
+      <aside className="sticky top-[100px] rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden ml-2">
         {/* Clickable header toggles the list */}
         <button
           type="button"
@@ -87,6 +90,7 @@ export default function CategoryPanelClient({
           {categoryList}
         </div>
       </aside>
+      </div>
 
       {/* ══ MOBILE (< lg): fixed bottom sheet ══ */}
       <div className="lg:hidden">

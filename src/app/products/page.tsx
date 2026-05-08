@@ -131,7 +131,7 @@ export default async function ProductsPage({
 
       {/* ─── Products Section ─── */}
       <section className="px-[5%] pt-[18px] pb-[70px] bg-white" id="products-section">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-[26px] items-start">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-[20px] items-start">
 
           {/* Category panel — collapsible sidebar on desktop, bottom sheet on mobile */}
           <CategoryPanelClient activeCategory={activeCategory} />

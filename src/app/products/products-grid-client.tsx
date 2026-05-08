@@ -35,7 +35,7 @@ function ProductCard({ p }: { p: Product }) {
           alt={p.name} 
           fill
           className="object-contain p-4"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 25vw, 20vw"
         />
       </div>
       <div className="p-[18px] flex flex-col flex-1">
@@ -132,7 +132,7 @@ export default function ProductsGridClient({ products }: { products: Product[] }
   const keys = useMemo(() => products.map((p) => `${p.category}:${p.name}`), [products]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]" role="list">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]" role="list">
       {products.map((p, i) => (
         <ProductCard key={keys[i]} p={p} />
       ))}
