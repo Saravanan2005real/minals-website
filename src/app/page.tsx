@@ -62,39 +62,39 @@ export default function Home() {
       {/* ─── Category Grid ─── */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] px-[5%] py-[40px] lg:py-[60px]">
         {/* Food */}
-        <div className="rounded-[12px] h-[220px] sm:h-[260px] flex relative overflow-hidden border border-black/[0.03] bg-[#f4f6ef] hover:-translate-y-[5px] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+        <div className="group rounded-[12px] h-[220px] sm:h-[260px] flex relative overflow-hidden border border-black/[0.03] bg-[#f4f6ef] hover:-translate-y-[8px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-500">
           <div className="flex-[1.2] px-6 sm:px-10 py-[20px] sm:py-[30px] z-10 flex flex-col justify-center">
             <h3 className="text-[22px] sm:text-[28px] text-primary mb-[10px]">Food Products</h3>
             <p className="text-[13px] sm:text-[14px] text-[#555] mb-5 leading-[1.4]">Natural ingredients,<br />made with care.</p>
-            <Link href="/products?category=food" className="inline-flex items-center gap-[10px] text-[#004a99] font-bold no-underline text-[15px]">
+            <Link href="/products?category=food" className="inline-flex items-center gap-[10px] text-[#004a99] font-bold no-underline text-[15px] group-hover:gap-[15px] transition-all">
               View Products <i className="fas fa-arrow-right text-[14px]" />
             </Link>
           </div>
-          <div className="flex-1 relative h-full">
+          <div className="flex-1 relative h-full overflow-hidden">
             <Image 
               src="/food.png" 
               alt="Food Products" 
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-110 transition-transform duration-700"
               sizes="(max-width: 768px) 100vw, 25vw"
             />
           </div>
         </div>
         {/* Cleaning */}
-        <div className="rounded-[12px] h-[220px] sm:h-[260px] flex relative overflow-hidden border border-black/[0.03] bg-[#eef5fa] hover:-translate-y-[5px] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+        <div className="group rounded-[12px] h-[220px] sm:h-[260px] flex relative overflow-hidden border border-black/[0.03] bg-[#eef5fa] hover:-translate-y-[8px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-500">
           <div className="flex-[1.2] px-6 sm:px-10 py-[20px] sm:py-[30px] z-10 flex flex-col justify-center">
             <h3 className="text-[22px] sm:text-[28px] text-primary mb-[10px]">Cleaning Products</h3>
             <p className="text-[13px] sm:text-[14px] text-[#555] mb-5 leading-[1.4]">Hygienic solutions for<br />a healthier tomorrow.</p>
-            <Link href="/products?category=cleaning" className="inline-flex items-center gap-[10px] text-[#004a99] font-bold no-underline text-[15px]">
+            <Link href="/products?category=cleaning" className="inline-flex items-center gap-[10px] text-[#004a99] font-bold no-underline text-[15px] group-hover:gap-[15px] transition-all">
               View Products <i className="fas fa-arrow-right text-[14px]" />
             </Link>
           </div>
-          <div className="flex-1 relative h-full">
+          <div className="flex-1 relative h-full overflow-hidden">
             <Image 
               src="/cleaning.png" 
               alt="Cleaning Products" 
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-110 transition-transform duration-700"
               sizes="(max-width: 768px) 100vw, 25vw"
             />
           </div>
