@@ -4,8 +4,8 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="bg-primary text-white px-[5%] pt-[50px] flex flex-col">
-      {/* Top grid — brand + 4 columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr_1.4fr] gap-10 lg:gap-[50px] pb-[40px] items-start">
+      {/* Top grid — brand + 2 columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-10 lg:gap-[50px] pb-[40px] items-start">
 
         {/* Brand */}
         <div className="flex flex-col gap-5 lg:pr-[30px] lg:border-r border-white/10 sm:col-span-2 lg:col-span-1">
@@ -50,48 +50,11 @@ export default function Footer() {
           <li><Link href="/products" className="text-[#c8cdd3] text-[14px] no-underline hover:text-secondary hover:pl-1 inline-block transition-all">View All Products</Link></li>
         </FooterCol>
 
-        {/* Support */}
-        <FooterCol title="Support">
-          <li><Link href="/enquire-now" className="text-[#c8cdd3] text-[14px] no-underline hover:text-secondary hover:pl-1 inline-block transition-all">Enquiry</Link></li>
-          <li><Link href="/enquire-now" className="text-[#c8cdd3] text-[14px] no-underline hover:text-secondary hover:pl-1 inline-block transition-all">Bulk Orders</Link></li>
-          <li><Link href="/contact-us" className="text-[#c8cdd3] text-[14px] no-underline hover:text-secondary hover:pl-1 inline-block transition-all">FAQs</Link></li>
-        </FooterCol>
 
-        {/* Contact Us */}
-        <div className="sm:col-span-2 lg:col-span-1">
-          <h4 className="text-[15px] font-bold mb-[18px] text-white uppercase tracking-[0.3px] border-b-2 border-secondary/50 pb-[10px]">Contact Us</h4>
-          <ul className="flex flex-col gap-[14px]">
-            <li className="flex flex-col gap-[2px]">
-              <span className="text-white text-[12px] font-semibold uppercase tracking-[0.5px] mb-[2px]">Ramaiah Enterprises</span>
-              <span className="text-[#c8cdd3] text-[13px] leading-[1.6]">
-                No 56, Govindappa Street,<br />Chennai - 600 001
-              </span>
-            </li>
-            <li className="flex flex-col gap-[1px]">
-              <span className="text-white text-[12px] font-semibold uppercase tracking-[0.5px]">Phone</span>
-              <span className="text-[#c8cdd3] text-[13px]">044 - 25212585</span>
-            </li>
-            <li className="flex flex-col gap-[1px]">
-              <span className="text-white text-[12px] font-semibold uppercase tracking-[0.5px]">Mobile</span>
-              <span className="text-[#c8cdd3] text-[13px]">+91 95660 02233</span>
-            </li>
-            <li className="flex flex-col gap-[1px]">
-              <span className="text-white text-[12px] font-semibold uppercase tracking-[0.5px]">Mail Us</span>
-              <a href="mailto:ramaiah25@gmail.com" className="text-[#c8cdd3] text-[13px] no-underline hover:text-secondary transition-colors">ramaiah25@gmail.com</a>
-            </li>
-          </ul>
-        </div>
 
       </div>
 
-      {/* Bottom bar — all in one centred row */}
-      <div className="border-t border-white/10 py-[16px] mt-auto flex justify-center items-center gap-[6px] text-[11px] sm:text-[13px] text-[#9aa3ae] flex-wrap text-center">
-        <span>© 2024 Minals (Ramaiah Enterprises). All Rights Reserved.</span>
-        <span className="text-white/20 mx-[2px] sm:mx-[6px] hidden sm:inline">|</span>
-        <a href="#" className="text-[#9aa3ae] no-underline hover:text-white whitespace-nowrap mt-2 sm:mt-0">Privacy Policy</a>
-        <span className="text-white/20 mx-[2px] sm:mx-[6px]">|</span>
-        <a href="#" className="text-[#9aa3ae] no-underline hover:text-white whitespace-nowrap mt-2 sm:mt-0">Terms &amp; Conditions</a>
-      </div>
+
     </footer>
   );
 }
