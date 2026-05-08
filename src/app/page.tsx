@@ -76,7 +76,7 @@ export default function Home() {
           </div>
           <div className="flex-1 relative h-full overflow-hidden">
             <Image 
-              src="/food.png" 
+              src="/food.jpeg" 
               alt="Food Products" 
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -95,7 +95,7 @@ export default function Home() {
           </div>
           <div className="flex-1 relative h-full overflow-hidden">
             <Image 
-              src="/cleaning.png" 
+              src="/Cleaning.png" 
               alt="Cleaning Products" 
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-700"
