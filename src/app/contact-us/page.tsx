@@ -151,7 +151,7 @@ export default function ContactUsPage() {
                             href={item.link}
                             target={item.external ? "_blank" : undefined}
                             rel={item.external ? "noopener noreferrer" : undefined}
-                            className="text-[15px] text-text-light hover:text-secondary leading-[1.7] whitespace-pre-line transition-colors underline underline-offset-4 w-fit"
+                            className="text-[15px] text-text-light hover:text-secondary leading-[1.7] whitespace-pre-line transition-colors underline decoration-secondary/50 hover:decoration-secondary underline-offset-4 w-fit"
                           >
                             {item.text}
                           </a>
