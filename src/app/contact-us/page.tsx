@@ -145,12 +145,12 @@ export default function ContactUsPage() {
 
                     <div className="flex flex-col gap-1">
                       {section.items.map((item, j) => 
-                        item.link ? (
+                        'link' in item && (item as any).link ? (
                           <a
                             key={j}
-                            href={item.link}
-                            target={item.external ? "_blank" : undefined}
-                            rel={item.external ? "noopener noreferrer" : undefined}
+                            href={(item as any).link}
+                            target={(item as any).external ? "_blank" : undefined}
+                            rel={(item as any).external ? "noopener noreferrer" : undefined}
                             className="text-[15px] text-text-light hover:text-secondary leading-[1.7] whitespace-pre-line transition-colors underline decoration-secondary/50 hover:decoration-secondary underline-offset-4 w-fit"
                           >
                             {item.text}
