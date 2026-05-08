@@ -95,32 +95,34 @@ export default function ContactUsPage() {
                 {
                   icon: 'fa-map-marker-alt',
                   title: 'Our Shop',
-                  lines: [
-                    '56, Govindappa Street, Seven Wells South,',
-                    'George Town, Chennai,',
-                    'Tamil Nadu - 600001, India.',
-                  ],
-                  link: 'https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7',
+                  items: [
+                    { text: '56, Govindappa Street, Seven Wells South,\nGeorge Town, Chennai,\nTamil Nadu - 600001, India.', link: 'https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7', external: true }
+                  ]
                 },
                 {
                   icon: 'fa-phone fa-flip-horizontal',
                   title: 'Phone',
-                  lines: ['+91 95660 02233', '044 - 25212585'],
+                  items: [
+                    { text: '+91 95660 02233', link: 'tel:+919566002233' },
+                    { text: '044 - 25212585', link: 'tel:04425212585' }
+                  ]
                 },
                 {
                   icon: 'fa-envelope',
                   title: 'Email',
-                  lines: ['ramaiah25@gmail.com', 'info@minals.in'],
+                  items: [
+                    { text: 'ramaiah25@gmail.com', link: 'mailto:ramaiah25@gmail.com' },
+                    { text: 'info@minals.in', link: 'mailto:info@minals.in' }
+                  ]
                 },
                 {
                   icon: 'fa-clock',
                   title: 'Business Hours',
-                  lines: [
-                    'Mon – Sat: 9:00 AM – 7:00 PM',
-                    'Sunday: Closed',
-                  ],
+                  items: [
+                    { text: 'Mon – Sat: 9:00 AM – 7:00 PM\nSunday: Closed' }
+                  ]
                 },
-              ].map((item, i) => (
+              ].map((section, i) => (
                 <div
                   key={i}
                   className="flex items-start gap-5 py-5 border-b border-black/5"
@@ -130,7 +132,7 @@ export default function ContactUsPage() {
                   <div className="w-[58px] h-[58px] rounded-full bg-primary flex items-center justify-center shrink-0">
 
                     <i
-                      className={`fas ${item.icon} text-secondary text-[20px]`}
+                      className={`fas ${section.icon} text-secondary text-[20px]`}
                     />
                   </div>
 
@@ -138,23 +140,28 @@ export default function ContactUsPage() {
                   <div>
 
                     <h3 className="text-[18px] font-bold text-primary mb-2">
-                      {item.title}
+                      {section.title}
                     </h3>
 
-                    {item.link ? (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[15px] text-text-light hover:text-secondary leading-[1.7] whitespace-pre-line transition-colors underline underline-offset-4 block"
-                      >
-                        {item.lines.join('\n')}
-                      </a>
-                    ) : (
-                      <p className="text-[15px] text-text-light leading-[1.7] whitespace-pre-line">
-                        {item.lines.join('\n')}
-                      </p>
-                    )}
+                    <div className="flex flex-col gap-1">
+                      {section.items.map((item, j) => 
+                        item.link ? (
+                          <a
+                            key={j}
+                            href={item.link}
+                            target={item.external ? "_blank" : undefined}
+                            rel={item.external ? "noopener noreferrer" : undefined}
+                            className="text-[15px] text-text-light hover:text-secondary leading-[1.7] whitespace-pre-line transition-colors underline underline-offset-4 w-fit"
+                          >
+                            {item.text}
+                          </a>
+                        ) : (
+                          <p key={j} className="text-[15px] text-text-light leading-[1.7] whitespace-pre-line m-0">
+                            {item.text}
+                          </p>
+                        )
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
