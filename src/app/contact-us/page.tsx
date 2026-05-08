@@ -157,7 +157,7 @@ function ContactUsContent() {
                     </h3>
 
                     <div className="flex flex-col gap-1">
-                      {section.items.map((item, j) => 
+                      {section.items.map((item, j) =>
                         'link' in item && (item as any).link ? (
                           <a
                             key={j}
