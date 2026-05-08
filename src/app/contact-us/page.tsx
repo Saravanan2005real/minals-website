@@ -100,6 +100,7 @@ export default function ContactUsPage() {
                     'George Town, Chennai,',
                     'Tamil Nadu - 600001, India.',
                   ],
+                  link: 'https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7',
                 },
                 {
                   icon: 'fa-phone fa-flip-horizontal',
@@ -140,9 +141,20 @@ export default function ContactUsPage() {
                       {item.title}
                     </h3>
 
-                    <p className="text-[15px] text-text-light leading-[1.7] whitespace-pre-line">
-                      {item.lines.join('\n')}
-                    </p>
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[15px] text-text-light hover:text-secondary leading-[1.7] whitespace-pre-line transition-colors underline underline-offset-4 block"
+                      >
+                        {item.lines.join('\n')}
+                      </a>
+                    ) : (
+                      <p className="text-[15px] text-text-light leading-[1.7] whitespace-pre-line">
+                        {item.lines.join('\n')}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -295,85 +307,7 @@ export default function ContactUsPage() {
           </div>
         </div>
 
-        {/* ─── Full Width Map Section ─── */}
-        <div className="mt-14 lg:mt-20">
 
-          <div className="relative rounded-[30px] overflow-hidden min-h-[460px] border border-black/5 shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
-
-            {/* Map */}
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62177.08115945303!2d80.28218!3d13.094904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f5737d50fa1%3A0xde2dd720f9245dbe!2sRAMAIAH%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1778161580549!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Ramaiah Enterprises Location"
-              className="absolute inset-0 w-full h-full"
-            />
-
-            {/* Soft Overlay */}
-            <div className="absolute inset-0 bg-white/15"></div>
-
-            {/* Floating Card */}
-            <div className="absolute left-6 lg:left-10 top-6 lg:top-10 z-10">
-
-              <div className="bg-white/95 backdrop-blur-md rounded-[26px] p-7 lg:p-8 w-[320px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/40">
-
-                <h3 className="text-[42px] leading-none text-primary font-playfair mb-4">
-                  Find Us Here
-                </h3>
-
-                <div className="w-[70px] h-[2px] bg-secondary mb-6 relative after:content-[''] after:absolute after:w-[7px] after:h-[7px] after:bg-secondary after:rotate-45 after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></div>
-
-                <div className="flex items-start gap-4 mb-7">
-
-                  <div className="w-[48px] h-[48px] rounded-full bg-primary flex items-center justify-center shrink-0">
-
-                    <i className="fas fa-map-marker-alt text-secondary text-[18px]" />
-                  </div>
-
-                  <p className="text-[16px] text-text-light leading-[1.8]">
-                    56, Govindappa Street,
-                    <br />
-                    Seven Wells South,
-                    <br />
-                    George Town, Chennai,
-                    <br />
-                    Tamil Nadu - 600001, India.
-                  </p>
-                </div>
-
-                <a
-                  href="https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group bg-primary text-white px-6 py-4 rounded-[12px] font-bold text-[15px] inline-flex items-center gap-3 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,43,91,0.25)] transition-all duration-300 no-underline"
-                >
-
-                  <i className="fas fa-location-arrow text-secondary group-hover:translate-x-1 transition-all duration-300" />
-
-                  Get Directions
-                </a>
-              </div>
-            </div>
-
-            {/* Floating Pin */}
-            <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[5]">
-
-              <div className="relative">
-
-                <div className="w-[85px] h-[85px] rounded-full bg-primary border-[7px] border-white shadow-[0_20px_40px_rgba(0,43,91,0.35)] flex items-center justify-center">
-
-                  <i className="fas fa-map-marker-alt text-secondary text-[34px]" />
-                </div>
-
-                <div className="absolute inset-0 rounded-full bg-primary/30 animate-ping"></div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <Footer />
