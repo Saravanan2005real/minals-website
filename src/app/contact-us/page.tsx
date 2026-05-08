@@ -64,25 +64,25 @@ export default function ContactUsPage() {
       <Header activePage="contact-us" />
 
       {/* ─── Main Section ─── */}
-      <section className="px-[5%] py-[45px] lg:py-[70px] max-w-[1450px] mx-auto">
+      <section className="px-[5%] py-[30px] lg:py-[70px] max-w-[1450px] mx-auto">
 
         {/* Top Layout */}
-        <div className="flex flex-col lg:flex-row gap-[40px] lg:gap-[55px] items-start">
+        <div className="flex flex-col lg:flex-row gap-[30px] lg:gap-[55px] items-start">
 
           {/* ─── Left Info ─── */}
           <div className="w-full lg:flex-1">
 
-            <h1 className="text-[40px] lg:text-[60px] text-primary leading-none mb-4 font-playfair">
+            <h1 className="text-[40px] lg:text-[60px] text-primary leading-none mb-3 lg:mb-4 font-playfair">
               Contact Us
             </h1>
 
-            <div className="w-[65px] h-[2px] bg-secondary mb-6 relative after:content-[''] after:absolute after:w-[7px] after:h-[7px] after:bg-secondary after:rotate-45 after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></div>
+            <div className="w-[65px] h-[2px] bg-secondary mb-5 lg:mb-6 relative after:content-[''] after:absolute after:w-[7px] after:h-[7px] after:bg-secondary after:rotate-45 after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2"></div>
 
-            <p className="text-[18px] font-bold text-primary mb-3">
+            <p className="text-[18px] font-bold text-primary mb-2 lg:mb-3">
               We are here to help you.
             </p>
 
-            <p className="text-[15px] text-text-light leading-[1.8] mb-10 max-w-[520px]">
+            <p className="text-[15px] text-text-light leading-[1.8] mb-7 lg:mb-10 max-w-[520px]">
               Have a question, need product information, or want to
               partner with us? Reach out to our team — we'll be happy
               to assist you.
@@ -125,7 +125,7 @@ export default function ContactUsPage() {
               ].map((section, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-5 py-5 border-b border-black/5"
+                  className="flex items-start gap-4 lg:gap-5 py-4 lg:py-5 border-b border-black/5"
                 >
 
                   {/* Icon */}
@@ -169,13 +169,13 @@ export default function ContactUsPage() {
           </div>
 
           {/* ─── Right Form ─── */}
-          <div className="w-full lg:flex-[1.15] bg-white rounded-[24px] p-7 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-black/[0.03]">
+          <div className="w-full lg:flex-[1.15] bg-white rounded-[24px] p-6 lg:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-black/[0.03]">
 
             <h2 className="text-[34px] text-primary font-playfair mb-3">
               Send Us a Message
             </h2>
 
-            <p className="text-[15px] text-text-light mb-8">
+            <p className="text-[15px] text-text-light mb-6 lg:mb-8">
               Fill in the form and our team will get back to you shortly.
             </p>
 
@@ -190,11 +190,11 @@ export default function ContactUsPage() {
 
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-5 lg:gap-6"
             >
 
               {/* Row 1 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
 
                 <div>
                   <label className="block text-[14px] font-semibold text-primary mb-2">
@@ -230,7 +230,7 @@ export default function ContactUsPage() {
               </div>
 
               {/* Row 2 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
 
                 <div>
                   <label className="block text-[14px] font-semibold text-primary mb-2">
