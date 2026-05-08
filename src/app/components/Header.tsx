@@ -68,9 +68,9 @@ export default function Header({ activePage }: HeaderProps) {
       {/* Navigation Menu */}
       <div className={`
         fixed inset-0 bg-primary z-[3000] flex flex-col w-full items-center justify-center
-        transition-transform duration-500 ease-in-out
-        ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'} 
-        lg:static lg:translate-y-0 lg:flex-row lg:bg-transparent lg:z-auto lg:w-auto lg:mt-0 lg:justify-end
+        transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+        ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-[120%] opacity-0 pointer-events-none'} 
+        lg:static lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto lg:flex-row lg:bg-transparent lg:z-auto lg:w-auto lg:mt-0 lg:justify-end
       `}>
         <nav className="w-full lg:w-auto mb-8 lg:mb-0 lg:mr-8 mt-20 lg:mt-0">
           <ul className="flex flex-col lg:flex-row gap-4 lg:gap-[26px] text-center lg:text-left w-full">
