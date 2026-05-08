@@ -95,7 +95,7 @@ export default function Home() {
           </div>
           <div className="flex-1 relative h-full overflow-hidden">
             <Image 
-              src="/cleaning.png" 
+              src="/cleaning-new.jpg" 
               alt="Cleaning Products" 
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-700"
