@@ -106,10 +106,10 @@ export default function Home() {
         <div className="bg-primary rounded-[12px] flex flex-col lg:flex-row overflow-hidden min-h-auto lg:min-h-[140px]">
           <div className="w-full lg:flex-[0.65] h-[150px] lg:h-auto relative">
             <Image 
-              src="/vintage.png" 
+              src="/vintage-cleaning-store-tamil-corrected.png" 
               alt="Ramaiah Enterprises Heritage" 
               fill
-              className="object-cover"
+              className="object-cover object-[center_10%] [filter:sepia(0.3)_contrast(1.05)]"
               sizes="(max-width: 768px) 100vw, 20vw"
             />
           </div>
