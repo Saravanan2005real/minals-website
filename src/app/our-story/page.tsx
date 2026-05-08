@@ -30,10 +30,10 @@ export default function OurStoryPage() {
             </p>
             <a
               href="#journey"
-              className="group bg-gradient-to-r from-secondary to-accent text-white px-[30px] py-[13px] rounded-[8px] font-bold tracking-[0.5px] shadow-[0_8px_20px_rgba(184,134,11,0.35)] inline-flex items-center gap-[10px] no-underline hover:shadow-[0_12px_25px_rgba(184,134,11,0.5)] hover:-translate-y-1 transition-all duration-300"
+              className="bg-secondary text-white px-[30px] py-[15px] rounded-[5px] font-semibold inline-flex items-center gap-[10px] no-underline hover:bg-accent transition-all hover:-translate-y-1 shadow-lg active:scale-95 group"
             >
               Explore Our Journey
-              <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300" />
+              <i className="fas fa-arrow-right group-hover:translate-x-1 transition-all" />
             </a>
           </div>
 
@@ -94,16 +94,16 @@ export default function OurStoryPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="group bg-white border border-[#e8e8e8] rounded-[16px] p-5 shadow-[0_6px_18px_rgba(0,0,0,0.04)] hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 cursor-pointer"
+                  className="group bg-white border border-[#e8e8e8] rounded-[16px] p-5 shadow-[0_6px_18px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:bg-primary/[0.02] transition-all duration-300 cursor-pointer"
                 >
                   <div className="flex items-start gap-4">
                     {/* Icon */}
-                    <div className="w-[50px] h-[50px] rounded-full bg-primary text-white flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-secondary group-hover:rotate-6 group-hover:scale-110">
-                      <i className={`fas ${item.icon} text-[16px]`} />
+                    <div className="w-[50px] h-[50px] rounded-full bg-primary text-white flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-secondary">
+                      <i className={`fas ${item.icon} text-[16px] transition-transform duration-300 group-hover:scale-110`} />
                     </div>
                     {/* Text */}
                     <div>
-                      <h4 className="text-[17px] font-bold text-primary mb-[4px] leading-none transition-all duration-300 group-hover:text-secondary">
+                      <h4 className="text-[17px] font-bold text-primary mb-[4px] leading-none">
                         {item.title}
                       </h4>
                       <p className="text-[14px] text-text-light leading-[1.6]">

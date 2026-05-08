@@ -287,7 +287,7 @@ export default function ContactUsPage() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="group bg-gradient-to-r from-secondary to-accent text-white px-7 py-4 rounded-[10px] font-bold text-[15px] flex items-center justify-center gap-3 w-full md:w-fit hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(184,134,11,0.3)] transition-all duration-300 disabled:opacity-70"
+                className="bg-secondary text-white px-[30px] py-[15px] rounded-[5px] font-semibold flex items-center justify-center gap-[10px] w-full md:w-fit hover:bg-accent transition-all hover:-translate-y-1 shadow-lg active:scale-95 disabled:opacity-70 group"
               >
 
                 {status === 'submitting' ? (
@@ -299,7 +299,7 @@ export default function ContactUsPage() {
                   <>
                     Send Message
 
-                    <i className="fas fa-arrow-right group-hover:translate-x-1 transition-all duration-300" />
+                    <i className="fas fa-arrow-right group-hover:translate-x-1 transition-all" />
                   </>
                 )}
               </button>
