@@ -82,7 +82,7 @@ export default function Header({ activePage }: HeaderProps) {
         </nav>
 
         <div className="flex flex-col sm:flex-row gap-[12px] items-center w-[80%] lg:w-auto justify-center lg:justify-start">
-          <Link href="/enquire-now" onClick={closeMenu} className="bg-secondary text-white px-6 lg:px-4 py-[12px] lg:py-[8px] rounded-[5px] text-[15px] lg:text-[13px] font-semibold flex items-center justify-center gap-[8px] no-underline hover:bg-accent hover:-translate-y-0.5 w-full sm:w-auto transition-all">
+          <Link href="/contact-us" onClick={closeMenu} className="bg-secondary text-white px-6 lg:px-4 py-[12px] lg:py-[8px] rounded-[5px] text-[15px] lg:text-[13px] font-semibold flex items-center justify-center gap-[8px] no-underline hover:bg-accent hover:-translate-y-0.5 w-full sm:w-auto transition-all">
             Enquire Now <i className="fas fa-arrow-right text-[11px]" />
           </Link>
           <a href="https://wa.me/918220012671?text=Hello%20Minals,%20I%20am%20interested%20in%20your%20products.%20Please%20provide%20more%20details." target="_blank" rel="noopener noreferrer"
