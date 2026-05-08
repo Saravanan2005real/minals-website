@@ -185,7 +185,7 @@ export default function OurStoryPage() {
               {/* Content */}
               <div className="w-full md:w-[45%] pl-[60px] md:pl-0">
                 <div
-                  className={`group bg-white p-4 md:p-5 rounded-[14px] shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-black/[0.03] relative hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 hover:scale-[1.03] transition-all duration-300 cursor-pointer ${
+                  className={`group relative transition-all duration-300 cursor-pointer ${
                     i % 2 !== 0 ? 'md:text-left' : 'md:text-right'
                   }`}
                 >
@@ -224,16 +224,6 @@ export default function OurStoryPage() {
           ))}
         </div>
       </section>
-
-      {/* ─── Promise Banner ─── */}
-      <div className="bg-primary text-white px-[5%] py-6 mx-[5%] rounded-[12px] relative overflow-hidden mb-4 text-center sm:text-left">
-        <h3 className="text-[20px] sm:text-[22px] text-secondary mb-[4px] relative z-10">
-          From one family's promise to a nation's trust.
-        </h3>
-        <p className="text-[13px] sm:text-[14px] text-[#e0e0e0] relative z-10">
-          And the journey continues...
-        </p>
-      </div>
 
       <Footer />
     </main>
