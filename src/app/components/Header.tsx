@@ -64,12 +64,23 @@ export default function Header({ activePage }: HeaderProps) {
             Enquire Now <i className="fas fa-arrow-right text-[11px]" />
           </Link>
           <a href="https://wa.me/918220012671?text=Hello%20Minals,%20I%20am%20interested%20in%20your%20products.%20Please%20provide%20more%20details." target="_blank" rel="noopener noreferrer"
-            className="border border-white/30 text-white px-4 py-[8px] rounded-[5px] text-[13px] flex items-center justify-center gap-[8px] no-underline hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors w-full sm:w-auto">
+            className="hidden sm:flex border border-white/30 text-white px-4 py-[8px] rounded-[5px] text-[13px] items-center justify-center gap-[8px] no-underline hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors w-full sm:w-auto">
             <i className="fab fa-whatsapp text-[20px]" style={{ color: '#25D366' }} />
             Quick Enquiry
           </a>
         </div>
       </div>
+
+      {/* Mobile Floating Quick Enquiry (WhatsApp) */}
+      <a 
+        href="https://wa.me/918220012671?text=Hello%20Minals,%20I%20am%20interested%20in%20your%20products.%20Please%20provide%20more%20details." 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-[2000] sm:hidden bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.3)] flex items-center justify-center hover:scale-110 transition-transform active:scale-95 animate-bounce-subtle"
+        aria-label="Quick Enquiry on WhatsApp"
+      >
+        <i className="fab fa-whatsapp text-[28px]" />
+      </a>
     </header>
   );
 }

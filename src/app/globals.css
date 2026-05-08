@@ -69,31 +69,31 @@
     @apply text-secondary border-b-2 border-secondary pb-1;
   }
 
-  /* Animated gold underline for nav links */
+  /* Nav link base styles */
   .nav-link {
     position: relative;
     padding-bottom: 4px;
     text-decoration: none;
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #D4AF37;
-    transition: width 0.3s ease;
-  }
-
-  .nav-link:hover::after,
-  .nav-link.nav-active::after {
-    width: 100%;
   }
 }
 
 /* ─── Utilities layer extras ─── */
 @layer utilities {
   .text-balance { text-wrap: balance; }
+
+  .animate-bounce-subtle {
+    animation: bounce-subtle 3s infinite;
+  }
+
+  @keyframes bounce-subtle {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-8px);
+    }
+    60% {
+      transform: translateY(-4px);
+    }
+  }
 }
