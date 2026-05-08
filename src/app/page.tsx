@@ -26,7 +26,7 @@ export default function Home() {
         <div className="flex-1 flex justify-center lg:justify-end order-1 lg:order-2 w-full lg:w-auto">
           <div className="hero-products-img-container relative w-full max-w-[850px] h-[300px] md:h-[550px] lg:h-[650px]">
             <Image 
-              src="/hero.png" 
+              src="/hero-minals.png" 
               alt="Minals Products" 
               fill
               priority
