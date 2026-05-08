@@ -62,7 +62,7 @@ export default function Footer() {
 function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="text-[15px] font-montserrat font-bold mb-[18px] text-white whitespace-nowrap uppercase tracking-[0.3px] border-b-2 border-secondary/50 pb-[10px]">{title}</h4>
+      <h4 className="text-[15px] font-montserrat font-bold mb-[18px] text-white whitespace-nowrap uppercase tracking-[0.3px] border-b-2 border-secondary pb-[10px]">{title}</h4>
       <ul className="flex flex-col gap-3">{children}</ul>
     </div>
   );
