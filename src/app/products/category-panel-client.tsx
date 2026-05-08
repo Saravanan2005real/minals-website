@@ -35,8 +35,9 @@ export default function CategoryPanelClient({
 }: {
   activeCategory: ProductCategory;
 }) {
+  // Desktop: starts open; Mobile: starts closed
   const [desktopOpen, setDesktopOpen] = useState(true);
-  const [mobileOpen, setMobileOpen]   = useState(false);
+  const [mobileOpen,  setMobileOpen]  = useState(false);
 
   const categoryList = (
     <div className="flex flex-col" role="tablist" aria-label="Product categories">
@@ -65,68 +66,76 @@ export default function CategoryPanelClient({
 
   return (
     <>
-      {/* ── Desktop: sticky collapsible sidebar (lg+) ── */}
+      {/* ══ DESKTOP (lg+): sticky collapsible sidebar ══ */}
       <aside className="products-filter-sticky self-start hidden lg:block rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
+        {/* Clickable header toggles the list */}
         <button
+          type="button"
           onClick={() => setDesktopOpen((v) => !v)}
-          className="w-full flex items-center justify-between px-4 py-[14px] bg-gradient-to-r from-[#062e5e] to-primary text-white cursor-pointer border-none"
           aria-expanded={desktopOpen}
+          className="w-full flex items-center justify-between px-4 py-[14px] bg-gradient-to-r from-[#062e5e] to-primary text-white cursor-pointer border-none outline-none"
         >
           <span className="font-montserrat text-[14px] font-bold tracking-[0.2px]">Categories</span>
-          <i
-            className={`fas fa-chevron-${desktopOpen ? 'up' : 'down'} text-[11px] transition-transform duration-200`}
-          />
+          <i className={`fas fa-chevron-${desktopOpen ? 'up' : 'down'} text-[11px] transition-transform duration-200`} />
         </button>
 
-        {/* Animate open/close with max-height */}
+        {/* Smooth height animation via max-height */}
         <div
           className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
-          style={{ maxHeight: desktopOpen ? '400px' : '0px' }}
+          style={{ maxHeight: desktopOpen ? '500px' : '0px' }}
         >
           {categoryList}
         </div>
       </aside>
 
-      {/* ── Mobile: fixed bottom drawer (< lg) ── */}
+      {/* ══ MOBILE (< lg): fixed bottom sheet ══ */}
       <div className="lg:hidden">
-        {/* Backdrop */}
+        {/* Dim backdrop when open */}
         <div
+          aria-hidden="true"
           onClick={() => setMobileOpen(false)}
           className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ${
-            mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            mobileOpen
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none'
           }`}
-          aria-hidden="true"
         />
 
-        {/* Drawer panel – always in DOM, slides in/out via transform */}
+        {/* The sheet — always in DOM, slides via transform so animation works */}
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 flex flex-col bg-white rounded-t-[20px] shadow-[0_-4px_30px_rgba(0,0,0,0.18)] transition-transform duration-300 ease-in-out"
+          role="dialog"
+          aria-modal={mobileOpen}
+          aria-label="Product categories"
+          className="fixed bottom-0 left-0 right-0 z-50 flex flex-col bg-white rounded-t-[20px] shadow-[0_-6px_32px_rgba(0,0,0,0.18)] transition-transform duration-300 ease-in-out"
           style={{
             height: '85dvh',
-            transform: mobileOpen ? 'translateY(0)' : 'translateY(calc(100% - 52px))',
+            transform: mobileOpen
+              ? 'translateY(0)'
+              : 'translateY(calc(100% - 52px))',
           }}
-          aria-modal={mobileOpen}
-          role="dialog"
-          aria-label="Product categories"
         >
-          {/* Header strip – tap to toggle */}
+          {/* Fixed-height header bar — always visible at bottom, tap to open */}
           <button
+            type="button"
             onClick={() => setMobileOpen((v) => !v)}
-            className="flex-shrink-0 w-full flex items-center justify-between px-5 bg-gradient-to-r from-[#062e5e] to-primary text-white rounded-t-[20px] border-none cursor-pointer"
-            style={{ height: '52px' }}
             aria-expanded={mobileOpen}
+            className="flex-shrink-0 w-full flex items-center justify-between px-5 bg-gradient-to-r from-[#062e5e] to-primary text-white rounded-t-[20px] border-none cursor-pointer outline-none"
+            style={{ height: '52px' }}
           >
-            <div className="flex items-center gap-2">
-              <i className="fas fa-th-list text-[13px] opacity-80" />
-              <span className="font-montserrat text-[14px] font-bold tracking-[0.2px]">Category</span>
+            <div className="flex items-center gap-[10px]">
+              <i className="fas fa-layer-group text-[13px] opacity-80" />
+              <span className="font-montserrat text-[14px] font-bold tracking-[0.2px]">
+                Category
+              </span>
             </div>
+            {/* Down arrow to close when open, up arrow to hint expansion when closed */}
             <i
-              className={`fas fa-chevron-${mobileOpen ? 'down' : 'up'} text-[12px] transition-transform duration-200`}
+              className={`fas fa-chevron-${mobileOpen ? 'down' : 'up'} text-[13px] transition-transform duration-200`}
             />
           </button>
 
-          {/* Scrollable category list */}
-          <div className="overflow-y-auto flex-1 overscroll-contain">
+          {/* Scrollable list fills rest of sheet */}
+          <div className="flex-1 overflow-y-auto overscroll-contain">
             {categoryList}
           </div>
         </div>
