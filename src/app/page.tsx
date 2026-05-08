@@ -16,7 +16,11 @@ export default function Home() {
           <h2 className="text-[32px] md:text-[48px] text-primary leading-[1.25] mb-2">
             A Legacy of Purity. <span className="text-secondary block mt-[2px]">A Future of Promise.</span>
           </h2>
-          <p className="text-[15px] md:text-[18px] text-text-light mb-6 md:mb-[50px] mt-[10px] lg:mt-0">From our family to yours, delivering quality and care since 1962.</p>
+          <p className="text-[15px] md:text-[18px] text-text-light mb-6 md:mb-[50px] mt-[10px] lg:mt-0 leading-relaxed">
+            From our family to yours, delivering quality and care since 1962.<br className="hidden md:block" />
+            Rooted in a legacy of trust, we bring you a tradition of purity and excellence.<br className="hidden md:block" />
+            Crafting the finest food and cleaning solutions for your everyday life.
+          </p>
           <div className="flex items-center justify-center lg:justify-start gap-[30px] mb-8 lg:mb-[60px]">
             <Link href="/products" className="bg-secondary text-white px-[30px] py-[15px] rounded-[5px] font-semibold flex items-center gap-[10px] no-underline hover:bg-accent transition-all hover:-translate-y-1 shadow-lg active:scale-95">
               Explore Products <i className="fas fa-arrow-right" />
