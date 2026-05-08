@@ -55,8 +55,8 @@ export default function SortSelectClient() {
               onClick={() => handleSelect(option.value)}
               className={`px-4 py-[10px] text-[13px] font-bold cursor-pointer transition-colors ${
                 currentSort === option.value
-                  ? 'bg-white text-[#00a3ff]' /* Active state: white bg, light blue text */
-                  : 'bg-white text-primary hover:bg-white hover:text-[#00a3ff]' /* Hover state: white bg, light blue text */
+                  ? 'bg-[#eef5fa] text-primary' /* Active: light blue bg, primary text */
+                  : 'bg-white text-[#0f2f54] hover:bg-[#eef5fa] hover:text-primary' /* Hover: light blue bg, primary text */
               }`}
             >
               {option.label}
