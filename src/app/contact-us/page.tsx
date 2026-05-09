@@ -243,6 +243,7 @@ function ContactUsContent() {
                     onChange={handleChange}
                     placeholder="Your full name"
                     required
+                    suppressHydrationWarning
                     className={inputClass}
                   />
                 </div>
@@ -258,6 +259,7 @@ function ContactUsContent() {
                     onChange={handleChange}
                     placeholder="Enter your mobile number"
                     required
+                    suppressHydrationWarning
                     className={inputClass}
                   />
                 </div>
@@ -275,6 +277,7 @@ function ContactUsContent() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
+                    suppressHydrationWarning
                     className={inputClass}
                   />
                 </div>
@@ -290,6 +293,7 @@ function ContactUsContent() {
                     onChange={handleChange}
                     placeholder="Enter your city"
                     required
+                    suppressHydrationWarning
                     className={inputClass}
                   />
                 </div>
@@ -306,6 +310,7 @@ function ContactUsContent() {
                   onChange={handleChange}
                   placeholder="Tell us about your requirements..."
                   required
+                  suppressHydrationWarning
                   className={`${inputClass} min-h-[120px] resize-y`}
                 />
               </div>
@@ -329,6 +334,7 @@ function ContactUsContent() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
+                suppressHydrationWarning
                 className="bg-secondary text-white border-none py-[14px] px-[30px] rounded-[6px] text-[15px] sm:text-[16px] font-semibold cursor-pointer flex items-center justify-center gap-[10px] w-full md:w-fit hover:bg-accent disabled:opacity-70 disabled:cursor-not-allowed transition-all active:scale-95 shadow-lg group"
               >
                 {status === 'submitting' ? (
