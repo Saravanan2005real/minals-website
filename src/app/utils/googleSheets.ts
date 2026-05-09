@@ -1,6 +1,6 @@
 // URLs for different Google Sheets
 export const CONTACT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxo4DdNVBVMZCHgUMUnBj6_uRT8OF4lDJgwq1Uv9V2Klh3_Tc4BdXb6gRJZ1w6fj239dw/exec";
-export const DEALER_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZfk1BkZ-_Z2fLJjAzQEI5GeOd4DuLb2tWUY3qbrB29j_OUGbMH5lOe4AcWWBxo2SUMA/exec"; // Placeholder, update when second sheet is ready
+export const DEALER_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzxi_DDmD4jVoWS84iQN92SId-6XQA9cL3e1KbQFRC88XseZqPZ_lwgYfrAwCQgsxCZZQ/exec"; // Placeholder, update when second sheet is ready
 
 export type SheetType = 'contact' | 'dealer' | 'product_enquiry';
 
