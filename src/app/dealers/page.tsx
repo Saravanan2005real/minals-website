@@ -88,7 +88,7 @@ export default function DealersPage() {
         <div className="w-full lg:flex-1 flex flex-col items-center gap-8 lg:pt-[40px]">
           <div className="relative w-full max-w-[480px] mt-4 lg:mt-0">
             {/* The Map Container */}
-            <div className="w-full h-[450px] lg:h-[500px] rounded-[24px] overflow-hidden shadow-md relative border border-black/5">
+            <div className="w-full h-[400px] lg:h-[440px] rounded-[24px] overflow-hidden shadow-md relative border border-black/5">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62177.08115945303!2d80.28218!3d13.094904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f5737d50fa1%3A0xde2dd720f9245dbe!2sRAMAIAH%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1778161580549!5m2!1sen!2sin" 
                 width="100%" 
