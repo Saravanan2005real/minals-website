@@ -34,7 +34,7 @@ export default function DealersPage() {
         contact: `${formData.phone} / ${formData.email}`,
         productInfo: `Location: ${formData.city}, ${formData.state}`,
         message: 'Dealer Program Interest'
-      });
+      }, 'dealer');
       setStatus('success');
       setFormData({ name: '', phone: '', email: '', city: '', state: '' });
       setTimeout(() => setStatus('idle'), 5000);

@@ -100,7 +100,7 @@ function ProductCard({ p }: { p: Product }) {
                       contact: 'Via WhatsApp',
                       productInfo: `${p.name} (Qty: ${finalQty})`,
                       message: 'Clicked WhatsApp Enquiry Button'
-                    });
+                    }, 'product_enquiry');
 
                     const message = `Hello, I am interested in purchasing ${p.name} (Quantity: ${finalQty}). Could you please provide more details regarding pricing and availability? Thank you.`;
                     window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer');

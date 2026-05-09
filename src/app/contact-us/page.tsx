@@ -45,7 +45,7 @@ function ContactUsContent() {
         contact: `${formData.phone} / ${formData.email}`,
         productInfo: `${product ? `Product: ${product} | ` : ''}Location: ${formData.city}`,
         message: formData.message,
-      });
+      }, 'contact');
 
       setStatus('success');
       setFormData({
