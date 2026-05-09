@@ -59,7 +59,7 @@ const PRODUCTS: Product[] = [
   { name: 'Sri Lakshmi Sandal Scented Tablet & Powder', category: 'wellness', image: '/products/sri-lakshmi-sandal-scented-tablet.png', desc: 'Traditional Sandal scented tablets and powder for spiritual, aromatic, and wellness applications.' },
   { name: 'Lion Kesari Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-kesari-cloth-bag.png', desc: 'Premium Lion Kesari Colour elegantly packaged in a traditional cloth bag. Perfect for gifting and holistic wellness applications.' },
   { name: 'Lion Lemon Yellow Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-lemon-yellow-cloth-bag.png', desc: 'Vibrant Lion Lemon Yellow Colour beautifully presented in a traditional cloth bag. Adds a touch of tradition and wellness.' },
-  { name: 'Lion Orange Red Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-orange-red-colour-cloth-bag.png', desc: 'Rich Lion Orange Red Colour securely packed in a classic cloth bag. Ideal for traditional ceremonies and personal wellness.' },
+  { name: 'Lion Orange Red Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-orange-red-cloth-bag.png', desc: 'Rich Lion Orange Red Colour securely packed in a classic cloth bag. Ideal for traditional ceremonies and personal wellness.' },
 
   // Lion Food Products
   { name: 'Lion Artificial Flavouring Agents', category: 'food', image: '/products/lion-artificial-flavouring-agents.png', desc: 'A classic collection of high-quality artificial flavouring agents including Vanilla, Rose, and Pine Apple. Perfect for baking and desserts.' },
@@ -116,7 +116,7 @@ export default async function ProductsPage({
 
       {/* ─── Refined Products Header ─── */}
       <section className="px-[5%] pt-[30px] lg:pt-[45px] pb-[60px] lg:pb-[80px] bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-[1200px] mx-auto text-center lg:text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-[1440px] mx-auto text-center lg:text-left">
           <div className="relative z-10">
 
             <h2 className="text-[36px] md:text-[42px] lg:text-[48px] text-primary leading-[1.2] mb-6">
@@ -143,7 +143,7 @@ export default async function ProductsPage({
 
       {/* ─── Products Section ─── */}
       <section className="px-[5%] pt-[18px] pb-[70px] bg-white" id="products-section">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-[280px_1fr] gap-[26px] items-start">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-[250px_1fr] gap-[35px] items-start px-4">
 
           {/* Category panel — collapsible sidebar on desktop, bottom sheet on mobile */}
           <CategoryPanelClient activeCategory={activeCategory} />

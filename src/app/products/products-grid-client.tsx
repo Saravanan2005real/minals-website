@@ -69,9 +69,9 @@ function ProductCard({ p }: { p: Product }) {
           {!isEnquiring ? (
             <button
               onClick={() => setIsEnquiring(true)}
-              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-[18px] py-[9px] rounded-[6px] text-[13px] font-semibold no-underline hover:bg-secondary w-full transition-colors cursor-pointer border-none"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-[14px] py-[9px] rounded-[6px] text-[12px] font-semibold no-underline hover:bg-secondary w-full transition-colors cursor-pointer border-none whitespace-nowrap"
             >
-              <i className="fab fa-whatsapp" /> Enquiry on WhatsApp
+              <i className="fab fa-whatsapp text-[14px]" /> Enquiry on WhatsApp
             </button>
           ) : (
             <div className="flex items-center justify-between bg-[#f8f9fa] border border-black/[0.08] rounded-[6px] p-1 h-[37px]">
