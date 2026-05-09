@@ -27,7 +27,7 @@ function buildUrl(cat: string) {
   const p = new URLSearchParams();
   if (cat !== 'all') p.set('category', cat);
   const q = p.toString();
-  return q ? `/products?${q}` : `/products`;
+  return q ? `/products?${q}#products-section` : `/products#products-section`;
 }
 
 export default function CategoryPanelClient({

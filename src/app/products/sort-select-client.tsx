@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const OPTIONS = [
-  { value: 'name_asc', label: 'A - Z (Ascending)' },
+  { value: 'name_asc',  label: 'A - Z (Ascending)' },
+  { value: 'name_desc', label: 'Z - A (Descending)' },
   { value: 'price_asc', label: 'Price (Low to High)' },
   { value: 'price_desc', label: 'Price (High to Low)' },
 ];
@@ -31,7 +32,7 @@ export default function SortSelectClient() {
   const handleSelect = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set('sort', value);
-    router.push(`?${params.toString()}`);
+    router.push(`?${params.toString()}#products-section`);
     setIsOpen(false);
   };
 

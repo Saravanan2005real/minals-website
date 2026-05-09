@@ -104,10 +104,14 @@ export default async function ProductsPage({
 
   if (sortParam === 'name_asc') {
     filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (sortParam === 'price_asc') {
+  } else if (sortParam === 'name_desc') {
     filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+  } else if (sortParam === 'price_asc') {
+    // Placeholder sorting for price
+    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
   } else if (sortParam === 'price_desc') {
-    filteredProducts.sort((a, b) => a.name.length - b.name.length);
+    // Placeholder sorting for price
+    filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
   }
 
   return (
