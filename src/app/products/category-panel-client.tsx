@@ -35,8 +35,8 @@ export default function CategoryPanelClient({
 }: {
   activeCategory: ProductCategory;
 }) {
-  // Desktop: starts closed; Mobile: starts closed
-  const [desktopOpen, setDesktopOpen] = useState(false);
+  // Desktop: starts open; Mobile: starts closed
+  const [desktopOpen, setDesktopOpen] = useState(true);
   const [mobileOpen,  setMobileOpen]  = useState(false);
 
   const categoryList = (
