@@ -38,7 +38,7 @@
   }
 
   /* Sidebar filter sticky positioning calculation */
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .products-filter-sticky {
       position: sticky;
       top: max(20px, calc(50vh - 115px));

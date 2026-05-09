@@ -35,8 +35,7 @@ export default function CategoryPanelClient({
 }: {
   activeCategory: ProductCategory;
 }) {
-  // Desktop: starts open; Mobile: starts closed
-  const [desktopOpen, setDesktopOpen] = useState(true);
+  // Mobile: starts closed
   const [mobileOpen,  setMobileOpen]  = useState(false);
 
   const categoryList = (
@@ -66,30 +65,19 @@ export default function CategoryPanelClient({
 
   return (
     <>
-      {/* ══ DESKTOP (lg+): sticky collapsible sidebar ══ */}
-      <aside className="products-filter-sticky self-start hidden lg:block rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
-        {/* Clickable header toggles the list */}
-        <button
-          type="button"
-          onClick={() => setDesktopOpen((v) => !v)}
-          aria-expanded={desktopOpen}
-          className="w-full flex items-center justify-between px-4 py-[14px] bg-gradient-to-r from-[#062e5e] to-primary text-white cursor-pointer border-none outline-none"
-        >
+      {/* ══ DESKTOP (md+): sticky sidebar (always visible) ══ */}
+      <aside className="products-filter-sticky self-start hidden md:block rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
+        <div className="w-full flex items-center px-4 py-[14px] bg-gradient-to-r from-[#062e5e] to-primary text-white">
           <span className="font-montserrat text-[14px] font-bold tracking-[0.2px]">Categories</span>
-          <i className={`fas fa-chevron-${desktopOpen ? 'up' : 'down'} text-[11px] transition-transform duration-200`} />
-        </button>
+        </div>
 
-        {/* Smooth height animation via max-height */}
-        <div
-          className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
-          style={{ maxHeight: desktopOpen ? '500px' : '0px' }}
-        >
+        <div>
           {categoryList}
         </div>
       </aside>
 
-      {/* ══ MOBILE (< lg): fixed bottom sheet ══ */}
-      <div className="lg:hidden">
+      {/* ══ MOBILE (< md): fixed bottom sheet ══ */}
+      <div className="md:hidden">
         {/* Dim backdrop when open */}
         <div
           aria-hidden="true"
