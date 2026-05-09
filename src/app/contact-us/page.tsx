@@ -60,7 +60,7 @@ function ContactUsContent() {
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
       console.error(err);
-      setStatus('success');
+      setStatus('idle');
     }
   };
 
