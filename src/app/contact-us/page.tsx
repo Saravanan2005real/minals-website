@@ -42,8 +42,10 @@ function ContactUsContent() {
       await submitToGoogleSheets({
         type: 'Contact Us / Enquiry',
         name: formData.name,
-        contact: `${formData.phone} / ${formData.email}`,
-        productInfo: `${product ? `Product: ${product} | ` : ''}Location: ${formData.city}`,
+        phone: formData.phone,
+        email: formData.email,
+        city: formData.city,
+        product: product || 'General Enquiry',
         message: formData.message,
       }, 'contact');
 

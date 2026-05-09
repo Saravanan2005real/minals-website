@@ -31,8 +31,10 @@ export default function DealersPage() {
       await submitToGoogleSheets({
         type: 'Dealer Enquiry',
         name: formData.name,
-        contact: `${formData.phone} / ${formData.email}`,
-        productInfo: `Location: ${formData.city}, ${formData.state}`,
+        phone: formData.phone,
+        email: formData.email,
+        city: formData.city,
+        state: formData.state,
         message: 'Dealer Program Interest'
       }, 'dealer');
       setStatus('success');
