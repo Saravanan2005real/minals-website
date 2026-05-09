@@ -44,7 +44,12 @@ Built with **Next.js 15 App Router**, **TypeScript**, and **Tailwind CSS v3**, t
 - **Descriptive Naming**: Renamed all product images to clean, descriptive kebab-case (e.g., `premier-toilet-cleaner.png`) for better SEO and project alignment.
 - **Quantity-Based Enquiries**: Enhanced the WhatsApp enquiry logic to include specific quantities for each product.
 
-### 📱 Mobile Excellence
+### ⚡ Backend Integration
+- **Google Sheets Database**: Contact Us and Dealer enquiry forms are now fully integrated with Google Apps Script Webhooks. Form submissions are piped directly to cloud-based Google Sheets in real-time.
+
+### 📱 UI & Mobile Excellence
+- **Custom Sort Dropdown**: The Products page now features a custom, premium sort dropdown allowing users to sort by "Name A-Z", "Price (Low to High)", and "Price (High to Low)".
+- **Animated Mobile Navigation**: Rebuilt the mobile hamburger menu with smooth, symmetrical slide-down animations for a high-end feel.
 - **Above-the-Fold Optimization**: Redesigned the homepage hero section for mobile to ensure the "Explore Products" CTA is visible immediately without scrolling.
 - **Responsive Grids**: Optimized category and product grids for seamless browsing on any device.
 
