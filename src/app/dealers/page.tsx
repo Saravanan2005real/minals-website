@@ -84,15 +84,55 @@ export default function DealersPage() {
 
         {/* Middle Column: Map & Box */}
         <div className="w-full lg:flex-1 flex flex-col items-center gap-8 lg:pt-[40px]">
-          <div className="relative w-full max-w-[480px] aspect-[1/1.1] transition-transform hover:scale-[1.02] duration-500">
-            <Image 
-              src="/india-network-map.png" 
-              alt="India Map with Locations" 
-              fill
-              priority
-              className="object-contain"
-              sizes="(max-width: 1024px) 100vw, 40vw"
-            />
+          <div className="relative w-full max-w-[480px] mt-4 lg:mt-0">
+            {/* The Map Container */}
+            <div className="w-full lg:w-[90%] ml-auto h-[350px] lg:h-[450px] rounded-[24px] overflow-hidden shadow-md relative border border-black/5">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62177.08115945303!2d80.28218!3d13.094904!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f5737d50fa1%3A0xde2dd720f9245dbe!2sRAMAIAH%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1778161580549!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ramaiah Enterprises Location"
+              ></iframe>
+            </div>
+
+            {/* The Floating White Card */}
+            <div className="relative lg:absolute top-auto lg:top-1/2 lg:-translate-y-1/2 left-0 w-[85%] sm:w-[280px] mx-auto lg:mx-0 -mt-20 lg:mt-0 bg-white rounded-[24px] p-6 lg:p-8 shadow-[0_20px_40px_rgba(0,0,0,0.15)] border border-black/5 z-10 flex flex-col gap-5 lg:gap-6">
+              <div>
+                <h3 className="font-playfair text-[24px] lg:text-[28px] text-primary leading-none mb-4">Find Us Here</h3>
+                <div className="flex items-center gap-[2px]">
+                  <div className="w-[30px] h-[2px] bg-secondary"></div>
+                  <div className="w-[6px] h-[6px] bg-secondary rotate-45"></div>
+                  <div className="w-[30px] h-[2px] bg-secondary"></div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0 mt-1">
+                  <i className="fas fa-map-marker-alt text-secondary text-[16px]" />
+                </div>
+                <p className="text-[13px] lg:text-[14px] text-text-light leading-[1.7] m-0">
+                  56, Govindappa Street,<br />
+                  Seven Wells South,<br />
+                  George Town, Chennai,<br />
+                  Tamil Nadu - 600001,<br />
+                  India.
+                </p>
+              </div>
+
+              <a 
+                href="https://maps.app.goo.gl/YEDfZyuyRfWoHhGX7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary text-white rounded-[12px] py-[12px] px-5 flex items-center justify-center gap-3 font-semibold text-[14px] hover:bg-accent transition-colors no-underline group shadow-lg mt-2"
+              >
+                <i className="fas fa-location-arrow text-secondary group-hover:translate-x-1 transition-transform" />
+                Get Directions
+              </a>
+            </div>
           </div>
           
           <div className="w-full bg-primary rounded-[20px] p-8 lg:p-10 shadow-2xl relative overflow-hidden group">

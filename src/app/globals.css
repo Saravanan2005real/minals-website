@@ -37,14 +37,6 @@
     filter: brightness(1.08) contrast(1.05);
   }
 
-  /* Sidebar filter sticky positioning calculation */
-  @media (min-width: 768px) {
-    .products-filter-sticky {
-      position: sticky;
-      top: max(20px, calc(50vh - 115px));
-    }
-  }
-
   /* Form select custom arrow */
   .select-arrow {
     appearance: none;

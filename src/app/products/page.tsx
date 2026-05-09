@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { Suspense } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductsGridClient from './products-grid-client';
 import CategoryPanelClient from './category-panel-client';
+import SortSelectClient from './sort-select-client';
 
 type ProductCategory = 'all' | 'sanitizers' | 'cleaning' | 'wellness' | 'food';
 
@@ -57,7 +59,7 @@ const PRODUCTS: Product[] = [
   { name: 'Sri Lakshmi Sandal Scented Tablet & Powder', category: 'wellness', image: '/products/sri-lakshmi-sandal-scented-tablet.png', desc: 'Traditional Sandal scented tablets and powder for spiritual, aromatic, and wellness applications.' },
   { name: 'Lion Kesari Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-kesari-cloth-bag.png', desc: 'Premium Lion Kesari Colour elegantly packaged in a traditional cloth bag. Perfect for gifting and holistic wellness applications.' },
   { name: 'Lion Lemon Yellow Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-lemon-yellow-cloth-bag.png', desc: 'Vibrant Lion Lemon Yellow Colour beautifully presented in a traditional cloth bag. Adds a touch of tradition and wellness.' },
-  { name: 'Lion Orange Red Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-orange-red-cloth-bag.png', desc: 'Rich Lion Orange Red Colour securely packed in a classic cloth bag. Ideal for traditional ceremonies and personal wellness.' },
+  { name: 'Lion Orange Red Colour (Cloth Bag)', category: 'wellness', image: '/products/lion-orange-red-colour-cloth-bag.png', desc: 'Rich Lion Orange Red Colour securely packed in a classic cloth bag. Ideal for traditional ceremonies and personal wellness.' },
 
   // Lion Food Products
   { name: 'Lion Artificial Flavouring Agents', category: 'food', image: '/products/lion-artificial-flavouring-agents.png', desc: 'A classic collection of high-quality artificial flavouring agents including Vanilla, Rose, and Pine Apple. Perfect for baking and desserts.' },
@@ -86,17 +88,27 @@ function categoryLabel(c: ProductCategory) {
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ category?: string }>;
+  searchParams?: Promise<{ category?: string, sort?: string }>;
 }) {
   const params = (await searchParams) ?? {};
   const raw = params.category as ProductCategory;
   const activeCategory: ProductCategory =
     ['sanitizers', 'cleaning', 'wellness', 'food'].includes(raw) ? raw : 'all';
 
-  const filteredProducts =
+  const sortParam = params.sort || 'name_asc';
+
+  let filteredProducts =
     activeCategory === 'all'
       ? [...PRODUCTS]
       : PRODUCTS.filter((p) => p.category === activeCategory);
+
+  if (sortParam === 'name_asc') {
+    filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortParam === 'price_asc') {
+    filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+  } else if (sortParam === 'price_desc') {
+    filteredProducts.sort((a, b) => a.name.length - b.name.length);
+  }
 
   return (
     <main>
@@ -141,11 +153,16 @@ export default async function ProductsPage({
             {/* Results bar */}
             <div className="flex flex-col sm:flex-row justify-between items-center bg-white border border-black/[0.07] rounded-[10px] shadow-[0_2px_10px_rgba(0,0,0,0.04)] px-5 py-3 mb-5 gap-3 sm:gap-0">
               <h3 className="text-[16px] font-bold text-primary">{categoryLabel(activeCategory)}</h3>
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-end">
                 {/* Count badge */}
                 <span className="text-[12px] font-semibold text-[#5a6875] bg-[#f4f6f9] border border-[#dde1e7] rounded-[6px] px-3 py-[5px] whitespace-nowrap">
                   {filteredProducts.length} item{filteredProducts.length === 1 ? '' : 's'}
                 </span>
+                
+                {/* Sorting Dropdown */}
+                <Suspense fallback={<div className="w-[150px] h-[32px] bg-gray-100 rounded-[6px] animate-pulse"></div>}>
+                  <SortSelectClient />
+                </Suspense>
               </div>
             </div>
 
@@ -158,4 +175,3 @@ export default async function ProductsPage({
     </main>
   );
 }
-

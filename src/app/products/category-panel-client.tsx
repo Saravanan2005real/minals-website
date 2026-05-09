@@ -66,15 +66,17 @@ export default function CategoryPanelClient({
   return (
     <>
       {/* ══ DESKTOP (md+): sticky sidebar (always visible) ══ */}
-      <aside className="products-filter-sticky self-start hidden md:block rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
-        <div className="w-full flex items-center px-4 py-[14px] bg-gradient-to-r from-[#062e5e] to-primary text-white">
-          <span className="font-montserrat text-[14px] font-bold tracking-[0.2px]">Categories</span>
-        </div>
+      <div className="hidden md:block self-stretch">
+        <aside className="sticky top-[100px] rounded-[14px] bg-white border border-black/[0.06] shadow-filter overflow-hidden">
+          <div className="w-full flex items-center px-4 py-[14px] bg-gradient-to-r from-[#062e5e] to-primary text-white">
+            <span className="font-montserrat text-[14px] font-bold tracking-[0.2px]">Categories</span>
+          </div>
 
-        <div>
-          {categoryList}
-        </div>
-      </aside>
+          <div>
+            {categoryList}
+          </div>
+        </aside>
+      </div>
 
       {/* ══ MOBILE (< md): fixed bottom sheet ══ */}
       <div className="md:hidden">

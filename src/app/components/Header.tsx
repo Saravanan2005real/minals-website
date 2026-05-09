@@ -34,7 +34,7 @@ export default function Header({ activePage }: HeaderProps) {
   return (
     <header className="bg-primary text-white px-[5%] py-[10px] flex justify-between items-center sticky top-0 z-[1000] flex-wrap lg:flex-nowrap">
       <div className="flex items-center justify-between w-full lg:w-auto">
-        <Link href="/" className="flex items-center gap-[12px] no-underline" onClick={closeMenu}>
+        <Link href="/" className="flex items-center gap-[12px] no-underline relative z-[4000]" onClick={closeMenu}>
           <div className="relative w-[40px] h-[40px] md:w-[52px] md:h-[52px] drop-shadow-md">
             <Image 
               src="/logo.png" 
@@ -67,9 +67,10 @@ export default function Header({ activePage }: HeaderProps) {
 
       {/* Navigation Menu */}
       <div className={`
-        ${isMenuOpen ? 'fixed inset-0 flex bg-primary z-[3000] flex-col' : 'hidden'} 
-        lg:static lg:flex lg:flex-row lg:bg-transparent lg:z-auto lg:w-auto lg:mt-0
-        w-full items-center justify-center lg:justify-end
+        fixed inset-0 bg-primary z-[3000] flex flex-col w-full items-center justify-center
+        transition-all duration-500 ease-in-out
+        ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'} 
+        lg:static lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto lg:flex-row lg:bg-transparent lg:z-auto lg:w-auto lg:mt-0 lg:justify-end
       `}>
         <nav className="w-full lg:w-auto mb-8 lg:mb-0 lg:mr-8 mt-20 lg:mt-0">
           <ul className="flex flex-col lg:flex-row gap-4 lg:gap-[26px] text-center lg:text-left w-full">
@@ -82,9 +83,7 @@ export default function Header({ activePage }: HeaderProps) {
         </nav>
 
         <div className="flex flex-col sm:flex-row gap-[12px] items-center w-[80%] lg:w-auto justify-center lg:justify-start">
-          <Link href="/enquire-now" onClick={closeMenu} className="bg-secondary text-white px-6 lg:px-4 py-[12px] lg:py-[8px] rounded-[5px] text-[15px] lg:text-[13px] font-semibold flex items-center justify-center gap-[8px] no-underline hover:bg-accent hover:-translate-y-0.5 w-full sm:w-auto transition-all">
-            Enquire Now <i className="fas fa-arrow-right text-[11px]" />
-          </Link>
+
           <a href="https://wa.me/918220012671?text=Hello%20Minals,%20I%20am%20interested%20in%20your%20products.%20Please%20provide%20more%20details." target="_blank" rel="noopener noreferrer"
             className="hidden sm:flex border border-white/30 text-white px-4 py-[8px] rounded-[5px] text-[13px] items-center justify-center gap-[8px] no-underline hover:border-[#25D366] hover:bg-[#25D366]/10 transition-colors w-full sm:w-auto">
             <i className="fab fa-whatsapp text-[20px]" style={{ color: '#25D366' }} />
